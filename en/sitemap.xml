@@ -2,237 +2,237 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>sayef.github.io/theme-documentation-basics/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/theme-documentation-basics/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/theme-documentation-basics/"
+                        href="https://sayef.github.io/zh-cn/theme-documentation-basics/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/theme-documentation-basics/"
+                    href="https://sayef.github.io/theme-documentation-basics/"
                     /></url><url>
-            <loc>sayef.github.io/theme-documentation-content/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/theme-documentation-content/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/theme-documentation-content/"
+                        href="https://sayef.github.io/zh-cn/theme-documentation-content/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/theme-documentation-content/"
+                    href="https://sayef.github.io/theme-documentation-content/"
                     /></url><url>
-            <loc>sayef.github.io/theme-documentation-built-in-shortcodes/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/theme-documentation-built-in-shortcodes/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/theme-documentation-built-in-shortcodes/"
+                        href="https://sayef.github.io/zh-cn/theme-documentation-built-in-shortcodes/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/theme-documentation-built-in-shortcodes/"
+                    href="https://sayef.github.io/theme-documentation-built-in-shortcodes/"
                     /></url><url>
-            <loc>sayef.github.io/theme-documentation-extended-shortcodes/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/theme-documentation-extended-shortcodes/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/theme-documentation-extended-shortcodes/"
+                        href="https://sayef.github.io/zh-cn/theme-documentation-extended-shortcodes/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/theme-documentation-extended-shortcodes/"
+                    href="https://sayef.github.io/theme-documentation-extended-shortcodes/"
                     /></url><url>
-            <loc>sayef.github.io/basic-markdown-syntax/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/basic-markdown-syntax/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/basic-markdown-syntax/"
+                        href="https://sayef.github.io/zh-cn/basic-markdown-syntax/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/basic-markdown-syntax/"
+                    href="https://sayef.github.io/basic-markdown-syntax/"
                     /></url><url>
-            <loc>sayef.github.io/theme-documentation-mermaid-shortcode/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/theme-documentation-mermaid-shortcode/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/theme-documentation-mermaid-shortcode/"
+                        href="https://sayef.github.io/zh-cn/theme-documentation-mermaid-shortcode/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/theme-documentation-mermaid-shortcode/"
+                    href="https://sayef.github.io/theme-documentation-mermaid-shortcode/"
                     /></url><url>
-            <loc>sayef.github.io/emoji-support/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/emoji-support/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/emoji-support/"
+                        href="https://sayef.github.io/zh-cn/emoji-support/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/emoji-support/"
+                    href="https://sayef.github.io/emoji-support/"
                     /></url><url>
-            <loc>sayef.github.io/theme-documentation-echarts-shortcode/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/theme-documentation-echarts-shortcode/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/theme-documentation-echarts-shortcode/"
+                        href="https://sayef.github.io/zh-cn/theme-documentation-echarts-shortcode/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/theme-documentation-echarts-shortcode/"
+                    href="https://sayef.github.io/theme-documentation-echarts-shortcode/"
                     /></url><url>
-            <loc>sayef.github.io/theme-documentation-mapbox-shortcode/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/theme-documentation-mapbox-shortcode/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/theme-documentation-mapbox-shortcode/"
+                        href="https://sayef.github.io/zh-cn/theme-documentation-mapbox-shortcode/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/theme-documentation-mapbox-shortcode/"
+                    href="https://sayef.github.io/theme-documentation-mapbox-shortcode/"
                     /></url><url>
-            <loc>sayef.github.io/theme-documentation-music-shortcode/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/theme-documentation-music-shortcode/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/theme-documentation-music-shortcode/"
+                        href="https://sayef.github.io/zh-cn/theme-documentation-music-shortcode/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/theme-documentation-music-shortcode/"
+                    href="https://sayef.github.io/theme-documentation-music-shortcode/"
                     /></url><url>
-            <loc>sayef.github.io/theme-documentation-bilibili-shortcode/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/theme-documentation-bilibili-shortcode/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/theme-documentation-bilibili-shortcode/"
+                        href="https://sayef.github.io/zh-cn/theme-documentation-bilibili-shortcode/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/theme-documentation-bilibili-shortcode/"
+                    href="https://sayef.github.io/theme-documentation-bilibili-shortcode/"
                     /></url><url>
-            <loc>sayef.github.io/theme-documentation-typeit-shortcode/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/theme-documentation-typeit-shortcode/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/theme-documentation-typeit-shortcode/"
+                        href="https://sayef.github.io/zh-cn/theme-documentation-typeit-shortcode/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/theme-documentation-typeit-shortcode/"
+                    href="https://sayef.github.io/theme-documentation-typeit-shortcode/"
                     /></url><url>
-            <loc>sayef.github.io/categories/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/categories/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/categories/"
+                        href="https://sayef.github.io/zh-cn/categories/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/categories/"
+                    href="https://sayef.github.io/categories/"
                     /></url><url>
-            <loc>sayef.github.io/tags/configuration/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/tags/configuration/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/tags/configuration/"
+                        href="https://sayef.github.io/zh-cn/tags/configuration/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/tags/configuration/"
+                    href="https://sayef.github.io/tags/configuration/"
                     /></url><url>
-            <loc>sayef.github.io/tags/installation/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/tags/installation/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/tags/installation/"
+                        href="https://sayef.github.io/zh-cn/tags/installation/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/tags/installation/"
+                    href="https://sayef.github.io/tags/installation/"
                     /></url><url>
-            <loc>sayef.github.io/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/"
+                        href="https://sayef.github.io/zh-cn/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/"
+                    href="https://sayef.github.io/"
                     /></url><url>
-            <loc>sayef.github.io/posts/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/posts/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/posts/"
+                        href="https://sayef.github.io/zh-cn/posts/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/posts/"
+                    href="https://sayef.github.io/posts/"
                     /></url><url>
-            <loc>sayef.github.io/tags/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/tags/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/tags/"
+                        href="https://sayef.github.io/zh-cn/tags/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/tags/"
+                    href="https://sayef.github.io/tags/"
                     /></url><url>
-            <loc>sayef.github.io/tags/content/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/tags/content/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/tags/content/"
+                        href="https://sayef.github.io/zh-cn/tags/content/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/tags/content/"
+                    href="https://sayef.github.io/tags/content/"
                     /></url><url>
-            <loc>sayef.github.io/tags/markdown/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/tags/markdown/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/tags/markdown/"
+                        href="https://sayef.github.io/zh-cn/tags/markdown/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/tags/markdown/"
+                    href="https://sayef.github.io/tags/markdown/"
                     /></url><url>
-            <loc>sayef.github.io/tags/shortcodes/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/tags/shortcodes/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/tags/shortcodes/"
+                        href="https://sayef.github.io/zh-cn/tags/shortcodes/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/tags/shortcodes/"
+                    href="https://sayef.github.io/tags/shortcodes/"
                     /></url><url>
-            <loc>sayef.github.io/tags/html/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/tags/html/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/tags/html/"
+                        href="https://sayef.github.io/zh-cn/tags/html/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/tags/html/"
+                    href="https://sayef.github.io/tags/html/"
                     /></url><url>
-            <loc>sayef.github.io/categories/markdown/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/categories/markdown/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/categories/markdown/"
+                        href="https://sayef.github.io/zh-cn/categories/markdown/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/categories/markdown/"
+                    href="https://sayef.github.io/categories/markdown/"
                     /></url><url>
-            <loc>sayef.github.io/tags/emoji/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/tags/emoji/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/tags/emoji/"
+                        href="https://sayef.github.io/zh-cn/tags/emoji/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/tags/emoji/"
+                    href="https://sayef.github.io/tags/emoji/"
                     /></url><url>
-            <loc>sayef.github.io/about/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/about/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/about/"
+                        href="https://sayef.github.io/zh-cn/about/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/about/"
+                    href="https://sayef.github.io/about/"
                     /></url><url>
-            <loc>sayef.github.io/categories/documentation/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://sayef.github.io/categories/documentation/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="sayef.github.io/zh-cn/categories/documentation/"
+                        href="https://sayef.github.io/zh-cn/categories/documentation/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="sayef.github.io/categories/documentation/"
+                    href="https://sayef.github.io/categories/documentation/"
                     /></url></urlset>
