@@ -1,14 +1,14 @@
-# About LoveIt
+# About Sayef
 
 
-- [Intro](#about)
+- [Intro](#md-saiful-islam-sayef)
 - [Skills](#skills)
 - [Experience](#experience)
 - [Education](#education)
 - [Projects](#projects)
-- [Certifications](#awards)
+- [Certifications](#awards--certifications--contests)
 
-# Md Saiful Islam (SAYEF)
+## Md Saiful Islam (SAYEF)
 
 Erlangen, Germany · (+49) ASK-4-IT! · hello@sayef.tech
 
@@ -60,43 +60,33 @@ Programming Languages
 
 ### NLP Engineer
 
-Fraunhofer IIS
+[Fraunhofer IIS](https://www.speaker.fraunhofer.de/en/), Erlangen -- (January 2022 - Present)
 
 Developing tools and methods using MLOps to bring NLU research into production for the NLP team of Audio and Media Technologies group.
 
-[Reference link.](https://www.speaker.fraunhofer.de/en/)
-
-January 2022 - Present
-
 ### Research Assistant
 
-Fraunhofer IIS
+[Fraunhofer IIS](https://www.scs.fraunhofer.de/), Nuremberg -- (September 2020 - December 2021)
 
 Collaborated in different NLP and knowledge representation tasks to identify, analyze and evaluate market and technology for the Future Engineering team.
 
-[Reference link.](https://www.scs.fraunhofer.de/)
-
-September 2020 - December 2021
-
 ### Software Engineer (Werkstudent)
 
-IAV (Automobile Engineering) GmbH, Gifhorn (Germany)
+[IAV (Automobile Engineering) GmbH](https://www.iav.com/), Gifhorn -- (March 2019 - February 2020)
 
 Contributed in different computer vision tasks for the UAV team in making drone-based security/surveillance systems.
 
-[Reference link.](https://www.iav.com/)
-
-March 2019 - February 2020
-
 ### Senior Software Engineer (AI)
 
-TigerIT Bangladesh Ltd, Dhaka (Bangladesh)
+[TigerIT Bangladesh Ltd](http://www.tigerit.com/), Dhaka -- (January 2019 - November 2021)
 
 R&D in the fields of machine learning, deep learning, computer vision, image processing and natural language processing.
 
-[Reference link.](http://www.tigerit.com/)
+### Software Engineer
 
-January 2016 - Present
+[TigerIT Bangladesh Ltd](http://www.tigerit.com/), Dhaka -- (January 2016 - January 2019)
+
+Software development of enterprise application.
 
 ---
 
@@ -104,17 +94,13 @@ January 2016 - Present
 
 ### Georg-August-Universität, Göttingen (Germany)
 
-MSc, Applied Computer Science
+MSc, Applied Computer Science -- (September 2018 - September 2021)
 
 Data Science with Computational Neuroscience Subdomain.
 
-September 2018 - September 2021
-
 ### University of Dhaka, Dhaka (Bangladesh)
 
-BSc, Computer Science and Engineering
-
-January 2012 - January 2016
+BSc, Computer Science and Engineering -- (January 2012 - January 2016)
 
 ---
 
@@ -128,7 +114,7 @@ This section contains awesome projects that I've developed:
 
 An automatic license plate recognition system, based on several deep learning models for each task, i.e. automatic license plate detection, finding text area, and recognition of city name, vehicle class and number simultaneously.
 
-Python PyTorch Flask Deep Learning
+Language & Tools: Python, PyTorch, Flask, Deep Learning
 
 ### FRS
 
@@ -136,7 +122,7 @@ Python PyTorch Flask Deep Learning
 
 A surveillance application system for recognizing intruders in corporate office premises. The deep learning framework PyTorch has been used with transfer learning from open-source trained models.
 
-Python ONNX Flask PyTorch Deep Learning
+Language & Tools: Python, ONNX, Flask, PyTorch, Deep Learning
 
 ### EmoCam
 
@@ -144,7 +130,7 @@ Python ONNX Flask PyTorch Deep Learning
 
 An approach towards video recommendation system based on emotion read from the face of a user in front of the camera.
 
-Python NodeJS Keras
+Language & Tools: Python, NodeJS, Keras
 
 [](https://bitbucket.org/motusvision/emocam)[View project](https://www.youtube.com/watch?v=bI6B1flEp_o)
 
@@ -154,7 +140,7 @@ Python NodeJS Keras
 
 Corella is the heart of AI-driven application KinderMate which is targeted to kids' entertainment and knowledge. It synthesizes kids' search query using NLP techniques and automates decisions to pull contents from predefined knowledge pools. It has also hand-crafted conversation mode that helps kids learning through conversation games.
 
-Python Java OpenDial OpenNLP Gensim Scikit-Learn
+Language & Tools: Python, Java, OpenDial, OpenNLP, Gensim, Scikit-Learn
 
 [View project](https://kindermateai.com)
 
@@ -164,7 +150,7 @@ Python Java OpenDial OpenNLP Gensim Scikit-Learn
 
 An automated image resizing and refining tool that aligns the skewed images of the documents as much as possible without losing any vital information i.e. writing, figures, signatures, seal, etc. It can adjust brightness by increasing intensities of semi-washed data. It also reduces file size without losing readability of the document.
 
-Python Computer Vision Keras Neural Networks
+Language & Tools: Python, Computer Vision, Keras, Neural Networks
 
 ### OCR for Number Plate Recognition of Nepal EVR
 
@@ -172,7 +158,7 @@ Python Computer Vision Keras Neural Networks
 
 The ultimate goal of this domain-specific application is a quality assurance of the vehicle's number plate after emboss printing. The application can detect zone name, plate number, plate color, font color, screw holes and SIT tag holes.
 
-C++ OpenCV
+Language & Tools: C++, OpenCV
 
 ### EVR Tajikistan & Nepal
 
@@ -180,7 +166,7 @@ C++ OpenCV
 
 This enterprise solution allows people of Tajikistan (and Nepal with different requirements) to register vehicle information, capture owner’s photo, signature, fingerprints and upload other necessary documents. Later on, this information can be used to search the details of any vehicle and renewing the registration. This system can also find the criminal match for a vehicle.
 
-Java Spring
+Language & Tools: Java, Spring
 
 ### 3D Carrom Board Modeling
 
@@ -188,7 +174,7 @@ Java Spring
 
 A C++ project which was targeted to implement all basics of Computer Graphics i.e. modeling, lighting, shading and movements of objects with the help of OpenGL library.
 
-C/C++ OpenGL
+Language & Tools: C/C++ OpenGL
 
 [](https://github.com/sayef/opengl-carrom-board-model)[View project](#)
 
@@ -198,7 +184,7 @@ C/C++ OpenGL
 
 A C/C++ project to compress large text files and decompress them without any data loss using the most popular Huffman algorithm.
 
-C/C++
+Language & Tools: C/C++
 
 [](https://github.com/sayef/99-Text-Compressor)[View project](#)
 
