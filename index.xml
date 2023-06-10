@@ -46,6 +46,14 @@
     <description><![CDATA[<p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files.</p>]]></description>
 </item>
 <item>
+    <title>PostgreSQL Installation and DB Creation on Ubuntu 16.04</title>
+    <link>https://sayef.github.io/postgresql-installation/</link>
+    <pubDate>Mon, 26 Mar 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/postgresql-installation/</guid>
+    <description><![CDATA[Installation Note: This installation procedure is based on Ubuntu 16.04, for other versions see [https://www.postgresql.org/download/linux/ubuntu/] Create the file /etc/apt/sources.list.d/pgdg.list, and add a line for the repository 1 $ echo &#34;deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main&#34; | sudo tee /etc/apt/sources.list.d/pgdg.list Import the repository signing key, and update the package lists 1 $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - Ubuntu includes PostgreSQL by default. To install PostgreSQL on Ubuntu, use the apt-get (or other apt-driving) command 1 2 $ sudo apt-get update $ sudo apt-get install postgresql-9.]]></description>
+</item>
+<item>
     <title>Theme Documentation - mermaid Shortcode</title>
     <link>https://sayef.github.io/theme-documentation-mermaid-shortcode/</link>
     <pubDate>Tue, 03 Mar 2020 15:29:41 &#43;0800</pubDate>
@@ -78,14 +86,6 @@
     <guid>https://sayef.github.io/theme-documentation-mapbox-shortcode/</guid>
     <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.0" rel="noopener noreffer" target="_blank"></a>
 <p>The <code>mapbox</code> shortcode supports interactive maps in Hugo with <a href="https://docs.mapbox.com/mapbox-gl-js" target="_blank" rel="noopener noreffer ">Mapbox GL JS</a> library.</p>]]></description>
-</item>
-<item>
-    <title>Theme Documentation - music Shortcode</title>
-    <link>https://sayef.github.io/theme-documentation-music-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 12:29:41 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>https://sayef.github.io/theme-documentation-music-shortcode/</guid>
-    <description><![CDATA[<p>The <code>music</code> shortcode embeds a responsive music player based on <a href="https://github.com/MoePlayer/APlayer" target="_blank" rel="noopener noreffer ">APlayer</a> and <a href="https://github.com/metowolf/MetingJS" target="_blank" rel="noopener noreffer ">MetingJS</a>.</p>]]></description>
 </item>
 </channel>
 </rss>
