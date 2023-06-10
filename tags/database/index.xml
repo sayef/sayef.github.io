@@ -1,9 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>database - Tag - LoveIt</title>
+        <title>database - Tag - Sayef&#39;s Tech Blog</title>
         <link>https://sayef.github.io/tags/database/</link>
-        <description>database - Tag - LoveIt</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 26 Mar 2018 04:15:37 &#43;0800</lastBuildDate><atom:link href="https://sayef.github.io/tags/database/" rel="self" type="application/rss+xml" /><item>
+        <description>database - Tag - Sayef&#39;s Tech Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>hello@sayef.tech (Sayef)</managingEditor>
+            <webMaster>hello@sayef.tech (Sayef)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 26 Mar 2018 04:15:37 &#43;0800</lastBuildDate><atom:link href="https://sayef.github.io/tags/database/" rel="self" type="application/rss+xml" /><item>
     <title>PostgreSQL Installation and DB Creation on Ubuntu 16.04</title>
     <link>https://sayef.github.io/postgresql-installation/</link>
     <pubDate>Mon, 26 Mar 2018 04:15:37 &#43;0800</pubDate>
