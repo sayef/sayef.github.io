@@ -1,115 +1,216 @@
 # About LoveIt
 
 
-{{< style "img { height: 1.25rem; }" >}}
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/dillonzq/LoveIt?style=flat-square)](https://github.com/dillonzq/LoveIt/releases)
-[![Hugo](https://img.shields.io/badge/Hugo-%5E0.62.0-ff4088?style=flat-square&logo=hugo)](https://gohugo.io/)
-[![License](https://img.shields.io/github/license/dillonzq/LoveIt?style=flat-square)](https://github.com/dillonzq/LoveIt/blob/master/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/dillonzq/LoveIt?style=social)](https://github.com/dillonzq/LoveIt)
-[![GitHub forks](https://img.shields.io/github/forks/dillonzq/LoveIt?style=social)](https://github.com/dillonzq/LoveIt/fork)
-{{< /style >}}
+- [Intro](#about)
+- [Skills](#skills)
+- [Experience](#experience)
+- [Education](#education)
+- [Projects](#projects)
+- [Certifications](#awards)
 
-> [:(far fa-kiss-wink-heart fa-fw): LoveIt](https://github.com/dillonzq/LoveIt) is a **clean**, **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/) developed by {{< person "https://dillonzq.com/" Dillon "author of the LoveIt theme" "/Dillon.png" >}}.
->
-> It is based on the original [LeaveIt Theme](https://github.com/liuzc/LeaveIt) and [KeepIt Theme](https://github.com/Fastbyte01/KeepIt).
+# Md Saiful Islam (SAYEF)
 
-![Hugo Theme LoveIt](/images/Apple-Devices-Preview.png "Hugo Theme LoveIt")
+Erlangen, Germany · (+49) ASK-4-IT! · hello@sayef.tech
 
-## Features
+I am a tech lover, an AI fanatic, experienced in developing tech solutions in the field of artificial intelligence, especially in computer vision and natural language processing. I have also spent a quite a lot of time in web development contributing to some enterprise applications.
 
-### Performance and SEO
+[](http://sayef.tech)[](https://github.com/sayef/)[](https://twitter.com/imsayef/)[](https://www.linkedin.com/in/sayef/)
 
-* :(fas fa-rocket fa-fw): Optimized for **performance**: [99]/[100] on mobile and [100]/[100] on desktop in [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights)
-* :(fab fa-searchengin fa-fw): Optimized SEO performance with a correct **SEO SCHEMA** based on JSON-LD
-* :(fab fa-google fa-fw): **[Google Analytics](https://analytics.google.com/analytics)** supported
-* :(far fa-chart-bar fa-fw): **[Fathom Analytics](https://usefathom.com/)** supported
-* :(fas fa-chart-column fa-fw): **[Plausible Analytics](https://plausible.io/)** supported
-* :(fab fa-yandex-international fa-fw): **[Yandex Metrica](https://metrica.yandex.com/)** supported
-* :(fas fa-sitemap fa-fw): Search engine **verification** supported (Google, Bind, Yandex and Baidu)
-* :(fas fa-tachometer-alt fa-fw): **CDN** for third-party libraries supported
-* :(fas fa-cloud-download-alt fa-fw): Automatically converted images with **Lazy Load** by [lazysizes](https://github.com/aFarkas/lazysizes)
+---
 
-### Appearance and Layout
+## Skills
 
-* :(fas fa-mobile-screen fa-fw): **[Desktop]/[Mobile] responsive** layout
-* :(fas fa-circle-half-stroke fa-rotate-180 fa-fw): **[Light]/[Dark]** mode
-* :(fas fa-layer-group fa-fw): Globally consistent **design language**
-* :(fas fa-ellipsis-h fa-fw): **Pagination** supported
-* :(far fa-list-alt fa-fw): Easy-to-use and self-expanding **table of contents**
-* :(fas fa-language fa-fw): **Multilanguage** supported and i18n ready
-* :(fab fa-css3-alt fa-fw): Beautiful **CSS animation**
+Tools
 
-### Social and Comment Systems
+- _PyTorch_
+- _Keras_
+- _TensorFlow_
+- _Kubernetes_
+- _Docker_
+- _Gensim_
+- _OpenNLP_
+- _CoreNLP_
+- _Matplotlib_
+- _Scikit-Learn_
+- _Linux_
+- _Git_
+- _ROS_
+- _OpenCV_
+- _Oracle Database_
+- _MySQL_
+- _PostgreSQL_
+- _NoSQL_
+- _HTML_
+- _NodeJS_
+- _Flask_
+- _Scrapy_
+- _jQuery_
+- _Redis_
+- _Solr_
 
-* :(far fa-user fa-fw): **Gravatar** supported by [Gravatar](https://gravatar.com)
-* :(fas fa-user-circle fa-fw): Local **Avatar** supported
-* :(far fa-id-card fa-fw): Up to **73** social links supported
-* :(fas fa-share-square fa-fw): Up to **24** share sites supported
-* :(far fa-comment fa-fw): **Disqus** comment system supported by [Disqus](https://disqus.com)
-* :(far fa-comment-dots fa-fw): **Gitalk** comment system supported by [Gitalk](https://github.com/gitalk/gitalk)
-* :(far fa-comment-alt fa-fw): **Valine** comment system supported by [Valine](https://valine.js.org/)
-* :(far fa-comments fa-fw): **Facebook comments** system supported by [Facebook](https://developers.facebook.com/docs/plugins/comments/)
-* :(fas fa-comment fa-fw): **Telegram comments** system supported by [Comments](https://comments.app/)
-* :(fas fa-comment-dots fa-fw): **Commento** comment system supported by [Commento](https://commento.io/)
-* :(fas fa-comment-alt fa-fw): **utterances** comment system supported by [utterances](https://utteranc.es/)
-* :(fas fa-comments fa-fw): **giscus** comment system supported by [giscus](https://giscus.app/)
+Programming Languages
 
-### Extended Features
+- Java - Proficient in building web applications, REST APIs using Spring MVC, Spring Boot and EJB.
+- C/C++ - Experience in ACM ICPC contest programming, ROS and image processing.
+- Python - Skilled and machine learning experience as primary language. Also proficient in building REST APIs using Flask/FastAPI.
 
-* :(fas fa-search fa-fw): **Search** supported by [Lunr.js](https://lunrjs.com/) or [algolia](https://www.algolia.com/)
-* :(far fa-grin-tongue-wink fa-fw): **Twemoji** supported
-* :(fas fa-code fa-fw): Automatically **highlighting** code
-* :(far fa-copy fa-fw): **Copy code** to clipboard with one click
-* :(far fa-images fa-fw): **Images gallery** supported by [lightGallery](https://github.com/sachinchoolur/lightgallery)
-* :(fab fa-font-awesome fa-fw): Extended Markdown syntax for **[Font Awesome](https://fontawesome.com/) icons**
-* :(fas fa-superscript fa-fw): Extended Markdown syntax for **ruby annotation**
-* :(fas fa-percentage fa-fw): Extended Markdown syntax for **fraction**
-* :(fas fa-square-root-alt fa-fw): **Mathematical formula** supported by [$\KaTeX$](https://katex.org/)
-* :(fas fa-project-diagram fa-fw): **Diagrams** shortcode supported by [mermaid](https://github.com/mermaid-js/mermaid)
-* :(fas fa-chart-pie fa-fw): **Interactive data visualization** shortcode supported by [ECharts](https://echarts.apache.org/)
-* :(fas fa-map-marked-alt fa-fw): **Mapbox** shortcode supported by [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js)
-* :(fas fa-music fa-fw): **Music player** shortcode supported by [APlayer](https://github.com/MoePlayer/APlayer) and [MetingJS](https://github.com/metowolf/MetingJS)
-* :(fab fa-bilibili fa-fw): **Bilibili player** shortcode
-* :(fas fa-note-sticky fa-fw): Kinds of **admonitions** shortcode
-* :(fab fa-css3 fa-fw): **Custom style** shortcode
-* :(fab fa-js-square fa-fw): **Custom script** shortcode
-* :(fas fa-i-cursor fa-fw): **Animated typing** supported by [TypeIt](https://typeitjs.com/)
-* :(fas fa-cookie-bite fa-fw): **Cookie consent banner** supported by [cookieconsent](https://github.com/osano/cookieconsent)
-* :(far fa-user-circle fa-fw): **Person** shortcode
-* ...
+---
 
-## License
+## Experience
 
-LoveIt is licensed under the **MIT** license.
+### NLP Engineer
 
-Check the [LICENSE file](https://github.com/dillonzq/LoveIt/blob/master/LICENSE) for details.
+Fraunhofer IIS
 
-## Special Thanks
+Developing tools and methods using MLOps to bring NLU research into production for the NLP team of Audio and Media Technologies group.
 
-Thanks to the authors of following resources included in the theme:
+[Reference link.](https://www.speaker.fraunhofer.de/en/)
 
-* [normalize.css](https://github.com/necolas/normalize.css)
-* [Font Awesome](https://fontawesome.com/)
-* [Simple Icons](https://github.com/simple-icons/simple-icons)
-* [Animate.css](https://daneden.github.io/animate.css/)
-* [autocomplete](https://github.com/algolia/autocomplete)
-* [Lunr.js](https://lunrjs.com/)
-* [algoliasearch](https://github.com/algolia/algoliasearch-client-javascript)
-* [lazysizes](https://github.com/aFarkas/lazysizes)
-* [object-fit-images](https://github.com/fregante/object-fit-images)
-* [Twemoji](https://github.com/twitter/twemoji)
-* [emoji-data](https://github.com/iamcal/emoji-data)
-* [lightGallery](https://github.com/sachinchoolur/lightgallery)
-* [clipboard.js](https://github.com/zenorocha/clipboard.js)
-* [Sharer.js](https://github.com/ellisonleao/sharer.js)
-* [TypeIt](https://typeitjs.com/)
-* [$\KaTeX$](https://katex.org/)
-* [mermaid](https://github.com/mermaid-js/mermaid)
-* [ECharts](https://echarts.apache.org/)
-* [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js)
-* [APlayer](https://github.com/MoePlayer/APlayer)
-* [MetingJS](https://github.com/metowolf/MetingJS)
-* [Gitalk](https://github.com/gitalk/gitalk)
-* [Valine](https://valine.js.org/)
-* [cookieconsent](https://github.com/osano/cookieconsent)
+January 2022 - Present
+
+### Research Assistant
+
+Fraunhofer IIS
+
+Collaborated in different NLP and knowledge representation tasks to identify, analyze and evaluate market and technology for the Future Engineering team.
+
+[Reference link.](https://www.scs.fraunhofer.de/)
+
+September 2020 - December 2021
+
+### Software Engineer (Werkstudent)
+
+IAV (Automobile Engineering) GmbH, Gifhorn (Germany)
+
+Contributed in different computer vision tasks for the UAV team in making drone-based security/surveillance systems.
+
+[Reference link.](https://www.iav.com/)
+
+March 2019 - February 2020
+
+### Senior Software Engineer (AI)
+
+TigerIT Bangladesh Ltd, Dhaka (Bangladesh)
+
+R&D in the fields of machine learning, deep learning, computer vision, image processing and natural language processing.
+
+[Reference link.](http://www.tigerit.com/)
+
+January 2016 - Present
+
+---
+
+## Education
+
+### Georg-August-Universität, Göttingen (Germany)
+
+MSc, Applied Computer Science
+
+Data Science with Computational Neuroscience Subdomain.
+
+September 2018 - September 2021
+
+### University of Dhaka, Dhaka (Bangladesh)
+
+BSc, Computer Science and Engineering
+
+January 2012 - January 2016
+
+---
+
+## Projects
+
+This section contains awesome projects that I've developed:
+
+### ANPR (Bangladesh)
+
+##### Automatic number plate recognition system. (All rights to TigerIT Ltd.)
+
+An automatic license plate recognition system, based on several deep learning models for each task, i.e. automatic license plate detection, finding text area, and recognition of city name, vehicle class and number simultaneously.
+
+Python PyTorch Flask Deep Learning
+
+### FRS
+
+##### Robust face recognition system for office surveillance. (All rights to TigerIT Ltd.)
+
+A surveillance application system for recognizing intruders in corporate office premises. The deep learning framework PyTorch has been used with transfer learning from open-source trained models.
+
+Python ONNX Flask PyTorch Deep Learning
+
+### EmoCam
+
+##### Emotion Based Video Recommendation System. (Personal)
+
+An approach towards video recommendation system based on emotion read from the face of a user in front of the camera.
+
+Python NodeJS Keras
+
+[](https://bitbucket.org/motusvision/emocam)[View project](https://www.youtube.com/watch?v=bI6B1flEp_o)
+
+### Corella
+
+##### An NLP based Dialogue Engine. (All rights to TigerIT Ltd.)
+
+Corella is the heart of AI-driven application KinderMate which is targeted to kids' entertainment and knowledge. It synthesizes kids' search query using NLP techniques and automates decisions to pull contents from predefined knowledge pools. It has also hand-crafted conversation mode that helps kids learning through conversation games.
+
+Python Java OpenDial OpenNLP Gensim Scikit-Learn
+
+[View project](https://kindermateai.com)
+
+### DocRefiner
+
+##### A document image refiner. (All rights to TigerIT Ltd.)
+
+An automated image resizing and refining tool that aligns the skewed images of the documents as much as possible without losing any vital information i.e. writing, figures, signatures, seal, etc. It can adjust brightness by increasing intensities of semi-washed data. It also reduces file size without losing readability of the document.
+
+Python Computer Vision Keras Neural Networks
+
+### OCR for Number Plate Recognition of Nepal EVR
+
+##### OCR based automated QA of number plates. (All rights to TigerIT Ltd.)
+
+The ultimate goal of this domain-specific application is a quality assurance of the vehicle's number plate after emboss printing. The application can detect zone name, plate number, plate color, font color, screw holes and SIT tag holes.
+
+C++ OpenCV
+
+### EVR Tajikistan & Nepal
+
+##### Vehicle Registration System for Tajikistan and Nepal. (All rights to TigerIT Ltd.)
+
+This enterprise solution allows people of Tajikistan (and Nepal with different requirements) to register vehicle information, capture owner’s photo, signature, fingerprints and upload other necessary documents. Later on, this information can be used to search the details of any vehicle and renewing the registration. This system can also find the criminal match for a vehicle.
+
+Java Spring
+
+### 3D Carrom Board Modeling
+
+##### An OpenGL graphics project to modol carrom board.
+
+A C++ project which was targeted to implement all basics of Computer Graphics i.e. modeling, lighting, shading and movements of objects with the help of OpenGL library.
+
+C/C++ OpenGL
+
+[](https://github.com/sayef/opengl-carrom-board-model)[View project](#)
+
+### 99-Text-Compressor
+
+##### A text file compressor and extractor. (Personal)
+
+A C/C++ project to compress large text files and decompress them without any data loss using the most popular Huffman algorithm.
+
+C/C++
+
+[](https://github.com/sayef/99-Text-Compressor)[View project](#)
+
+---
+
+## Awards / Certifications / Contests
+
+- Computer Vision for Faces – By Big Vision LLC. Certificate earned at Wednesday, November 15, 2017.
+- Neural Networks and Deep Learning – By deeplearning.ai on Coursera. Certificate earned at Saturday, December 23, 2017.
+- Improving Deep Neural Networks, Hyperparameter tuning, Regularization and Optimization – By deeplearning.ai on Coursera. Certificate earned at Sunday, February 11, 2018.
+- Structuring Machine Learning Projects – By deeplearning.ai on Coursera. Certificate earned at Sunday, February 25, 2018.
+- Convolutional Neural Networks – By deeplearning.ai on Coursera. Certificate earned at Monday, March 26, 2018.
+- Sequence Models – By deeplearning.ai on Coursera. Certificate earned at Sunday, April 15, 2018.
+- Participant of ACM ICPC Asia Regional Dhaka Site (2013 & 2014).
 

@@ -111,6 +111,15 @@
                     hreflang="en"
                     href="https://sayef.github.io/theme-documentation-typeit-shortcode/"
                     /></url><url>
+            <loc>https://sayef.github.io/about/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://sayef.github.io/zh-cn/about/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://sayef.github.io/about/"
+                    /></url><url>
             <loc>https://sayef.github.io/categories/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -218,15 +227,6 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://sayef.github.io/tags/emoji/"
-                    /></url><url>
-            <loc>https://sayef.github.io/about/</loc><lastmod>2023-06-10T01:13:57&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://sayef.github.io/zh-cn/about/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://sayef.github.io/about/"
                     /></url><url>
             <loc>https://sayef.github.io/tags/database/</loc><lastmod>2018-03-26T04:15:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://sayef.github.io/tags/postgresql/</loc><lastmod>2018-03-26T04:15:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
