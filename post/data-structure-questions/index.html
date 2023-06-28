@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Data Structure Interview Question Answers - Sayef&#39;s Tech Blog</title><meta name="Description" content="Data Structure Interview Question Answers"><meta property="og:title" content="Data Structure Interview Question Answers" />
+<meta property="og:description" content="Data Structure Interview Question Answers" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sayef.github.io/post/data-structure-questions/" /><meta property="og:image" content="https://sayef.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-07-15T04:15:37+08:00" />
+<meta property="article:modified_time" content="2018-07-15T04:15:37+08:00" /><meta property="og:site_name" content="Sayef&#39;s Tech Blog" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sayef.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Data Structure Interview Question Answers"/>
+<meta name="twitter:description" content="Data Structure Interview Question Answers"/>
+<meta name="application-name" content="Sayef&#39;s Tech Blog">
+<meta name="apple-mobile-web-app-title" content="Sayef&#39;s Tech Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://sayef.github.io/post/data-structure-questions/" /><link rel="prev" href="https://sayef.github.io/post/database-interview-questions/" /><link rel="next" href="https://sayef.github.io/post/basic-programming-interview-questions/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Data Structure Interview Question Answers",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/sayef.github.io\/post\/data-structure-questions\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/sayef.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "interview, data-structure","wordcount":  3137 ,
+        "url": "https:\/\/sayef.github.io\/post\/data-structure-questions\/","datePublished": "2018-07-15T04:15:37+08:00","dateModified": "2018-07-15T04:15:37+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/sayef.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Sayef"
+            },"description": "Data Structure Interview Question Answers"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Sayef&#39;s Tech Blog"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/sayef" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Sayef&#39;s Tech Blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/sayef" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Data Structure Interview Question Answers</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://sayef.tech" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Sayef</a></span>&nbsp;<span class="post-category">included in <a href="/categories/interview/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Interview</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2018-07-15">2018-07-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3137 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;15 minutes&nbsp;<span id="/post/data-structure-questions/" class="leancloud_visitors" data-flag-title="Data Structure Interview Question Answers">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-what-is-data-structure">1. What is data structure?</a></li>
+    <li><a href="#2-list-out-the-areas-in-which-data-structures-are-applied-extensively">2. List out the areas in which data structures are applied extensively?</a></li>
+    <li><a href="#3-what-are-the-major-data-structures-used-in-the-following-areas--rdbms-network-data-model-and-hierarchical-data-model">3. What are the major data structures used in the following areas : RDBMS, Network data model and Hierarchical data model.</a></li>
+    <li><a href="#4-if-you-are-using-c-language-to-implement-the-heterogeneous-linked-list-what-pointer-type-will-you-use">4. If you are using C language to implement the heterogeneous linked list, what pointer type will you use?</a></li>
+    <li><a href="#5-minimum-number-of-queues-needed-to-implement-the-priority-queue">5. Minimum number of queues needed to implement the priority queue?</a></li>
+    <li><a href="#6-what-is-the-data-structures-used-to-perform-recursion">6. What is the data structures used to perform recursion?</a></li>
+    <li><a href="#7-briefly-explain-recursive-algorithm">7. Briefly explain recursive algorithm.</a></li>
+    <li><a href="#8-convert-the-expression-a--b--c--d--e--f--g-to-equivalent-prefix-and-postfix-notations">8. Convert the expression ((A + B) * C – (D – E) ^ (F + G)) to equivalent Prefix and Postfix notations.</a></li>
+    <li><a href="#prefix-notation---abc---de--fg">Prefix Notation:** – * +ABC ^ – DE + FG</a></li>
+    <li><a href="#postfix-notation-ab--c--de--fg---">Postfix Notation:** AB + C * DE – FG + ^ –</a></li>
+    <li><a href="#9-sorting-is-not-possible-by-using-which-of-the-following-methods-insertion-selection-exchange-deletion">9. Sorting is not possible by using which of the following methods? (Insertion, Selection, Exchange, Deletion)</a></li>
+    <li><a href="#sorting-is-not-possible-in-deletion-using-insertion-we-can-perform-insertion-sort-using-selection-we-can-perform-selection-sort-using-exchange-we-can-perform-the-bubble-sort-and-other-similar-sorting-methods-but-no-sorting-method-can-be-done-just-using-deletion">Sorting is not possible in Deletion.** Using insertion we can perform insertion sort, using selection we can perform selection sort, using exchange we can perform the bubble sort (and other similar sorting methods). But no sorting method can be done just using deletion.</a></li>
+    <li><a href="#10-what-are-the-methods-available-in-storing-sequential-files-">10. What are the methods available in storing sequential files ?</a></li>
+    <li><a href="#11-list-out-few-of-the-application-of-tree-data-structure">11. List out few of the Application of tree data-structure?</a></li>
+    <li><a href="#12-list-out-few-of-the-applications-that-make-use-of-multilinked-structures">12. List out few of the applications that make use of Multilinked Structures?</a></li>
+    <li><a href="#13-in-tree-construction-which-is-the-suitable-efficient-data-structure-array-linked-list-stack-queue">13. In tree construction which is the suitable efficient data structure? (Array, Linked list, Stack, Queue)</a></li>
+    <li><a href="#14-what-is-the-type-of-the-algorithm-used-in-solving-the-8-queens-problem">14. What is the type of the algorithm used in solving the 8 Queens problem?</a></li>
+    <li><a href="#15-in-an-avl-tree-at-what-condition-the-balancing-is-to-be-done">15. In an AVL tree, at what condition the balancing is to be done?</a></li>
+    <li><a href="#16-what-is-the-bucket-size-when-the-overlapping-and-collision-occur-at-same-time">16. What is the bucket size, when the overlapping and collision occur at same time?</a></li>
+    <li><a href="#17-classify-the-hashing-functions-based-on-the-various-methods-by-which-the-key-value-is-found">17. Classify the Hashing Functions based on the various methods by which the key value is found.</a></li>
+    <li><a href="#18-what-are-the-types-of-collision-resolution-techniques-and-the-methods-used-in-each-of-the-type">18. What are the types of Collision Resolution Techniques and the methods used in each of the type?</a></li>
+    <li><a href="#open-addressing-closed-hashing-the-methods-used-include-overflow-block">Open addressing (closed hashing),** The methods used include: Overflow block.</a></li>
+    <li><a href="#closed-addressing-open-hashing-the-methods-used-include-linked-list-binary-tree">Closed addressing (open hashing),** The methods used include: Linked list, Binary tree.</a></li>
+    <li><a href="#19-in-rdbms-what-is-the-efficient-data-structure-used-in-the-internal-storage-representation">19. In RDBMS, what is the efficient data structure used in the internal storage representation?</a></li>
+    <li><a href="#20-what-is-a-spanning-tree">20. What is a spanning Tree?</a></li>
+    <li><a href="#21-does-the-minimum-spanning-tree-of-a-graph-give-the-shortest-distance-between-any-2-specified-nodes">21. Does the minimum spanning tree of a graph give the shortest distance between any 2 specified nodes?</a></li>
+    <li><a href="#22-which-is-the-simplest-file-structure-sequential-indexed-random">22. Which is the simplest file structure? (Sequential, Indexed, Random)</a></li>
+    <li><a href="#23-whether-linked-list-is-linear-or-non-linear-data-structure">23. Whether Linked List is linear or Non-linear data structure?</a></li>
+    <li><a href="#24-how-to-find-middle-element-of-linked-list-in-one-pass">24. How to find middle element of linked list in one pass?</a></li>
+    <li><a href="#25-what-is-data-structure">25. What is data structure?</a></li>
+    <li><a href="#26-differentiate-file-structure-from-storage-structure">26. Differentiate file structure from storage structure.</a></li>
+    <li><a href="#27-when-is-a-binary-search-best-applied">27. When is a binary search best applied?</a></li>
+    <li><a href="#28-what-is-lifo">28. What is LIFO?</a></li>
+    <li><a href="#29-what-is-a-queue">29. What is a queue?</a></li>
+    <li><a href="#30-what-are-binary-trees">30. What are binary trees?</a></li>
+    <li><a href="#31-which-data-structure-is-applied-when-dealing-with-a-recursive-function">31. Which data structure is applied when dealing with a recursive function?</a></li>
+    <li><a href="#32-what-is-a-stack">32. What is a stack?</a></li>
+    <li><a href="#33-explain-binary-search-tree">33. Explain Binary Search Tree</a></li>
+    <li><a href="#34-what-are-multidimensional-arrays">34. What are multidimensional arrays?</a></li>
+    <li><a href="#35-are-linked-lists-considered-linear-or-non-linear-data-structure">35. Are linked lists considered linear or non-linear data structure?</a></li>
+    <li><a href="#36-how-does-dynamic-memory-allocation-help-in-managing-data">36. How does dynamic memory allocation help in managing data?</a></li>
+    <li><a href="#37-what-is-fifo">37. What is FIFO?</a></li>
+    <li><a href="#38-what-is-merge-sort">38. What is merge sort?</a></li>
+    <li><a href="#39-differentiate-null-and-void">39. Differentiate NULL and VOID.</a></li>
+    <li><a href="#40-what-is-the-primary-advantage-of-a-linked-list">40. What is the primary advantage of a linked list?</a></li>
+    <li><a href="#41-what-is-a-linear-search">41. What is a linear search?</a></li>
+    <li><a href="#42-how-does-variable-declaration-affect-memory-allocation">42. How does variable declaration affect memory allocation?</a></li>
+    <li><a href="#44-what-is-the-advantage-of-the-heap-over-a-stack">44. What is the advantage of the heap over a stack?</a></li>
+    <li><a href="#45-what-is-a-postfix-expression">45. What is a postfix expression?</a></li>
+    <li><a href="#46-what-is-data-abstraction">46. What is Data abstraction?</a></li>
+    <li><a href="#47-how-do-you-insert-a-new-item-in-a-binary-search-tree">47. How do you insert a new item in a binary search tree?</a></li>
+    <li><a href="#48-how-does-a-selection-sort-work-for-an-array">48. How does a selection sort work for an array?</a></li>
+    <li><a href="#49-how-do-signed-and-unsigned-numbers-affect-memory">49. How do signed and unsigned numbers affect memory?</a></li>
+    <li><a href="#50-what-is-the-minimum-number-of-nodes-that-a-binary-tree-can-have">50. What is the minimum number of nodes that a binary tree can have?</a></li>
+    <li><a href="#51-what-are-dynamic-data-structures">51. What are dynamic data structures?</a></li>
+    <li><a href="#52-do-all-declaration-statements-result-in-a-fixed-reservation-in-memory">52. Do all declaration statements result in a fixed reservation in memory?</a></li>
+    <li><a href="#53-what-is-the-minimum-number-of-queues-needed-when-implementing-a-priority-queue">53. What is the minimum number of queues needed when implementing a priority queue?</a></li>
+    <li><a href="#54-which-sorting-algorithm-is-considered-the-fastest">54. Which sorting algorithm is considered the fastest?</a></li>
+    <li><a href="#55-differentiate-stack-from-array">55. Differentiate STACK from ARRAY.</a></li>
+    <li><a href="#56-give-a-basic-algorithm-for-searching-a-binary-search-tree">56. Give a basic algorithm for searching a binary search tree.</a></li>
+    <li><a href="#57-what-is-a-dequeue">57. What is a dequeue?</a></li>
+    <li><a href="#58-what-is-a-bubble-sort-and-how-do-you-perform-it">58. What is a bubble sort and how do you perform it?</a></li>
+    <li><a href="#59-how-does-selection-sort-work">59. How does selection sort work?</a></li>
+    <li><a href="#60-what-is-a-graph">60. What is a graph?</a></li>
+    <li><a href="#61-differentiate-linear-from-non-linear-data-structure">61. Differentiate linear from non linear data structure.</a></li>
+    <li><a href="#62-what-is-an-avl-tree">62. What is an AVL tree?</a></li>
+    <li><a href="#63-what-are-doubly-linked-lists">63. What are doubly linked lists?</a></li>
+    <li><a href="#64-what-is-huffmans-algorithm">64. What is Huffman’s algorithm?</a></li>
+    <li><a href="#65-what-is-fibonacci-search">65. What is Fibonacci search?</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="1-what-is-data-structure">1. What is data structure?</h2>
+<p>A data structure is a way of organizing data that considers not only the items stored, but also their relationship to each other. Advance knowledge about the relationship between data items allows designing of efficient algorithms for the manipulation of data.</p>
+<h2 id="2-list-out-the-areas-in-which-data-structures-are-applied-extensively">2. List out the areas in which data structures are applied extensively?</h2>
+<ol>
+<li>Compiler Design,</li>
+<li>Operating System,</li>
+<li>Database Management System,</li>
+<li>Statistical analysis package,</li>
+<li>Numerical Analysis,</li>
+<li>Graphics,</li>
+<li>Artificial Intelligence,</li>
+<li>Simulation</li>
+</ol>
+<h2 id="3-what-are-the-major-data-structures-used-in-the-following-areas--rdbms-network-data-model-and-hierarchical-data-model">3. What are the major data structures used in the following areas : RDBMS, Network data model and Hierarchical data model.</h2>
+<ol>
+<li>RDBMS = Array (i.e. Array of structures)</li>
+<li>Network data model = Graph</li>
+<li>Hierarchical data model = Trees</li>
+</ol>
+<h2 id="4-if-you-are-using-c-language-to-implement-the-heterogeneous-linked-list-what-pointer-type-will-you-use">4. If you are using C language to implement the heterogeneous linked list, what pointer type will you use?</h2>
+<p>The heterogeneous linked list contains different data types in its nodes and we need a link, pointer to connect them. It is not possible to use ordinary pointers for this. So we go for void pointer. Void pointer is capable of storing pointer to any type as it is a generic pointer type.</p>
+<h2 id="5-minimum-number-of-queues-needed-to-implement-the-priority-queue">5. Minimum number of queues needed to implement the priority queue?</h2>
+<p>Two. One queue is used for actual storing of data and another for storing priorities.</p>
+<h2 id="6-what-is-the-data-structures-used-to-perform-recursion">6. What is the data structures used to perform recursion?</h2>
+<p>Stack. Because of its LIFO (Last In First Out) property it remembers its ‘caller’ so knows whom to return when the function has to return. Recursion makes use of system stack for storing the return addresses of the function calls.</p>
+<p>Every recursive function has its equivalent iterative (non-recursive) function. Even when such equivalent iterative procedures are written, explicit stack is to be used.</p>
+<h2 id="7-briefly-explain-recursive-algorithm">7. Briefly explain recursive algorithm.</h2>
+<p>Recursive algorithm targets a problem by dividing it into smaller, manageable sub-problems. The output of one recursion after processing one sub-problem becomes the input to the next recursive process.</p>
+<h2 id="8-convert-the-expression-a--b--c--d--e--f--g-to-equivalent-prefix-and-postfix-notations">8. Convert the expression ((A + B) * C – (D – E) ^ (F + G)) to equivalent Prefix and Postfix notations.</h2>
+<h2 id="prefix-notation---abc---de--fg">Prefix Notation:** – * +ABC ^ – DE + FG</h2>
+<h2 id="postfix-notation-ab--c--de--fg---">Postfix Notation:** AB + C * DE – FG + ^ –</h2>
+<h2 id="9-sorting-is-not-possible-by-using-which-of-the-following-methods-insertion-selection-exchange-deletion">9. Sorting is not possible by using which of the following methods? (Insertion, Selection, Exchange, Deletion)</h2>
+<h2 id="sorting-is-not-possible-in-deletion-using-insertion-we-can-perform-insertion-sort-using-selection-we-can-perform-selection-sort-using-exchange-we-can-perform-the-bubble-sort-and-other-similar-sorting-methods-but-no-sorting-method-can-be-done-just-using-deletion">Sorting is not possible in Deletion.** Using insertion we can perform insertion sort, using selection we can perform selection sort, using exchange we can perform the bubble sort (and other similar sorting methods). But no sorting method can be done just using deletion.</h2>
+<h2 id="10-what-are-the-methods-available-in-storing-sequential-files-">10. What are the methods available in storing sequential files ?</h2>
+<ol>
+<li>Straight merging,</li>
+<li>Natural merging,</li>
+<li>Polyphase sort,</li>
+<li>Distribution of Initial runs.</li>
+</ol>
+<h2 id="11-list-out-few-of-the-application-of-tree-data-structure">11. List out few of the Application of tree data-structure?</h2>
+<ol>
+<li>The manipulation of Arithmetic expression,</li>
+<li>Symbol Table construction,</li>
+<li>Syntax analysis.</li>
+</ol>
+<h2 id="12-list-out-few-of-the-applications-that-make-use-of-multilinked-structures">12. List out few of the applications that make use of Multilinked Structures?</h2>
+<ol>
+<li>Sparse matrix,</li>
+<li>Index generation.</li>
+</ol>
+<h2 id="13-in-tree-construction-which-is-the-suitable-efficient-data-structure-array-linked-list-stack-queue">13. In tree construction which is the suitable efficient data structure? (Array, Linked list, Stack, Queue)</h2>
+<p>Linked list is the suitable efficient data structure.</p>
+<h2 id="14-what-is-the-type-of-the-algorithm-used-in-solving-the-8-queens-problem">14. What is the type of the algorithm used in solving the 8 Queens problem?</h2>
+<p>Backtracking.</p>
+<h2 id="15-in-an-avl-tree-at-what-condition-the-balancing-is-to-be-done">15. In an AVL tree, at what condition the balancing is to be done?</h2>
+<p>If the ‘pivotal value’ (or the ‘Height factor’) is greater than 1 or less than -1.</p>
+<h2 id="16-what-is-the-bucket-size-when-the-overlapping-and-collision-occur-at-same-time">16. What is the bucket size, when the overlapping and collision occur at same time?</h2>
+<p>One. If there is only one entry possible in the bucket, when the collision occurs, there is no way to accommodate the colliding value. This results in the overlapping of values.</p>
+<h2 id="17-classify-the-hashing-functions-based-on-the-various-methods-by-which-the-key-value-is-found">17. Classify the Hashing Functions based on the various methods by which the key value is found.</h2>
+<ol>
+<li>Direct method,</li>
+<li>Subtraction method,</li>
+<li>Modulo-Division method,</li>
+<li>Digit-Extraction method,</li>
+<li>Mid-Square method,</li>
+<li>Folding method,</li>
+<li>Pseudo-random method.</li>
+</ol>
+<h2 id="18-what-are-the-types-of-collision-resolution-techniques-and-the-methods-used-in-each-of-the-type">18. What are the types of Collision Resolution Techniques and the methods used in each of the type?</h2>
+<h2 id="open-addressing-closed-hashing-the-methods-used-include-overflow-block">Open addressing (closed hashing),** The methods used include: Overflow block.</h2>
+<h2 id="closed-addressing-open-hashing-the-methods-used-include-linked-list-binary-tree">Closed addressing (open hashing),** The methods used include: Linked list, Binary tree.</h2>
+<h2 id="19-in-rdbms-what-is-the-efficient-data-structure-used-in-the-internal-storage-representation">19. In RDBMS, what is the efficient data structure used in the internal storage representation?</h2>
+<p>B+ tree. Because in B+ tree, all the data is stored only in leaf nodes, that makes searching easier. This corresponds to the records that shall be stored in leaf nodes.</p>
+<h2 id="20-what-is-a-spanning-tree">20. What is a spanning Tree?</h2>
+<p>A spanning tree is a tree associated with a network. All the nodes of the graph appear on the tree once. A minimum spanning tree is a spanning tree organized so that the total edge weight between nodes is minimized.</p>
+<h2 id="21-does-the-minimum-spanning-tree-of-a-graph-give-the-shortest-distance-between-any-2-specified-nodes">21. Does the minimum spanning tree of a graph give the shortest distance between any 2 specified nodes?</h2>
+<p>No. The Minimal spanning tree assures that the total weight of the tree is kept at its minimum. But it doesn’t mean that the distance between any two nodes involved in the minimum-spanning tree is minimum.</p>
+<h2 id="22-which-is-the-simplest-file-structure-sequential-indexed-random">22. Which is the simplest file structure? (Sequential, Indexed, Random)</h2>
+<p>Sequential is the simplest file structure.</p>
+<h2 id="23-whether-linked-list-is-linear-or-non-linear-data-structure">23. Whether Linked List is linear or Non-linear data structure?</h2>
+<p>According to Access strategies Linked list is a linear one.<br>
+According to Storage Linked List is a Non-linear one.</p>
+<h2 id="24-how-to-find-middle-element-of-linked-list-in-one-pass">24. How to find middle element of linked list in one pass?</h2>
+<p>One of the most popular question from data structures and algorithm, mostly asked on telephonic interview. Since many programmer know that, in order to find length of linked list we need to first traverse through linked list till we find last node, which is pointing to null, and then in second pass we can find middle element by traversing only half of length. They get confused when interviewer ask him to do same job in one pass. In order to find middle element of linked list in one pass you need to maintain two pointer, one increment at each node while other increments after two nodes at a time, by having this arrangement, when first pointer reaches end, second pointer will point to middle element of linked list. See this trick to find middle element of linked list in single pass for more details.</p>
+<h2 id="25-what-is-data-structure">25. What is data structure?</h2>
+<p>Data structure refers to the way data is organized and manipulated. It seeks to find ways to make data access more efficient. When dealing with data structure, we not only focus on one piece of data, but rather different set of data and how they can relate to one another in an organized manner.</p>
+<h2 id="26-differentiate-file-structure-from-storage-structure">26. Differentiate file structure from storage structure.</h2>
+<p>Basically, the key difference is the memory area that is being accessed. When dealing with the structure that resides the main memory of the computer system, this is referred to as storage structure. When dealing with an auxiliary structure, we refer to it as file structure.</p>
+<h2 id="27-when-is-a-binary-search-best-applied">27. When is a binary search best applied?</h2>
+<p>A binary search is an algorithm that is best applied to search a list when the elements are already in order or sorted. The list is search starting in the middle, such that if that middle value is not the target search key, it will check to see if it will continue the search on the lower half of the list or the higher half. The split and search will then continue in the same manner.</p>
+<h2 id="28-what-is-lifo">28. What is LIFO?</h2>
+<p>LIFO is short for Last In First Out, and refers to how data is accessed, stored and retrieved. Using this scheme, data that was stored last , should be the one to be extracted first. This also means that in order to gain access to the first data, all the other data that was stored before this first data must first be retrieved and extracted.</p>
+<h2 id="29-what-is-a-queue">29. What is a queue?</h2>
+<p>A queue is a data structure that can simulates a list or stream of data. In this structure, new elements are inserted at one end and existing elements are removed from the other end.</p>
+<h2 id="30-what-are-binary-trees">30. What are binary trees?</h2>
+<p>A binary tree is one type of data structure that has two nodes, a left node and a right node. In programming, binary trees are actually an extension of the linked list structures.</p>
+<h2 id="31-which-data-structure-is-applied-when-dealing-with-a-recursive-function">31. Which data structure is applied when dealing with a recursive function?</h2>
+<p>Recursion, which is basically a function that calls itself based on a terminating condition, makes use of the stack. Using LIFO, a call to a recursive function saves the return address so that it knows how to return to the calling function after the call terminates.</p>
+<h2 id="32-what-is-a-stack">32. What is a stack?</h2>
+<p>A stack is a data structure in which only the top element can be accessed. As data is stored in the stack, each data is pushed downward, leaving the most recently added data on top.</p>
+<h2 id="33-explain-binary-search-tree">33. Explain Binary Search Tree</h2>
+<p>A binary search tree stores data in such a way that they can be retrieved very efficiently. The left subtree contains nodes whose keys are less than the node’s key value, while the right subtree contains nodes whose keys are greater than or equal to the node’s key value. Moreover, both subtrees are also binary search trees.</p>
+<h2 id="34-what-are-multidimensional-arrays">34. What are multidimensional arrays?</h2>
+<p>Multidimensional arrays make use of multiple indexes to store data. It is useful when storing data that cannot be represented using a single dimensional indexing, such as data representation in a board game, tables with data stored in more than one column.</p>
+<h2 id="35-are-linked-lists-considered-linear-or-non-linear-data-structure">35. Are linked lists considered linear or non-linear data structure?</h2>
+<p>It actually depends on where you intend to apply linked lists. If you based it on storage, a linked list is considered non-linear. On the other hand, if you based it on access strategies, then a linked list is considered linear.</p>
+<h2 id="36-how-does-dynamic-memory-allocation-help-in-managing-data">36. How does dynamic memory allocation help in managing data?</h2>
+<p>Aside from being able to store simple structured data types, dynamic memory allocation can combine separately allocated structured blocks to form composite structures that expand and contract as needed.</p>
+<h2 id="37-what-is-fifo">37. What is FIFO?</h2>
+<p>FIFO is short for First-in, First-out, and is used to represent how data is accessed in a queue. Data has been inserted into the queue list the longest is the one that is removed first.</p>
+<h2 id="38-what-is-merge-sort">38. What is merge sort?</h2>
+<p>Merge sort takes a divide-and-conquer approach to sorting data. In a sequence of data, adjacent ones are merged and sorted to create bigger sorted lists. These sorted lists are then merged again to form an even bigger sorted list, which continuous until you have one single sorted list.</p>
+<h2 id="39-differentiate-null-and-void">39. Differentiate NULL and VOID.</h2>
+<p>Null is actually a value, whereas Void is a data type identifier. A variable that is given a Null value simply indicates an empty value. Void is used to identify pointers as having no initial size.</p>
+<h2 id="40-what-is-the-primary-advantage-of-a-linked-list">40. What is the primary advantage of a linked list?</h2>
+<p>A linked list is a very ideal data structure because it can be modified easily. This means that modifying a linked list works regardless of how many elements are in the list.</p>
+<h2 id="41-what-is-a-linear-search">41. What is a linear search?</h2>
+<p>A linear search refers to the way a target key is being searched in a sequential data structure. Using this method, each element in the list is checked and compared against the target key, and is repeated until found or if the end of the list has been reached.</p>
+<h2 id="42-how-does-variable-declaration-affect-memory-allocation">42. How does variable declaration affect memory allocation?</h2>
+<p>The amount of memory to be allocated or reserved would depend on the data type of the variable being declared. For example, if a variable is declared to be of integer type, then 32 bits of memory storage will be reserved for that variable.</p>
+<h2 id="44-what-is-the-advantage-of-the-heap-over-a-stack">44. What is the advantage of the heap over a stack?</h2>
+<p>Basically, the heap is more flexible than the stack. That’s because memory space for the heap can be dynamically allocated and de-allocated as needed. However, memory of the heap can at times be slower when compared to that stack.</p>
+<h2 id="45-what-is-a-postfix-expression">45. What is a postfix expression?</h2>
+<p>A postfix expression is an expression in which each operator follows its operands. The advantage of this form is that there is no need to group sub-expressions in parentheses or to consider operator precedence.</p>
+<h2 id="46-what-is-data-abstraction">46. What is Data abstraction?</h2>
+<p>Data abstraction is a powerful tool for breaking down complex data problems into manageable chunks. This is applied by initially specifying the data objects involved and the operations to be performed on these data objects without being overly concerned with how the data objects will be represented and stored in memory.</p>
+<h2 id="47-how-do-you-insert-a-new-item-in-a-binary-search-tree">47. How do you insert a new item in a binary search tree?</h2>
+<p>Assuming that the data to be inserted is a unique value (that is, not an existing entry in the tree), check first if the tree is empty. If it’s empty, just insert the new item in the root node. If it’s not empty, refer to the new item’s key. If it’s smaller than the root’s key, insert it into the root’s left subtree, otherwise, insert it into the root’s right subtree.</p>
+<h2 id="48-how-does-a-selection-sort-work-for-an-array">48. How does a selection sort work for an array?</h2>
+<p>The selection sort is a fairly intuitive sorting algorithm,, though not necessarily efficient. To perform this, the smallest element is first located and switched with the element at subscript zero, thereby placing the smallest element in the first position. The smallest element remaining in the subarray is then located next with subscripts 1 through n-1 and switched with the element at subscript 1, thereby placing the second smallest element in the second position. The steps are repeated in the same manner till the last element.</p>
+<h2 id="49-how-do-signed-and-unsigned-numbers-affect-memory">49. How do signed and unsigned numbers affect memory?</h2>
+<p>In the case of signed numbers, the first bit is used to indicate whether positive or negative, which leaves you with one bit short. With unsigned numbers, you have all bits available for that number. The effect is best seen in the number range (unsigned 8 bit number has a range 0-255, while 8-bit signed number has a range -128 to +127.</p>
+<h2 id="50-what-is-the-minimum-number-of-nodes-that-a-binary-tree-can-have">50. What is the minimum number of nodes that a binary tree can have?</h2>
+<p>A binary tree can have a minimum of zero nodes, which occurs when the nodes have NULL values. Furthermore, a binary tree can also have 1 or 2 nodes.</p>
+<h2 id="51-what-are-dynamic-data-structures">51. What are dynamic data structures?</h2>
+<p>Dynamic data structures are structures that expand and contract as a program runs. It provides a flexible means of manipulating data because it can adjust according to the size of the data.</p>
+<h2 id="52-do-all-declaration-statements-result-in-a-fixed-reservation-in-memory">52. Do all declaration statements result in a fixed reservation in memory?</h2>
+<p>Most declarations do, with the exemption of pointers. Pointer declaration does not allocate memory for data, but for the address of the pointer variable. Actual memory allocation for the data comes during run-time.</p>
+<h2 id="53-what-is-the-minimum-number-of-queues-needed-when-implementing-a-priority-queue">53. What is the minimum number of queues needed when implementing a priority queue?</h2>
+<p>The minimum number of queues needed in this case is two. One queue is intended for sorting priorities while the other queue is intended for actual storage of data.</p>
+<h2 id="54-which-sorting-algorithm-is-considered-the-fastest">54. Which sorting algorithm is considered the fastest?</h2>
+<p>There are many types of sorting algorithms: quick sort, bubble sort, balloon sort, radix sort, merge sort, etc. Not one can be considered the fastest because each algorithm is designed for a particular data structure and data set. It would depend on the data set that you would want to sort.</p>
+<h2 id="55-differentiate-stack-from-array">55. Differentiate STACK from ARRAY.</h2>
+<p>Data that is stored in a stack follows a LIFO pattern. This means that data access follows a sequence wherein the last data to be stored will the first one to be extracted. Arrays, on the other hand, does not follow a particular order and instead can be accessed by referring to the indexed element within the array.</p>
+<h2 id="56-give-a-basic-algorithm-for-searching-a-binary-search-tree">56. Give a basic algorithm for searching a binary search tree.</h2>
+<ol>
+<li>if the tree is empty, then the target is not in the tree, end search</li>
+<li>if the tree is not empty, the target is in the tree</li>
+<li>check if the target is in the root item</li>
+<li>if target is not in the root item, check if target is smaller than the root’s value</li>
+<li>if target is smaller than the root’s value, search the left subtree</li>
+<li>else, search the right subtree</li>
+</ol>
+<h2 id="57-what-is-a-dequeue">57. What is a dequeue?</h2>
+<p>A dequeue is a double-ended queue. This is a structure wherein elements can be inserted or removed from either end.</p>
+<h2 id="58-what-is-a-bubble-sort-and-how-do-you-perform-it">58. What is a bubble sort and how do you perform it?</h2>
+<p>A bubble sort is one sorting technique that can be applied to data structures such as an array. It works by comparing adjacent elements and exchanges their values if they are out of order. This method lets the smaller values “bubble” to the top of the list, while the larger value sinks to the bottom.</p>
+<h2 id="59-how-does-selection-sort-work">59. How does selection sort work?</h2>
+<p>Selection sort works by picking the smallest number from the list and placing it at the front. This process is repeated for the second position towards the end of the list. It is the simplest sort algorithm.</p>
+<h2 id="60-what-is-a-graph">60. What is a graph?</h2>
+<p>A graph is one type of data structure that contains a set of ordered pairs. These ordered pairs are also referred to as edges or arcs, and are used to connect nodes where data can be stored and retrieved.</p>
+<h2 id="61-differentiate-linear-from-non-linear-data-structure">61. Differentiate linear from non linear data structure.</h2>
+<p>Linear data structure is a structure wherein data elements are adjacent to each other. Examples of linear data structure include arrays, linked lists, stacks and queues. On the other hand, non-linear data structure is a structure wherein each data element can connect to more than two adjacent data elements. Examples of non linear data structure include trees and graphs.</p>
+<h2 id="62-what-is-an-avl-tree">62. What is an AVL tree?</h2>
+<p>An AVL tree is a type of binary search tree that is always in a state of partially balanced. The balance is measured as a difference between the heights of the subtrees from the root. This self-balancing tree was known to be the first data structure to be designed as such.</p>
+<h2 id="63-what-are-doubly-linked-lists">63. What are doubly linked lists?</h2>
+<p>Doubly linked lists are a special type of linked list wherein traversal across the data elements can be done in both directions. This is made possible by having two links in every node, one that links to the next node and other one that links to the previous node.</p>
+<h2 id="64-what-is-huffmans-algorithm">64. What is Huffman’s algorithm?</h2>
+<p>Huffman’s algorithm is associated in creating extended binary trees that has minimum weighted path lengths from the given weights. It makes use of a table that contains frequency of occurrence for each data element.</p>
+<h2 id="65-what-is-fibonacci-search">65. What is Fibonacci search?</h2>
+<p>Fibonacci search is a search algorithm that applies to a sorted array. It makes use of a divide-and-conquer approach that can greatly reduce the time needed in order to reach the target element.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2018-07-15</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/post/data-structure-questions/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://sayef.github.io/post/data-structure-questions/" data-title="Data Structure Interview Question Answers" data-via="imsayef" data-hashtags="interview,data-structure"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://sayef.github.io/post/data-structure-questions/" data-hashtag="interview"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://sayef.github.io/post/data-structure-questions/" data-title="Data Structure Interview Question Answers"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://sayef.github.io/post/data-structure-questions/" data-title="Data Structure Interview Question Answers"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://sayef.github.io/post/data-structure-questions/" data-title="Data Structure Interview Question Answers"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/interview/">interview</a>,&nbsp;<a href="/tags/data-structure/">data-structure</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/post/database-interview-questions/" class="prev" rel="prev" title="Database Interview Questions"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Database Interview Questions</a>
+            <a href="/post/basic-programming-interview-questions/" class="next" rel="next" title="Basic Programming Interview Question Answers">Basic Programming Interview Question Answers<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="sayef.tech" target="_blank">Sayef</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"en","pageSize":10,"placeholder":"Your comment ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"data":{"id-1":"ⓢⓐⓨⓔⓕ'𝓼 𝓽𝓮𝓬𝓱 𝓫𝓵𝓸𝓰","id-2":"ⓢⓐⓨⓔⓕ'𝓼 𝓽𝓮𝓬𝓱 𝓫𝓵𝓸𝓰"},"lightgallery":true,"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,25 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>programming - Tag - Sayef&#39;s Tech Blog</title>
+        <link>https://sayef.github.io/tags/programming/</link>
+        <description>programming - Tag - Sayef&#39;s Tech Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>hello@sayef.tech (Sayef)</managingEditor>
+            <webMaster>hello@sayef.tech (Sayef)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Jul 2018 04:15:37 &#43;0800</lastBuildDate><atom:link href="https://sayef.github.io/tags/programming/" rel="self" type="application/rss+xml" /><item>
+    <title>Artuculation Point</title>
+    <link>https://sayef.github.io/post/articulation-point/</link>
+    <pubDate>Mon, 16 Jul 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/articulation-point/</guid>
+    <description><![CDATA[If a graph becomes disconnected after removal of any node (and its adjacent edges also) from the graph, then we call that node as an articulation point of the graph. In the picture, we can see that if the node d is removed, the graph is separated into two components. So it&rsquo;s an articulation point. In other words, node v is an articulation point, if there are two such nodes u and w, v node is present in every possible paths from u to v.]]></description>
+</item>
+<item>
+    <title>Basic Programming Interview Question Answers</title>
+    <link>https://sayef.github.io/post/basic-programming-interview-questions/</link>
+    <pubDate>Sun, 15 Jul 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/basic-programming-interview-questions/</guid>
+    <description><![CDATA[This is a simple collection of problems for interview from the basic knowledge of C programming.
+Part 1: Write Short Procedure or Pseudo-code Write a program to print numbers from 1 to 100 without using loops. Write a C program to swap two variables without using a temporary variable. What is the 8 queens problem? Write a C program to solve it? Write a C program to print a square matrix helicaly.]]></description>
+</item>
+</channel>
+</rss>

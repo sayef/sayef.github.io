@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>eda - Tag - Sayef&#39;s Tech Blog</title>
+        <link>https://sayef.github.io/tags/eda/</link>
+        <description>eda - Tag - Sayef&#39;s Tech Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>hello@sayef.tech (Sayef)</managingEditor>
+            <webMaster>hello@sayef.tech (Sayef)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 12 Jul 2019 04:15:37 &#43;0800</lastBuildDate><atom:link href="https://sayef.github.io/tags/eda/" rel="self" type="application/rss+xml" /><item>
+    <title>Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset</title>
+    <link>https://sayef.github.io/post/eda-on-wine-quality-dataset/</link>
+    <pubDate>Fri, 12 Jul 2019 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/eda-on-wine-quality-dataset/</guid>
+    <description><![CDATA[1. Introduction The article consists of Exploratory Data Analysis (EDA), predictive models and evaluation of those models for predicting the quality of wine, given a list of wine characteristics.
+Note: Dataset and code can be found here. 2. Problem Specification The dataset specifies the quality of wine, given a list of attributes. The attributes are fixed acidity, volatile acidity, citric acid, residual sugar, chlorides, free sulfur dioxide, total sulfur dioxide, density, pH, sulphates, alcohol, and type (0 for red wine, 1 for white wine).]]></description>
+</item>
+</channel>
+</rss>

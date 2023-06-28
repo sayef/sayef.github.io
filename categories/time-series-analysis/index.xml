@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Time Series Analysis - Category - Sayef&#39;s Tech Blog</title>
+        <link>https://sayef.github.io/categories/time-series-analysis/</link>
+        <description>Time Series Analysis - Category - Sayef&#39;s Tech Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>hello@sayef.tech (Sayef)</managingEditor>
+            <webMaster>hello@sayef.tech (Sayef)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 12 Jun 2019 04:15:37 &#43;0800</lastBuildDate><atom:link href="https://sayef.github.io/categories/time-series-analysis/" rel="self" type="application/rss+xml" /><item>
+    <title>Time Series Analysis in Python - Introduction to ARIMA</title>
+    <link>https://sayef.github.io/post/time-series-analysis-in-python-inroduction-to-arima/</link>
+    <pubDate>Wed, 12 Jun 2019 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/time-series-analysis-in-python-inroduction-to-arima/</guid>
+    <description><![CDATA[What is Time Series? If we want to predict something in future i.e. stock prices, sales etc, we use time series analysis over past data. We can predict daily stock price, weekly interest rates, sales figure etc where the outcome varies over time. In such scenarios, we use time series forecasting.
+A time series is a set of observation taken at specified times usually at equal intervals. It is used to predict future values based on the previously observed values.]]></description>
+</item>
+</channel>
+</rss>

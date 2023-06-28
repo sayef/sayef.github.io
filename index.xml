@@ -4,89 +4,97 @@
         <link>https://sayef.github.io/</link>
         <description>Sayef&#39;s Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>hello@sayef.tech (Sayef)</managingEditor>
-            <webMaster>hello@sayef.tech (Sayef)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 06 Mar 2020 21:29:01 &#43;0800</lastBuildDate>
+            <webMaster>hello@sayef.tech (Sayef)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 12 Jul 2019 04:15:37 &#43;0800</lastBuildDate>
             <atom:link href="https://sayef.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>Theme Documentation - Basics</title>
-    <link>https://sayef.github.io/theme-documentation-basics/</link>
-    <pubDate>Fri, 06 Mar 2020 21:29:01 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>https://sayef.github.io/theme-documentation-basics/</guid>
-    <description><![CDATA[<p>Discover what the Hugo - <strong>LoveIt</strong> theme is all about and the core-concepts behind it.</p>]]></description>
-</item>
-<item>
-    <title>Theme Documentation - Content</title>
-    <link>https://sayef.github.io/theme-documentation-content/</link>
-    <pubDate>Thu, 05 Mar 2020 15:58:26 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>https://sayef.github.io/theme-documentation-content/</guid>
-    <description><![CDATA[<p>Find out how to create and organize your content quickly and intuitively in <strong>LoveIt</strong> theme.</p>]]></description>
-</item>
-<item>
-    <title>Theme Documentation - Built-in Shortcodes</title>
-    <link>https://sayef.github.io/theme-documentation-built-in-shortcodes/</link>
-    <pubDate>Wed, 04 Mar 2020 16:29:41 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>https://sayef.github.io/theme-documentation-built-in-shortcodes/</guid>
-    <description><![CDATA[<p><strong>Hugo</strong> provides multiple built-in shortcodes for author convenience and to keep your markdown content clean.</p>]]></description>
-</item>
-<item>
-    <title>Theme Documentation - Extended Shortcodes</title>
-    <link>https://sayef.github.io/theme-documentation-extended-shortcodes/</link>
-    <pubDate>Tue, 03 Mar 2020 16:29:41 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>https://sayef.github.io/theme-documentation-extended-shortcodes/</guid>
-    <description><![CDATA[<p><strong>LoveIt</strong> theme provides multiple shortcodes on top of built-in ones in Hugo.</p>]]></description>
-</item>
-<item>
-    <title>Basic Markdown Syntax</title>
-    <link>https://sayef.github.io/basic-markdown-syntax/</link>
-    <pubDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>https://sayef.github.io/basic-markdown-syntax/</guid>
-    <description><![CDATA[<p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files.</p>]]></description>
-</item>
-<item>
-    <title>PostgreSQL Installation and DB Creation on Ubuntu 16.04</title>
-    <link>https://sayef.github.io/postgresql-installation/</link>
-    <pubDate>Mon, 26 Mar 2018 04:15:37 &#43;0800</pubDate>
+    <title>&#34;Dynamic Graph CNN for Learning on Point Clouds&#34; Simplified</title>
+    <link>https://sayef.github.io/post/dynamic-graph-cnn/</link>
+    <pubDate>Fri, 12 Jul 2019 04:15:37 &#43;0800</pubDate>
     <author>Sayef</author>
-    <guid>https://sayef.github.io/postgresql-installation/</guid>
-    <description><![CDATA[Installation Note: This installation procedure is based on Ubuntu 16.04, for other versions see [https://www.postgresql.org/download/linux/ubuntu/] Create the file /etc/apt/sources.list.d/pgdg.list, and add a line for the repository 1 $ echo &#34;deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main&#34; | sudo tee /etc/apt/sources.list.d/pgdg.list Import the repository signing key, and update the package lists 1 $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - Ubuntu includes PostgreSQL by default. To install PostgreSQL on Ubuntu, use the apt-get (or other apt-driving) command 1 2 $ sudo apt-get update $ sudo apt-get install postgresql-9.]]></description>
+    <guid>https://sayef.github.io/post/dynamic-graph-cnn/</guid>
+    <description><![CDATA[Introduction Point clouds are a collection of data points in space, usually produced by a 3D scanner. A large number of points are measured on the external surfaces of the objects and then represented as point clouds. Along with the relative 3D coordinates, point clouds can be accompanied by other pertaining features i.e. RGB or intensity. Point clouds are not the only representation of 3D space, voxel and mesh polygon are some other popular representations.]]></description>
 </item>
 <item>
-    <title>Theme Documentation - mermaid Shortcode</title>
-    <link>https://sayef.github.io/theme-documentation-mermaid-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 15:29:41 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>https://sayef.github.io/theme-documentation-mermaid-shortcode/</guid>
-    <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.11" rel="noopener noreffer" target="_blank"></a>
-<p>The <code>mermaid</code> shortcode supports diagrams in Hugo with <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener noreffer ">Mermaid</a> library.</p>]]></description>
+    <title>Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset</title>
+    <link>https://sayef.github.io/post/eda-on-wine-quality-dataset/</link>
+    <pubDate>Fri, 12 Jul 2019 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/eda-on-wine-quality-dataset/</guid>
+    <description><![CDATA[1. Introduction The article consists of Exploratory Data Analysis (EDA), predictive models and evaluation of those models for predicting the quality of wine, given a list of wine characteristics.
+Note: Dataset and code can be found here. 2. Problem Specification The dataset specifies the quality of wine, given a list of attributes. The attributes are fixed acidity, volatile acidity, citric acid, residual sugar, chlorides, free sulfur dioxide, total sulfur dioxide, density, pH, sulphates, alcohol, and type (0 for red wine, 1 for white wine).]]></description>
 </item>
 <item>
-    <title>Emoji Support</title>
-    <link>https://sayef.github.io/emoji-support/</link>
-    <pubDate>Tue, 01 Oct 2019 17:55:28 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>https://sayef.github.io/emoji-support/</guid>
-    <description><![CDATA[<p>Emoji can be enabled in a Hugo project in a number of ways.</p>]]></description>
+    <title>Attention Is All You Need: The Transformer</title>
+    <link>https://sayef.github.io/post/attention-is-all-you-need/</link>
+    <pubDate>Wed, 12 Jun 2019 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/attention-is-all-you-need/</guid>
+    <description><![CDATA[Introduction The advent of deep learning over the past few years has opened a lot of possibilities regarding neural machine translation (NMT). Attention is all you need, also known as Transformer [1], has become the state-of-the-art in NMT, surpassing tradition recurrent neural network (RNN) based encoder-decoder architecture. A bunch of new architectures is now being built based on the transformer. I will discuss how NMT has evolved throughout the last couple of years, from the traditional RNN to the Transformer.]]></description>
 </item>
 <item>
-    <title>Theme Documentation - echarts Shortcode</title>
-    <link>https://sayef.github.io/theme-documentation-echarts-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 14:29:41 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>https://sayef.github.io/theme-documentation-echarts-shortcode/</guid>
-    <description><![CDATA[<p>The <code>echarts</code> shortcode supports data visualization in Hugo with <a href="https://echarts.apache.org/" target="_blank" rel="noopener noreffer ">ECharts</a> library.</p>]]></description>
+    <title>Time Series Analysis in Python - Introduction to ARIMA</title>
+    <link>https://sayef.github.io/post/time-series-analysis-in-python-inroduction-to-arima/</link>
+    <pubDate>Wed, 12 Jun 2019 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/time-series-analysis-in-python-inroduction-to-arima/</guid>
+    <description><![CDATA[What is Time Series? If we want to predict something in future i.e. stock prices, sales etc, we use time series analysis over past data. We can predict daily stock price, weekly interest rates, sales figure etc where the outcome varies over time. In such scenarios, we use time series forecasting.
+A time series is a set of observation taken at specified times usually at equal intervals. It is used to predict future values based on the previously observed values.]]></description>
 </item>
 <item>
-    <title>Theme Documentation - mapbox Shortcode</title>
-    <link>https://sayef.github.io/theme-documentation-mapbox-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 13:29:41 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>https://sayef.github.io/theme-documentation-mapbox-shortcode/</guid>
-    <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.0" rel="noopener noreffer" target="_blank"></a>
-<p>The <code>mapbox</code> shortcode supports interactive maps in Hugo with <a href="https://docs.mapbox.com/mapbox-gl-js" target="_blank" rel="noopener noreffer ">Mapbox GL JS</a> library.</p>]]></description>
+    <title>Artuculation Point</title>
+    <link>https://sayef.github.io/post/articulation-point/</link>
+    <pubDate>Mon, 16 Jul 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/articulation-point/</guid>
+    <description><![CDATA[If a graph becomes disconnected after removal of any node (and its adjacent edges also) from the graph, then we call that node as an articulation point of the graph. In the picture, we can see that if the node d is removed, the graph is separated into two components. So it&rsquo;s an articulation point. In other words, node v is an articulation point, if there are two such nodes u and w, v node is present in every possible paths from u to v.]]></description>
+</item>
+<item>
+    <title>Basic Programming Interview Question Answers</title>
+    <link>https://sayef.github.io/post/basic-programming-interview-questions/</link>
+    <pubDate>Sun, 15 Jul 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/basic-programming-interview-questions/</guid>
+    <description><![CDATA[This is a simple collection of problems for interview from the basic knowledge of C programming.
+Part 1: Write Short Procedure or Pseudo-code Write a program to print numbers from 1 to 100 without using loops. Write a C program to swap two variables without using a temporary variable. What is the 8 queens problem? Write a C program to solve it? Write a C program to print a square matrix helicaly.]]></description>
+</item>
+<item>
+    <title>Data Structure Interview Question Answers</title>
+    <link>https://sayef.github.io/post/data-structure-questions/</link>
+    <pubDate>Sun, 15 Jul 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/data-structure-questions/</guid>
+    <description><![CDATA[1. What is data structure? A data structure is a way of organizing data that considers not only the items stored, but also their relationship to each other. Advance knowledge about the relationship between data items allows designing of efficient algorithms for the manipulation of data.
+2. List out the areas in which data structures are applied extensively? Compiler Design, Operating System, Database Management System, Statistical analysis package, Numerical Analysis, Graphics, Artificial Intelligence, Simulation 3.]]></description>
+</item>
+<item>
+    <title>Database Interview Questions</title>
+    <link>https://sayef.github.io/post/database-interview-questions/</link>
+    <pubDate>Sun, 15 Jul 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/database-interview-questions/</guid>
+    <description><![CDATA[1. What is database or database management systems (DBMS)? and – What’s the difference between file and database? Can files qualify as a database? Database provides a systematic and organized way of storing, managing and retrieving from 1 collection of logically related information.
+Secondly the information has to be persistent, that means even after the application is closed the information should be persisted.
+Finally it should provide an independent way of accessing data and should not be dependent on the application to access the information.]]></description>
+</item>
+<item>
+    <title>Design Patterns Interview Question Answers</title>
+    <link>https://sayef.github.io/post/design-pattern-interview-questions/</link>
+    <pubDate>Sun, 15 Jul 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/design-pattern-interview-questions/</guid>
+    <description><![CDATA[1. What are Design Patterns? Design patterns represent the best practices used by experienced object-oriented software developers. Design patterns are solutions to general problems that software developers faced during software development. These solutions were obtained by trial and error by numerous software developers over quite a substantial period of time.
+2. Name types of Design Patterns? Design patterns can be classified in three categories: Creational, Structural and Behavioral patterns.
+Creational Patterns – These design patterns provide a way to create objects while hiding the creation logic, rather than instantiating objects directly using new operator.]]></description>
+</item>
+<item>
+    <title>Object Oriented Programming Interview Question Answers</title>
+    <link>https://sayef.github.io/post/oop-interview-questions/</link>
+    <pubDate>Sun, 15 Jul 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/oop-interview-questions/</guid>
+    <description><![CDATA[1. What is OOPS? OOPS is abbreviated as Object Oriented Programming system in which programs are considered as a collection of objects. Each object is nothing but an instance of a class.
+2. Write basic concepts of OOPS? Following are the concepts of OOPS and are as follows:.
+Abstraction. Encapsulation. Inheritance. Polymorphism. 3. What is a class? A class is simply a representation of a type of object. It is the blueprint/ plan/ template that describe the details of an object.]]></description>
 </item>
 </channel>
 </rss>

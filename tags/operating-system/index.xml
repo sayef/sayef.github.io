@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>operating-system - Tag - Sayef&#39;s Tech Blog</title>
+        <link>https://sayef.github.io/tags/operating-system/</link>
+        <description>operating-system - Tag - Sayef&#39;s Tech Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>hello@sayef.tech (Sayef)</managingEditor>
+            <webMaster>hello@sayef.tech (Sayef)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 15 Jul 2018 04:15:37 &#43;0800</lastBuildDate><atom:link href="https://sayef.github.io/tags/operating-system/" rel="self" type="application/rss+xml" /><item>
+    <title>Operating System Interview Question Answers</title>
+    <link>https://sayef.github.io/post/os-interview-questions/</link>
+    <pubDate>Sun, 15 Jul 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/os-interview-questions/</guid>
+    <description><![CDATA[1. What is an operating system? An operating system is a program that acts as an intermediary between the user and the computer hardware. The purpose of an OS is to provide a convenient environment in which user can execute programs in a convenient and efficient manner.
+2. What are the different operating systems? Batched operating systems Multi-programmed operating systems Time sharing operating systems Distributed operating systems Real-time operating systems 3.]]></description>
+</item>
+</channel>
+</rss>

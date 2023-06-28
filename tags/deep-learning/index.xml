@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>deep-learning - Tag - Sayef&#39;s Tech Blog</title>
+        <link>https://sayef.github.io/tags/deep-learning/</link>
+        <description>deep-learning - Tag - Sayef&#39;s Tech Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>hello@sayef.tech (Sayef)</managingEditor>
+            <webMaster>hello@sayef.tech (Sayef)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 12 Jul 2019 04:15:37 &#43;0800</lastBuildDate><atom:link href="https://sayef.github.io/tags/deep-learning/" rel="self" type="application/rss+xml" /><item>
+    <title>&#34;Dynamic Graph CNN for Learning on Point Clouds&#34; Simplified</title>
+    <link>https://sayef.github.io/post/dynamic-graph-cnn/</link>
+    <pubDate>Fri, 12 Jul 2019 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/dynamic-graph-cnn/</guid>
+    <description><![CDATA[Introduction Point clouds are a collection of data points in space, usually produced by a 3D scanner. A large number of points are measured on the external surfaces of the objects and then represented as point clouds. Along with the relative 3D coordinates, point clouds can be accompanied by other pertaining features i.e. RGB or intensity. Point clouds are not the only representation of 3D space, voxel and mesh polygon are some other popular representations.]]></description>
+</item>
+<item>
+    <title>Attention Is All You Need: The Transformer</title>
+    <link>https://sayef.github.io/post/attention-is-all-you-need/</link>
+    <pubDate>Wed, 12 Jun 2019 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/attention-is-all-you-need/</guid>
+    <description><![CDATA[Introduction The advent of deep learning over the past few years has opened a lot of possibilities regarding neural machine translation (NMT). Attention is all you need, also known as Transformer [1], has become the state-of-the-art in NMT, surpassing tradition recurrent neural network (RNN) based encoder-decoder architecture. A bunch of new architectures is now being built based on the transformer. I will discuss how NMT has evolved throughout the last couple of years, from the traditional RNN to the Transformer.]]></description>
+</item>
+</channel>
+</rss>

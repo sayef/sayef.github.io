@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Database Interview Questions - Sayef&#39;s Tech Blog</title><meta name="Description" content="Database Interview Questions"><meta property="og:title" content="Database Interview Questions" />
+<meta property="og:description" content="Database Interview Questions" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sayef.github.io/post/database-interview-questions/" /><meta property="og:image" content="https://sayef.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-07-15T04:15:37+08:00" />
+<meta property="article:modified_time" content="2018-07-15T04:15:37+08:00" /><meta property="og:site_name" content="Sayef&#39;s Tech Blog" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sayef.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Database Interview Questions"/>
+<meta name="twitter:description" content="Database Interview Questions"/>
+<meta name="application-name" content="Sayef&#39;s Tech Blog">
+<meta name="apple-mobile-web-app-title" content="Sayef&#39;s Tech Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://sayef.github.io/post/database-interview-questions/" /><link rel="prev" href="https://sayef.github.io/post/design-pattern-interview-questions/" /><link rel="next" href="https://sayef.github.io/post/data-structure-questions/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Database Interview Questions",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/sayef.github.io\/post\/database-interview-questions\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/sayef.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "interview, database","wordcount":  2372 ,
+        "url": "https:\/\/sayef.github.io\/post\/database-interview-questions\/","datePublished": "2018-07-15T04:15:37+08:00","dateModified": "2018-07-15T04:15:37+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/sayef.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Sayef"
+            },"description": "Database Interview Questions"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Sayef&#39;s Tech Blog"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/sayef" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Sayef&#39;s Tech Blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/sayef" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Database Interview Questions</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://sayef.tech" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Sayef</a></span>&nbsp;<span class="post-category">included in <a href="/categories/interview/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Interview</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2018-07-15">2018-07-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2372 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;12 minutes&nbsp;<span id="/post/database-interview-questions/" class="leancloud_visitors" data-flag-title="Database Interview Questions">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-what-is-database-or-database-management-systems-dbms-and--whats-the-difference-between-file-and-database-can-files-qualify-as-a-database">1. What is database or database management systems (DBMS)? and – What’s the difference between file and database? Can files qualify as a database?</a></li>
+    <li><a href="#2-what-is-sql-">2. What is SQL ?</a></li>
+    <li><a href="#3-what-is-difference-between-dbms-and-rdbms-">3. What is difference between DBMS and RDBMS ?</a></li>
+    <li><a href="#5-what-are-e-r-diagrams">5. What are E-R diagrams?</a></li>
+    <li><a href="#6-how-many-types-of-relationship-exist-in-database-designing">6. How many types of relationship exist in database designing?</a></li>
+    <li><a href="#7-what-are-dml-and-ddl-statements">7. What are DML and DDL statements?</a></li>
+    <li><a href="#8-how-do-we-select-distinct-values-from-a-table">8. How do we select distinct values from a table?</a></li>
+    <li><a href="#9-what-is-like-operator-for-and-what-are-wild-cards">9. What is Like operator for and what are wild cards?</a></li>
+    <li><a href="#10-can-you-explain-insert-update-and-delete-query">10. Can you explain Insert, Update and Delete query?</a></li>
+    <li><a href="#11-what-is-order-by-clause">11. What is order by clause?</a></li>
+    <li><a href="#12-what-is-the-sql--in--clause">12. What is the SQL ” IN ” clause?</a></li>
+    <li><a href="#13-can-you-explain-the-between-clause">13. Can you explain the between clause?</a></li>
+    <li><a href="#14-we-have-an-employee-salary-table-how-do-we-find-the-second-highest-from-it">14. we have an employee salary table how do we find the second highest from it?</a></li>
+    <li><a href="#15-what-are-different-types-of-joins-in-sql">15 What are different types of joins in SQL?</a></li>
+    <li><a href="#16-what-is-cross-join-or-what-is-cartesian-product">16. What is “CROSS JOIN”? or What is Cartesian product?</a></li>
+    <li><a href="#17-how-to-select-the-first-record-in-a-given-set-of-rows">17. How to select the first record in a given set of rows?</a></li>
+    <li><a href="#18-what-is-the-default--sort--order-for-a-sql">18. What is the default “-SORT ” order for a SQL?</a></li>
+    <li><a href="#19what-is-a-self-join">19.What is a self-join?</a></li>
+    <li><a href="#20-ats-the-difference-between-delete-and-truncate-">20. at’s the difference between DELETE and TRUNCATE ?</a></li>
+    <li><a href="#21-whats-the-difference-between-union-and-union-all-">21. What’s the difference between “UNION” and “UNION ALL” ?</a></li>
+    <li><a href="#22-what-is-group-by-clause">22. What is &ldquo;Group by&rdquo; clause?</a></li>
+    <li><a href="#23-what-is-the-difference-between-having-and-where-clause">23. What is the difference between “HAVING” and “WHERE” clause?</a></li>
+    <li><a href="#24-what-is-a-sub-query">24. What is a Sub-Query?</a></li>
+    <li><a href="#25-what-are-aggregate-and-scalar-functions">25. What are Aggregate and Scalar Functions?</a></li>
+    <li><a href="#26-can-you-explain-the-select-into-statement">26. Can you explain the SELECT INTO Statement?</a></li>
+    <li><a href="#27-what-is-a-view">27. What is a View?</a></li>
+    <li><a href="#28-what-is-sql-injection-">28. What is SQL injection ?</a></li>
+    <li><a href="#29-what-is-data-warehousing-">29. What is Data Warehousing ?</a></li>
+    <li><a href="#30-what-are-data-marts">30. What are Data Marts?</a></li>
+    <li><a href="#31-what-is-data-mining-">31. What is Data mining ?</a></li>
+    <li><a href="#32-what-are-indexes-what-are-b-trees">32. What are indexes? What are B Trees?</a></li>
+    <li><a href="#33-what-are-the-two-types-of-indexes-and-explain-them-in-detail-or-whats-the-difference-between-clustered-and-non-clustered-indexes">33. What are the two types of indexes and explain them in detail? or What’s the difference between clustered and non-clustered indexes?</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="1-what-is-database-or-database-management-systems-dbms-and--whats-the-difference-between-file-and-database-can-files-qualify-as-a-database">1. What is database or database management systems (DBMS)? and – What’s the difference between file and database? Can files qualify as a database?</h2>
+<p>Database provides a systematic and organized way of storing, managing and retrieving from 1 collection of logically related information.</p>
+<p>Secondly the information has to be persistent, that means even after the application is closed the information should be persisted.</p>
+<p>Finally it should provide an independent way of accessing data and should not be dependent on the application to access the information.</p>
+<p>Main difference between a simple file and database that database has independent way (SQL) of accessing information while simple files do not File meets the storing, managing and retrieving part of a database but not the independent way of accessing data. Many experienced programmers think that the main difference is that file can not provide multi-user capabilities which a DBMS provides. But if we look at some old COBOL and C programs where file where the only means of storing data, we can see functionalities like locking, multi-user etc provided very efficiently. So it’s a matter of debate if some interviewers think this as a main difference between files and database accept it… going in to debate is probably loosing a job.</p>
+<h2 id="2-what-is-sql-">2. What is SQL ?</h2>
+<p>SQL stands for Structured Query Language.SQL is an ANSI (American National Standards Institute) standard computer language for accessing and manipulating database systems. SQL statements are used to retrieve and update data in a database.</p>
+<h2 id="3-what-is-difference-between-dbms-and-rdbms-">3. What is difference between DBMS and RDBMS ?</h2>
+<p>DBMS provides a systematic and organized way of storing, managing and retrieving from collection of logically related information. RDBMS also provides what DBMS provides but above that it provides relationship integrity. So in short we can say</p>
+<p>RDBMS = DBMS + REFERENTIAL INTEGRITY</p>
+<p>These relations are defined by using “Foreign Keys” in any RDBMS.Many DBMS companies claimed there DBMS product was a RDBMS compliant, but according to industry rules and regulations if the DBMS fulfills the twelve CODD rules it’s truly a RDBMS. Almost all DBMS (SQL SERVER, ORACLE etc) fulfills all the twelve CODD rules and are considered as truly RDBMS.</p>
+<h2 id="5-what-are-e-r-diagrams">5. What are E-R diagrams?</h2>
+<p>E-R diagram also termed as Entity-Relationship diagram shows relationship between various tables in the database. .</p>
+<h2 id="6-how-many-types-of-relationship-exist-in-database-designing">6. How many types of relationship exist in database designing?</h2>
+<p>There are three major relationship models:-</p>
+<ul>
+<li>One-to-one</li>
+<li>One-to-many</li>
+<li>Many-to-many</li>
+</ul>
+<h2 id="7-what-are-dml-and-ddl-statements">7. What are DML and DDL statements?</h2>
+<p>DML stands for Data Manipulation Statements. They update data values in table. Below are the most important DDL statements:-</p>
+<p>=&gt; SELECT – gets data from a database table</p>
+<p>=&gt; UPDATE – updates data in a table</p>
+<p>=&gt; DELETE – deletes data from a database table</p>
+<p>=&gt; INSERT INTO – inserts new data into a database table</p>
+<p>DDL stands for Data definition Language. They change structure of the database objects like table, index etc. Most important DDL statements are as shown below:-</p>
+<p>=&gt; CREATE TABLE – creates a new table in the database.</p>
+<p>=&gt; ALTER TABLE – changes table structure in database. =&gt;DROP TABLE – deletes a table from database</p>
+<p>=&gt; CREATE INDEX – creates an index =&gt; DROP INDEX – deletes an index</p>
+<h2 id="8-how-do-we-select-distinct-values-from-a-table">8. How do we select distinct values from a table?</h2>
+<p>DISTINCT keyword is used to return only distinct values. Below is syntax:- Column age and Table pcdsEmp</p>
+<p><code>SELECT DISTINCT age FROM pcdsEmp</code></p>
+<h2 id="9-what-is-like-operator-for-and-what-are-wild-cards">9. What is Like operator for and what are wild cards?</h2>
+<p>LIKE operator is used to match patterns. A “%” sign is used to define the pattern. Below SQL statement will return all words with letter “S”</p>
+<p><code>SELECT * FROM pcdsEmployee WHERE EmpName LIKE ‘S%’</code></p>
+<p>Below SQL statement will return all words which end with letter “S”</p>
+<p><code>SELECT * FROM pcdsEmployee WHERE EmpName LIKE ‘%S’</code></p>
+<p>Below SQL statement will return all words having letter “S” in between</p>
+<p><code>SELECT * FROM pcdsEmployee WHERE EmpName LIKE ‘%S%’</code></p>
+<p>“<em>” operator (we can read as “Underscore Operator”). “</em>” operator is the character defined at that point. In the below sample fired a query Select name from pcdsEmployee where name like ‘_s%’ So all name where second letter is “s” is returned.</p>
+<h2 id="10-can-you-explain-insert-update-and-delete-query">10. Can you explain Insert, Update and Delete query?</h2>
+<p>Insert statement is used to insert new rows in to table. Update to update existing data in the table. Delete statement to delete a record from the table. Below code snippet for Insert, Update and Delete :-</p>
+<p><code>INSERT INTO pcdsEmployee SET name=’rohit’,age=’24’;</code></p>
+<p><code>UPDATE pcdsEmployee SET age=’25’ where name=’rohit’;</code></p>
+<p><code>DELETE FROM pcdsEmployee WHERE name = ‘sonia’;</code></p>
+<h2 id="11-what-is-order-by-clause">11. What is order by clause?</h2>
+<p>ORDER BY clause helps to sort the data in either ascending order to descending order.</p>
+<p>Ascending order sort query: <code>SELECT name,age FROM pcdsEmployee ORDER BY age ASC</code></p>
+<p>Descending order sort query: <code>SELECT name FROM pcdsEmployee ORDER BY age DESC</code></p>
+<h2 id="12-what-is-the-sql--in--clause">12. What is the SQL ” IN ” clause?</h2>
+<p>SQL IN operator is used to see if the value exists in a group of values. For instance the below SQL checks if the Name is either ‘rohit’ or ‘Anuradha’</p>
+<p><code>SELECT * FROM pcdsEmployee WHERE name IN (‘Rohit’,’Anuradha’)</code></p>
+<p>Also you can specify a not clause with the same.</p>
+<p><code>SELECT * FROM pcdsEmployee WHERE age NOT IN (17,16)</code></p>
+<h2 id="13-can-you-explain-the-between-clause">13. Can you explain the between clause?</h2>
+<p>Below SQL selects employees born between ’01/01/1975′ AND ’01/01/1978′ as per mysql</p>
+<p><code>SELECT * FROM pcdsEmployee WHERE DOB BETWEEN ‘1975-01-01’ AND ‘2011-09-28’</code></p>
+<h2 id="14-we-have-an-employee-salary-table-how-do-we-find-the-second-highest-from-it">14. we have an employee salary table how do we find the second highest from it?</h2>
+<p>Below Sql Query find the second highest salary&quot;</p>
+<p><code>SELECT * FROM pcdsEmployeeSalary a WHERE (2=(SELECT COUNT(DISTINCT(b.salary)) FROM pcdsEmployeeSalary b WHERE b.salary&gt;=a.salary))</code></p>
+<h2 id="15-what-are-different-types-of-joins-in-sql">15 What are different types of joins in SQL?</h2>
+<p>INNER JOIN: Inner join shows matches only when they exist in both tables. Example in the below SQL there are two tables Customers and Orders and the inner join in made on Customers.Customerid and Orders.Customerid. So this SQL will only give you result with customers who have orders. If the customer does not have order it will not display that record.</p>
+<p><code>SELECT Customers.*, Orders.* FROM Customers INNER JOIN Orders ON Customers.CustomerID =Orders.CustomerID</code></p>
+<p>LEFT OUTER JOIN: Left join will display all records in left table of the SQL statement. In SQL below customers with or without orders will be displayed. Order data for customers without orders appears as NULL values. For example, you want to determine the amount ordered by each customer and you need to see who has not ordered anything as well. You can also see the LEFT OUTER JOIN as a mirror image of the RIGHT OUTER JOIN (Is covered in the next section) if you switch the side of each table.</p>
+<p><code>SELECT Customers.*, Orders.* FROM Customers LEFT OUTER JOIN Orders ON Customers.CustomerID =Orders.CustomerID</code></p>
+<p>RIGHT OUTER JOIN: Right join will display all records in right table of the SQL statement. In SQL below all orders with or without matching customer records will be displayed. Customer data for orders without customers appears as NULL values. For example, you want to determine if there are any orders in the data with undefined CustomerID values (say, after a conversion or something like it). You can also see the RIGHT OUTER JOIN as a mirror image of the LEFT OUTER JOIN if you switch the side of each table.</p>
+<p><code>SELECT Customers.*, Orders.* FROM Customers RIGHT OUTER JOIN Orders ON Customers.CustomerID =Orders.CustomerID</code></p>
+<h2 id="16-what-is-cross-join-or-what-is-cartesian-product">16. What is “CROSS JOIN”? or What is Cartesian product?</h2>
+<p>“CROSS JOIN” or “CARTESIAN PRODUCT” combines all rows from both tables. Number of rows will be product of the number of rows in each table. In real life scenario I can not imagine where we will want to use a Cartesian product. But there are scenarios where we would like permutation and combination probably Cartesian would be the easiest way to achieve it.</p>
+<h2 id="17-how-to-select-the-first-record-in-a-given-set-of-rows">17. How to select the first record in a given set of rows?</h2>
+<p><code>SELECT TOP 1 * FROM sales.salesperson</code></p>
+<h2 id="18-what-is-the-default--sort--order-for-a-sql">18. What is the default “-SORT ” order for a SQL?</h2>
+<p>ASCENDING</p>
+<h2 id="19what-is-a-self-join">19.What is a self-join?</h2>
+<p>If we want to join two instances of the same table we can use self-join.</p>
+<h2 id="20-ats-the-difference-between-delete-and-truncate-">20. at’s the difference between DELETE and TRUNCATE ?</h2>
+<p>Following are difference between them:</p>
+<p>=&gt; DELETE table syntax logs the deletes thus making the delete operations low. TRUNCATE table does not log any information but it logs information about deallocation of data page of the table. So TRUNCATE table is faster as compared to delete table.</p>
+<p>=&gt; DELETE table can have criteria while TRUNCATE can not.</p>
+<p>=&gt; TRUNCATE table can not have triggers.</p>
+<h2 id="21-whats-the-difference-between-union-and-union-all-">21. What’s the difference between “UNION” and “UNION ALL” ?</h2>
+<p>SQL syntax is used to select information from two tables. But it selects only distinct records from both the table. , while UNION ALL selects all records from both the tables.</p>
+<h2 id="22-what-is-group-by-clause">22. What is &ldquo;Group by&rdquo; clause?</h2>
+<p>&ldquo;Group by&rdquo; clause group similar data so that aggregate values can be derived.</p>
+<h2 id="23-what-is-the-difference-between-having-and-where-clause">23. What is the difference between “HAVING” and “WHERE” clause?</h2>
+<p>“HAVING” clause is used to specify filtering criteria for “GROUP BY”, while “WHERE” clause applies on normal SQL.</p>
+<h2 id="24-what-is-a-sub-query">24. What is a Sub-Query?</h2>
+<p>A query nested inside a SELECT statement is known as a subquery and is an alternative to complex join statements. A subquery combines data from multiple tables and returns results that are inserted into the WHERE condition of the main query. A subquery is always enclosed within parentheses and returns a column. A subquery can also be referred to as an inner query and the main query as an outer query. JOIN gives better performance than a subquery when you have to check for the existence of records.</p>
+<p>For example, to retrieve all EmployeeID and CustomerID records from the ORDERS table that have the EmployeeID greater than the average of the EmployeeID field, you can create a nested query, as shown:</p>
+<p><code>SELECT DISTINCT EmployeeID, CustomerID FROM ORDERS WHERE EmployeeID &gt; (SELECT AVG(EmployeeID) FROM ORDERS)</code></p>
+<h2 id="25-what-are-aggregate-and-scalar-functions">25. What are Aggregate and Scalar Functions?</h2>
+<p>Aggregate and Scalar functions are in built function for counting and calculations. Aggregate functions operate against a group of values but returns only one value.</p>
+<p>AVG(column) : Returns the average value of a column
+COUNT(column) : Returns the number of rows (without a NULL value) of a column
+COUNT(*) : Returns the number of selected rows
+MAX(column) : Returns the highest value of a column
+MIN(column) : Returns the lowest value of a column</p>
+<p>Scalar functions operate against a single value and return value on basis of the single value.</p>
+<p>UCASE(c) : Converts a field to upper case
+LCASE(c) : Converts a field to lower case
+MID(c,start[,end]) : Extract characters from a text field
+LEN(c) : Returns the length of a text</p>
+<h2 id="26-can-you-explain-the-select-into-statement">26. Can you explain the SELECT INTO Statement?</h2>
+<p>SELECT INTO statement is used mostly to create backups. The below SQL backsup the Employee table in to the EmployeeBackUp table. One point to be noted is that the structure of pcdsEmployeeBackup and pcdsEmployee table should be same.</p>
+<p><code>SELECT * INTO pcdsEmployeeBackup FROM pcdsEmployee</code></p>
+<h2 id="27-what-is-a-view">27. What is a View?</h2>
+<p>View is a virtual table which is created on the basis of the result set returned by the select statement.
+<code>CREATE VIEW [MyView] AS SELECT * from pcdsEmployee where LastName = ‘singh’</code></p>
+<p>In order to query the view <code>SELECT * FROM [MyView]</code></p>
+<h2 id="28-what-is-sql-injection-">28. What is SQL injection ?</h2>
+<p>It is a form of attack on a database-driven Web site in which the attacker executes unauthorized SQL commands by taking advantage of insecure code on a system connected to the Internet, bypassing the firewall. SQL injection attacks are used to steal information from a database from which the data would normally not be available and/or to gain access to an organization’s host computers through the computer that is hosting the database.</p>
+<p>SQL injection attacks typically are easy to avoid by ensuring that a system has strong input validation.
+As name suggest we inject SQL which can be relatively dangerous for the database. Example this is a simple SQL</p>
+<p><code>SELECT email, passwd, login_id, full_name FROM members WHERE email = ‘x’</code></p>
+<p>Now somebody does not put “x” as the input but puts “x ; DROP TABLE members;”. So the actual SQL which will execute is :-</p>
+<p><code>SELECT email, passwd, login_id, full_name FROM members WHERE email = ‘x’ ; DROP TABLE members;</code>
+Think what will happen to your database.</p>
+<h2 id="29-what-is-data-warehousing-">29. What is Data Warehousing ?</h2>
+<p>Data Warehousing is a process in which the data is stored and accessed from central location and is meant to support some strategic decisions. Data Warehousing is not a requirement for Data mining. But just makes your Data mining process more efficient.</p>
+<p>Data warehouse is a collection of integrated, subject-oriented databases designed to support the decision-support functions (DSF), where each unit of data is relevant to some moment in time.</p>
+<h2 id="30-what-are-data-marts">30. What are Data Marts?</h2>
+<p>Data Marts are smaller section of Data Warehouses. They help data warehouses collect data. For example your company has lot of branches which are spanned across the globe. Head-office of the company decides to collect data from all these branches for anticipating market. So to achieve this IT department can setup data mart in all branch offices and a central data warehouse where all data will finally reside.</p>
+<h2 id="31-what-is-data-mining-">31. What is Data mining ?</h2>
+<p>Data mining is a concept by which we can analyze the current data from different perspectives and summarize the information in more useful manner. It’s mostly used either to derive some valuable information from the existing data or to predict sales to increase customer market. There are two basic aims of Data mining:-</p>
+<h2 id="32-what-are-indexes-what-are-b-trees">32. What are indexes? What are B Trees?</h2>
+<p>Index makes your search faster. So defining indexes to your database will make your search faster.Most of the indexing fundamentals use “B-Tree” or “Balanced-Tree” principle. It’s not a principle that is something is created by SQL Server or ORACLE but is a mathematical derived fundamental.In order that “B-tree” fundamental work properly both of the sides should be balanced.</p>
+<h2 id="33-what-are-the-two-types-of-indexes-and-explain-them-in-detail-or-whats-the-difference-between-clustered-and-non-clustered-indexes">33. What are the two types of indexes and explain them in detail? or What’s the difference between clustered and non-clustered indexes?</h2>
+<p>There are basically two types of indexes:- Clustered Indexes. Non-Clustered Indexes.</p>
+<p>In clustered index the non-leaf level actually points to the actual data.In Non-Clustered index the leaf nodes point to pointers which then point to actual data.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2018-07-15</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/post/database-interview-questions/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://sayef.github.io/post/database-interview-questions/" data-title="Database Interview Questions" data-via="imsayef" data-hashtags="interview,database"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://sayef.github.io/post/database-interview-questions/" data-hashtag="interview"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://sayef.github.io/post/database-interview-questions/" data-title="Database Interview Questions"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://sayef.github.io/post/database-interview-questions/" data-title="Database Interview Questions"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://sayef.github.io/post/database-interview-questions/" data-title="Database Interview Questions"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/interview/">interview</a>,&nbsp;<a href="/tags/database/">database</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/post/design-pattern-interview-questions/" class="prev" rel="prev" title="Design Patterns Interview Question Answers"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Design Patterns Interview Question Answers</a>
+            <a href="/post/data-structure-questions/" class="next" rel="next" title="Data Structure Interview Question Answers">Data Structure Interview Question Answers<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="sayef.tech" target="_blank">Sayef</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"en","pageSize":10,"placeholder":"Your comment ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"data":{"id-1":"ⓢⓐⓨⓔⓕ'𝓼 𝓽𝓮𝓬𝓱 𝓫𝓵𝓸𝓰","id-2":"ⓢⓐⓨⓔⓕ'𝓼 𝓽𝓮𝓬𝓱 𝓫𝓵𝓸𝓰"},"lightgallery":true,"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Attention Is All You Need: The Transformer - Sayef&#39;s Tech Blog</title><meta name="Description" content="Attention Is All You Need: The Transformer"><meta property="og:title" content="Attention Is All You Need: The Transformer" />
+<meta property="og:description" content="Attention Is All You Need: The Transformer" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sayef.github.io/post/attention-is-all-you-need/" /><meta property="og:image" content="https://sayef.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-06-12T04:15:37+08:00" />
+<meta property="article:modified_time" content="2019-06-12T04:15:37+08:00" /><meta property="og:site_name" content="Sayef&#39;s Tech Blog" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sayef.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Attention Is All You Need: The Transformer"/>
+<meta name="twitter:description" content="Attention Is All You Need: The Transformer"/>
+<meta name="application-name" content="Sayef&#39;s Tech Blog">
+<meta name="apple-mobile-web-app-title" content="Sayef&#39;s Tech Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://sayef.github.io/post/attention-is-all-you-need/" /><link rel="prev" href="https://sayef.github.io/post/time-series-analysis-in-python-inroduction-to-arima/" /><link rel="next" href="https://sayef.github.io/post/eda-on-wine-quality-dataset/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Attention Is All You Need: The Transformer",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/sayef.github.io\/post\/attention-is-all-you-need\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/sayef.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "deep-learning, ai, transformer","wordcount":  2826 ,
+        "url": "https:\/\/sayef.github.io\/post\/attention-is-all-you-need\/","datePublished": "2019-06-12T04:15:37+08:00","dateModified": "2019-06-12T04:15:37+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/sayef.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Sayef"
+            },"description": "Attention Is All You Need: The Transformer"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Sayef&#39;s Tech Blog"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/sayef" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Sayef&#39;s Tech Blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/sayef" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Attention Is All You Need: The Transformer</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://sayef.tech" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Sayef</a></span>&nbsp;<span class="post-category">included in <a href="/categories/ai/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>AI</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2019-06-12">2019-06-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2826 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;14 minutes&nbsp;<span id="/post/attention-is-all-you-need/" class="leancloud_visitors" data-flag-title="Attention Is All You Need: The Transformer">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#deep-learning">Deep Learning</a></li>
+    <li><a href="#natural-language-process-nlp">Natural Language Process (NLP)</a></li>
+    <li><a href="#machine-translation">Machine Translation</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#recurrent-neural-networks-in-nmt">Recurrent Neural Networks in NMT</a></li>
+    <li><a href="#gated-rnns-in-nmt">Gated RNNs in NMT</a></li>
+    <li><a href="#convolutional-neural-networks-in-nmt">Convolutional Neural Networks in NMT</a></li>
+    <li><a href="#attention-based-rnns-in-nmt">Attention-based RNNS in NMT</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#model-architecture">Model Architecture</a>
+      <ul>
+        <li><a href="#encoder">Encoder</a></li>
+        <li><a href="#decoder">Decoder</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="introduction">Introduction</h1>
+<p>The advent of deep learning over the past few years has opened a lot of possibilities regarding neural machine translation (NMT). <strong>Attention is all you</strong> <strong>need</strong>, also known as <strong>Transformer</strong> [1], has become the state-of-the-art in NMT, surpassing tradition recurrent neural network (RNN) based encoder-decoder architecture. A bunch of new architectures is now being built based on the transformer. I will discuss how NMT has evolved throughout the last couple of years, from the traditional RNN to the Transformer.</p>
+<h1 id="terminology">Terminology</h1>
+<p>Before describing, how NMT has evolved through different phase shifts, I want to briefly define the terminologies which have been used throughout this article.</p>
+<h2 id="deep-learning">Deep Learning</h2>
+<p>Deep learning is a sub-field of machine learning which is inspired by the structure and functions of the human brain. Typically, it has some inputs, outputs, and several hidden layers to perceive, process and deliver accordingly. In other words, deep learning is nothing but a group neural network algorithms which can imitate human learning style to some extent i.e. understanding patterns, recognize different persons, objects etc. Instead of neural electric signals, it uses numerical data converted from images, videos, texts, etc from the real world.</p>
+<p>We can visualize how data is pipe-lined through such architecture from figure 1.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119353061.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119353061.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119353061.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119353061.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119353061.png"
+        title="img" /></p>
+<h2 id="natural-language-process-nlp">Natural Language Process (NLP)</h2>
+<p>Language that we, as human, speak and write as our natural way of communication is called natural language, and when a computer, as a machine, needs that language to be interpreted for accomplishing any task, it processes the language for its own understanding and analysis employing algorithms, then we call such processing as natural language processing.</p>
+<p>NLP tasks mostly comprise of two major things, natural language understanding, and natural language generation. Speech recognition, topic modeling, sentiment analysis, translating human speech or writing from one language to another, and generating or imitating Shakespeare’s novel are few of the tasks
+that NLP has been dealing with.</p>
+<p>In figure 2, we can see a usage of natural language processing where the machine is trying to extract the user’s intention and important entities from the text.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119481271.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119481271.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119481271.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119481271.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119481271.png"
+        title="img" /></p>
+<h2 id="machine-translation">Machine Translation</h2>
+<p>Using natural language processing, nowadays the computer is able to translate text or speech from a source language (i.e. German) to a target language (i.e. English). Automatic translation by machine is called machine translation (MT).</p>
+<p>We always expect the translated speech to be retained completely the same meaning as conveyed in the source language. As we all know, translating word by word, mostly doesn&rsquo;t make any sense. Each language has its own grammar style.</p>
+<p>Moreover, people from a particular language don’t always maintain grammar, they can understand their aberrant use of language based on context only. So, the translator, whoever it is, either human or machine, needs to interpret and analyze all of the surrounding and the usage pattern of those words in different contexts along with expertise in grammar, syntax, semantics of the languages involved in translation. Machine translation algorithms can be categorized into two major systems: rule-based machine translation (RBMT) and Statistical machine translation (SMT).</p>
+<p>RBMT systems are formed on massive dictionaries and complex linguistic rules. Using these complex rule sets, it transfers the grammatical structure of the source language into the target language.</p>
+<p>On the other hand, SMT is built on the analysis of statistical translation models generated from monolingual and bilingual training data. Basically, this system completely relies on the data supplied to its algorithm for learning or generating the complex rules for its model.</p>
+<p>Since SMT algorithms take much less time than RBMT and can imitate the pattern of training data to generate target output, SMT technology is the clear winner in the area of machine translation.</p>
+<p><strong>Neural Machine Translation</strong> Algorithms based on neural network, that learn a statistical model for machine translation is called neural machine translation (NMT). The pipeline of specialized systems used in statistical translation is no more needed in NMT. “Unlike the traditional phrase-based translation system which consists of many small sub-components that are tuned separately, neural machine translation attempts to build and train a single, large neural network that reads a sentence and outputs a correct translation” [4]. As such, NMT systems are called end-to-end modeling for machine translation.</p>
+<p><strong>Deep Neural Machine Translation</strong> It is an addition of Neural Machine Translation. Unlike the traditional NMT, deep NMT processes multiple neural network layers instead of just one. As a result, we experienced the best machine translation quality ever produced before it.</p>
+<p>Figure 3 shows how Google Translate [5] is helping people translate text from one language to another.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119717161.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119717161.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119717161.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119717161.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119717161.png"
+        title="img" /></p>
+<h1 id="deep-learning-in-machine-translation">Deep Learning in Machine Translation</h1>
+<p>In this section, I would like to discuss how machine translation evolved from the very beginning of deep learning until Transformer takes place and gains superiority among all of those algorithms.</p>
+<h2 id="recurrent-neural-networks-in-nmt">Recurrent Neural Networks in NMT</h2>
+<p>Recurrent Neural Networks (RNNs) are popular models that have exhibited excellent promise in numerous NLP tasks. Mostly RNNs are used in sequential data i.e. text, audio, signals etc. So, the idea behind RNNs is to make use of sequential information.</p>
+<p>In a conventional neural network, each input is independent of other inputs. But, tasks involving sequential dependency cannot be solved assuming such independence. For example, If we want to predict the next word in a sentence, we better know which words came before it. Being said that, there comes the concept of recurrent neural networks where are they perform the same task for every element of a sequence, with the output being dependent on the previous computations or outputs.</p>
+<p>In other words, RNNs have “memory” cells which gain information about what has been seen so far. Theoretically, RNNs can make use of information in arbitrarily long sequences, but in practice, they are limited to looking back only a few steps because of time and memory limitations. Figure 4 shows a typical
+RNN architecture.</p>
+<p>In terms of machine translation, more often we need to process long-term information which has to sequentially travel through all cells before getting to the present processing cell. This means it can be easily corrupted by being multiplied so many times by small numbers. This is the cause of vanishing gradients.</p>
+<p>RNNs have difficulties learning long-range dependencies and interactions between words that are several steps apart. That’s problematic because the meaning of an English sentence is often determined by words that aren&rsquo;t very close: “The man who wore a wig on his head went inside”. The sentence is really about a man going inside, not about the wig. But it’s unlikely that a plain RNN would be able to capture such information.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119869875.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119869875.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119869875.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119869875.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119869875.png"
+        title="img" /></p>
+<h2 id="gated-rnns-in-nmt">Gated RNNs in NMT</h2>
+<p>Gated recurrent networks such as those composed of Long Short-Term Memory (LSTM) nodes are other improved versions of RNNs which have been called state-of-the-art in many supervised sequential processing tasks such as speech recognition and machine translation for quite a long time until the other advanced versions have taken place.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119923053.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119923053.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119923053.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119923053.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119923053.png"
+        title="img" /></p>
+<p>As we already know, one major shortcoming of RNNs is not being efficient to maintain contexts for longer time sequences. The memory cell of an RNN is updated at each time step with new feedforward inputs. This means that the network does not have control of what and how much context to maintain over
+time. Another reason behind this problem is that when RNNs are trained with backpropagation through time, they are not able to properly assign gradients to previous time steps due to squashing non-linearities. This is called the vanishing gradient problem.</p>
+<p>LSTMs were designed to overcome the vanishing gradient problem by controlling gradient flow using extra control logic and by providing extra linear path-ways to transfer gradient without squashing. [9]</p>
+<p>Gated Recurrent Unit (GRU) is another kind of approach having the same goal of tracking long-term dependencies effectively while mitigating the vanishing/exploding gradient problems. Figures 5 and 6 show basic LSTM and GRU units respectively.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119983859.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119983859.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119983859.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119983859.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560119983859.png"
+        title="img" /></p>
+<p>These kinds of approaches have contributed a lot in the area of sequence encoding and helped improving vanishing gradient problem as well as uncertainty about remembering long term dependencies to some extent. These approaches do better when the source and target language maintain almost similar word order. On the other hand, gated neural networks still prohibit parallelization.</p>
+<p>Long-range dependency issue is not completely solved for long texts. Since these approaches use an encoder-decoder architecture in which target sequence is generated only from the last encoded vector.</p>
+<h2 id="convolutional-neural-networks-in-nmt">Convolutional Neural Networks in NMT</h2>
+<p>Convolutional Neural Networks (CNNs) can solve some of the problems that were not resolved. Layer-wise parallelization is possible due to CNN’s trivial architecture [11]. Each source word can be processed at the same time and does not necessarily depend on the previous words to be translated. In addition to that the algorithm for capturing these dependencies scales in O(n/k) instead of O(n) due to the hierarchical structure. Figure 7 shows how WaveNet is structured.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120062403.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120062403.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120062403.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120062403.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120062403.png"
+        title="img" /></p>
+<p>On the contrary, CNNs needs left-padding for texts. The complexity of O(n) for ConvS2S and O(nlogn) for ByteNet makes it harder to learn dependencies on distant positions.</p>
+<h2 id="attention-based-rnns-in-nmt">Attention-based RNNS in NMT</h2>
+<p>The attention mechanism was born to help memorize long source sentences in NMT [4]. Rather than building a single context vector out of the encoder’s last hidden state, the secret sauce invented by attention is to create shortcuts between the context vector and the entire source input. The weights of these shortcut connections are customizable for each output element.</p>
+<p>While the context vector has access to the entire input sequence, we don’t need to worry about forgetting. The alignment between the source and target is learned and controlled by the context vector. Decoder attends to different parts of the source sequence at each step of the output generation. Each decoder output depends on a weighted combination of all the input states, not just the last state. And thus, the decoder knows whom to attend more than others (i.e “la Syrie” to “Syria” in figure 8). Figure 8 shows alignment matrix of source and corresponding target sentence.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120148585.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120148585.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120148585.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120148585.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120148585.png"
+        title="img" /></p>
+<p>Attention comes at a cost, we need to calculate an attention value for each combination of input and output word i.e 50 words input sentence would take 2500 attention values to be calculated. Character level computations and dealing with other sequence modeling tasks would be expensive. Counter-intuitive compare to the human attention analogy. It scans all possible details before deciding which is memory intensive and also computationally expensive.</p>
+<h1 id="transformer">Transformer</h1>
+<p>The transformer reduces the number of sequential operations using a multi-head attention mechanism. It also eliminates the recurrence/convolution completely with attention and totally relied on self-attention based auto-regressive encoder-decoder, i.e. uses previously generated symbols as extra input while generating
+next symbol -</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120257793.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120257793.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120257793.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120257793.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120257793.png"
+        title="img" /></p>
+<h2 id="model-architecture">Model Architecture</h2>
+<p>We can divide the model into two sub-models, namely encoder, and decoder. Figure 9 shows the model architecture of the Transformer.</p>
+<h3 id="encoder">Encoder</h3>
+<ol>
+<li>The encoder is composed of a stack of N= 6 identical layers.</li>
+<li>Each layer has two sub-layers. The first is a multi-head self-attention mechanism, and the second is a simple, position-wise fully connected feed-forward network.</li>
+<li>There is a residual connection around each of the two sub-layers, followed by layer normalization. That is, the output of each sub-layer <em>isLayerNorm(x+Sublayer(x))</em>, where <em>Sublayer(x)</em> is the function implemented by the sublayer itself.</li>
+<li>To facilitate these residual connections, all sub-layers in the model, as well as the embedding layers, produce outputs of dimension <code>$d_{model}$</code>= 512.</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120536027.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120536027.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120536027.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120536027.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120536027.png"
+        title="img" /></p>
+<h3 id="decoder">Decoder</h3>
+<ol>
+<li>The decoder is also composed of a stack of N= 6 identical layers.</li>
+<li>In addition to the two sub-layers in each encoder layer, the decoder inserts a third sub-layer, which performs multi-head attention over the output of the encoder stack.</li>
+<li>Similar to the encoder, there are residual connections around each of the sub-layers, followed by layer normalization.</li>
+<li>The self-attention sub-layer is modified in the decoder stack to prevent positions from attending to subsequent positions.</li>
+<li>This masking, combined with fact that the output embeddings are offset by one position, ensures that the predictions for the position <em>i</em> can depend only on the known outputs at positions less than <em>i</em>.</li>
+</ol>
+<p><strong>Self-attention</strong>: Self-attention, also known as intra-attention, is an attention mechanism relating different positions of a single sequence in order to compute a representation of the same sequence. It has been shown to be very useful in machine reading, abstractive summarization, or image description generation.</p>
+<p><strong>Multi-Head Attention</strong>: The multi-head mechanism runs through the scaled dot-product attention multiple times in parallel. The independent attention outputs are simply concatenated and linearly transformed into the expected dimensions. According to the paper, “Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions. With a single attention head, averaging inhibits this.” Figure 10 shows, how multi-head attention works in the Transformer.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120733085.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120733085.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120733085.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120733085.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120733085.png"
+        title="img" /></p>
+<p><strong>Masked Multi-Head Attention</strong>: This layer is from the decoder to prevent future words to be part of the attention i.e. at inference time, the decoder would not know about the future outputs. It zeroes-out the similarities between words and the words that appear after the source words (”in the future”). Simply removing such information, the only similarity to the preceding words is considered.</p>
+<p><strong>Positional Encoding</strong>: Another important step on the Transformer is to add positional encoding when encoding each word. Encoding the position of each word is relevant, since the position of each word is relevant to the translation. Since the architecture has completely got rid of recurrence or convolutional sections, a positional encoding is required. Figure 11 shows the equation used for positional encoding in the Transformer.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120815181.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120815181.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120815181.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120815181.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120815181.png"
+        title="img" /></p>
+<p>The overall flow of data from encoder’s input layers to the decoder’s output layers can be visualized by an unfolded network architecture shown in figure 12.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120889655.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120889655.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120889655.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120889655.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120889655.png"
+        title="img" /></p>
+<h1 id="evaluation-of-the-transformer">Evaluation of the Transformer</h1>
+<p>Authors conducted experiments on two machine translation tasks and claim that the Transformer models are superior in quality in terms of parallelization and less training runtime.</p>
+<p>Authors say, “The Transformer achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature.” They also show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.</p>
+<p>Figure 13 and 14 show the comparisons with other SOTA models in terms of BLEU scores, training runtime and FLOPS.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120956406.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120956406.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120956406.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120956406.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120956406.png"
+        title="img" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120986077.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120986077.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120986077.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120986077.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/attention-is-all-you-need/1560120986077.png"
+        title="img" /></p>
+<h1 id="conclusion">Conclusion</h1>
+<p>The Transformer is an advanced approach for machine translation using attention based layers. It introduces a completely new type of architecture namely self-attention layers. The model gets rid of convolutional or recurrent layers and still achieves state of the art on WMT14 English-German and English-French data sets. The model uses parallel attention layers whose outputs are concatenated and then fed to a feed-forward position-wise layer. The model is not only a great success in machine translation, but also created scopes to improve other NLP tasks. BERT [14] is one of the most influential successors of this model which can create a language model adopting transformer architecture. Neural Speech Synthesis with Transformer Network [15] is another achievement in text-to-speech task that exploits the power of the Transformer model. “The transformer is one of the most promising structures, which can leverage the self-attention mechanism to capture the semantic dependency from the global view. However, it cannot distinguish the relative position of different tokens very well, such as the tokens located at the left or right of the current token, and cannot focus on the local information around the current token either.”, pointed out by the authors of the Hybrid Self-Attention Network (HySAN) [16] that aims to alleviate these problems.</p>
+<h1 id="references">References</h1>
+<ol>
+<li>A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, L. Kaiser,
+and I. Polosukhin, “Attention is all you need,” 06 2017.</li>
+<li>[Online]. Available: <a href="https://towardsdatascience.com/applied-deep-learning-part-" target="_blank" rel="noopener noreffer ">https://towardsdatascience.com/applied-deep-learning-part-</a>
+1-artificial-neural-networks-d7834f67a4f6</li>
+<li>[Online]. Available: <a href="https://medium.com/@dc.aihub/natural-language-processing-" target="_blank" rel="noopener noreffer ">https://medium.com/@dc.aihub/natural-language-processing-</a>
+d63d1953a439</li>
+<li>D. Bahdanau, K. Cho, and Y. Bengio, “Neural machine translation by jointly
+learning to align and translate,” CoRR, vol. abs/1409.0473, 2014. [Online].
+Available: <a href="http://arxiv.org/abs/1409.0473" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1409.0473</a></li>
+<li>“Google translate.” [Online]. Available: <a href="https://translate.google.com" target="_blank" rel="noopener noreffer ">https://translate.google.com</a></li>
+<li>[Online]. Available: <a href="https://hub.packtpub.com/create-an-rnn-based-python-" target="_blank" rel="noopener noreffer ">https://hub.packtpub.com/create-an-rnn-based-python-</a>
+machine-translation-system-tutorial</li>
+<li>W. Feng, N. Guan, Y. Li, X. Zhang, and Z. Luo, “Audio visual speech recognition
+with multimodal recurrent neural networks,” 05 2017, pp. 681–688.</li>
+<li>[Online]. Available: <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener noreffer ">http://colah.github.io/posts/2015-08-Understanding-LSTMs/</a></li>
+<li>R. Józefowicz, O. Vinyals, M. Schuster, N. Shazeer, and Y. Wu, “Exploring
+the limits of language modeling,” CoRR, vol. abs/1602.02410, 2016. [Online].
+Available: <a href="http://arxiv.org/abs/1602.02410" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1602.02410</a></li>
+<li>[Online]. Available: <a href="https://en.wikipedia.org/wiki/Gated" target="_blank" rel="noopener noreffer ">https://en.wikipedia.org/wiki/Gated</a> recurrent unit</li>
+<li>J. Gehring, M. Auli, D. Grangier, D. Yarats, and Y. N. Dauphin, “Convolutional
+sequence to sequence learning,” CoRR, vol. abs/1705.03122, 2017. [Online]. Available:
+<a href="http://arxiv.org/abs/1705.03122" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1705.03122</a></li>
+<li>[Online]. Available: <a href="https://deepmind.com/blog/wavenet-generative-model-raw-" target="_blank" rel="noopener noreffer ">https://deepmind.com/blog/wavenet-generative-model-raw-</a>
+audio/</li>
+<li>[Online]. Available: <a href="https://research.jetbrains.org/files/material/5ace635c03259.pdf" target="_blank" rel="noopener noreffer ">https://research.jetbrains.org/files/material/5ace635c03259.pdf</a></li>
+<li>J. Devlin, M. Chang, K. Lee, and K. Toutanova, “BERT: pre-training of deep
+bidirectional transformers for language understanding,” CoRR, vol. abs/1810.04805,</li>
+<li>[Online]. Available: <a href="http://arxiv.org/abs/1810.04805" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1810.04805</a></li>
+<li>N. Li, S. Liu, Y. Liu, S. Zhao, M. Liu, and M. Zhou, “Close to human quality
+TTS with transformer,” CoRR, vol. abs/1809.08895, 2018. [Online]. Available:
+<a href="http://arxiv.org/abs/1809.08895" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1809.08895</a></li>
+<li>K. Song, T. Xu, F. Peng, and J. Lu, “Hybrid self-attention network for
+machine translation,” CoRR, vol. abs/1811.00253, 2018. [Online]. Available:
+<a href="http://arxiv.org/abs/1811.00253" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1811.00253</a></li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2019-06-12</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/post/attention-is-all-you-need/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://sayef.github.io/post/attention-is-all-you-need/" data-title="Attention Is All You Need: The Transformer" data-via="imsayef" data-hashtags="deep-learning,ai,transformer"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://sayef.github.io/post/attention-is-all-you-need/" data-hashtag="deep-learning"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://sayef.github.io/post/attention-is-all-you-need/" data-title="Attention Is All You Need: The Transformer"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://sayef.github.io/post/attention-is-all-you-need/" data-title="Attention Is All You Need: The Transformer"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://sayef.github.io/post/attention-is-all-you-need/" data-title="Attention Is All You Need: The Transformer"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/deep-learning/">deep-learning</a>,&nbsp;<a href="/tags/ai/">ai</a>,&nbsp;<a href="/tags/transformer/">transformer</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/post/time-series-analysis-in-python-inroduction-to-arima/" class="prev" rel="prev" title="Time Series Analysis in Python - Introduction to ARIMA"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Time Series Analysis in Python - Introduction to ARIMA</a>
+            <a href="/post/eda-on-wine-quality-dataset/" class="next" rel="next" title="Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset">Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="sayef.tech" target="_blank">Sayef</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"en","pageSize":10,"placeholder":"Your comment ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"data":{"id-1":"ⓢⓐⓨⓔⓕ'𝓼 𝓽𝓮𝓬𝓱 𝓫𝓵𝓸𝓰","id-2":"ⓢⓐⓨⓔⓕ'𝓼 𝓽𝓮𝓬𝓱 𝓫𝓵𝓸𝓰"},"lightgallery":true,"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

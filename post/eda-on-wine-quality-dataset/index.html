@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset - Sayef&#39;s Tech Blog</title><meta name="Description" content="Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset"><meta property="og:title" content="Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset" />
+<meta property="og:description" content="Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sayef.github.io/post/eda-on-wine-quality-dataset/" /><meta property="og:image" content="https://sayef.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-07-12T04:15:37+08:00" />
+<meta property="article:modified_time" content="2019-07-12T04:15:37+08:00" /><meta property="og:site_name" content="Sayef&#39;s Tech Blog" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sayef.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset"/>
+<meta name="twitter:description" content="Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset"/>
+<meta name="application-name" content="Sayef&#39;s Tech Blog">
+<meta name="apple-mobile-web-app-title" content="Sayef&#39;s Tech Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://sayef.github.io/post/eda-on-wine-quality-dataset/" /><link rel="prev" href="https://sayef.github.io/post/attention-is-all-you-need/" /><link rel="next" href="https://sayef.github.io/post/dynamic-graph-cnn/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/sayef.github.io\/post\/eda-on-wine-quality-dataset\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/sayef.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "machine-learning, eda","wordcount":  1040 ,
+        "url": "https:\/\/sayef.github.io\/post\/eda-on-wine-quality-dataset\/","datePublished": "2019-07-12T04:15:37+08:00","dateModified": "2019-07-12T04:15:37+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/sayef.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Sayef"
+            },"description": "Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Sayef&#39;s Tech Blog"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/sayef" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Sayef&#39;s Tech Blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/sayef" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://sayef.tech" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Sayef</a></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2019-07-12">2019-07-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1040 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;<span id="/post/eda-on-wine-quality-dataset/" class="leancloud_visitors" data-flag-title="Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-introduction">1. Introduction</a>
+      <ul>
+        <li>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#note-dataset-and-code-can-be-found-herehttpsgithubcomsayefeda-on-wine-quality-dataset">Note: Dataset and code can be found <a href="https://github.com/sayef/eda-on-wine-quality-dataset">here</a>.</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#2-problem-specification">2. Problem Specification</a></li>
+    <li><a href="#3-exploratory-data-analysis-eda">3. Exploratory Data Analysis (EDA)</a>
+      <ul>
+        <li><a href="#31-summary-of-the-features">3.1 Summary of the Features</a></li>
+        <li><a href="#32-univariate-analysis">3.2 Univariate Analysis</a></li>
+        <li><a href="#33-bivariate-analysis">3.3 Bivariate Analysis</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-data-preprocessing">4. Data Preprocessing</a>
+      <ul>
+        <li><a href="#41-finding-missing-values">4.1 Finding Missing Values</a></li>
+        <li><a href="#42-split-dataset">4.2 Split Dataset</a></li>
+        <li><a href="#43-outliers-removal">4.3 Outliers Removal</a></li>
+        <li><a href="#44-feature-selection">4.4 Feature Selection</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-modeling-classifier">5. Modeling Classifier</a></li>
+    <li><a href="#6-conclusion">6. Conclusion</a></li>
+    <li><a href="#7-references">7. References</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/banner.jpg"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/banner.jpg, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/banner.jpg 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/banner.jpg 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/banner.jpg"
+        title="img" /></p>
+<h2 id="1-introduction">1. Introduction</h2>
+<hr>
+<p>The article consists of Exploratory Data Analysis (EDA), predictive models and evaluation of those models for predicting the quality of wine, given a list of wine characteristics.</p>
+<h5 id="note-dataset-and-code-can-be-found-herehttpsgithubcomsayefeda-on-wine-quality-dataset">Note: Dataset and code can be found <a href="https://github.com/sayef/eda-on-wine-quality-dataset" target="_blank" rel="noopener noreffer ">here</a>.</h5>
+<h2 id="2-problem-specification">2. Problem Specification</h2>
+<hr>
+<p>The dataset specifies the quality of wine, given a list of attributes. The attributes are fixed acidity, volatile acidity, citric acid, residual sugar, chlorides, free sulfur dioxide, total sulfur dioxide, density, pH, sulphates, alcohol, and type (0 for red wine, 1 for white wine). These attributes are also known as feature set of a dataset. Along with these features, we have a label for each entry of the data, the quality of the wine which is basically a score between 0 and 10.</p>
+<p>Now, given those features and label, we have to predict the quality of wine for some unknown set of data (test data) where the quality is not given.</p>
+<h2 id="3-exploratory-data-analysis-eda">3. Exploratory Data Analysis (EDA)</h2>
+<hr>
+<p>EDA is used for seeing what the data can tell us beyond the formal modeling or hypothesis testing task [1]. Before fitting into models, we explore the data to have a broader impression of the data.</p>
+<h3 id="31-summary-of-the-features">3.1 Summary of the Features</h3>
+<p>Table 1 shows the basic information about the feature columns. Here, we can see that there is no null or missing value in the data, since each column has the same number (5150) of entries. Also, we can see that other than our label column <strong>quality</strong>, we have <strong>type</strong> column which is of integer data type. Now, let&rsquo;s look at the summary of the data for each feature. Table 2 shows us minimum, maximum, mean and quartile information of the data for each feature.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/1590263854649.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/1590263854649.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/1590263854649.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/1590263854649.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/1590263854649.png"
+        title="img" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/1590264098371.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/1590264098371.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/1590264098371.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/1590264098371.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/1590264098371.png"
+        title="img" /></p>
+<h3 id="32-univariate-analysis">3.2 Univariate Analysis</h3>
+<p>We want to see how the data is distributed for each feature. When we only look at the distribution of the data within a single feature, we call it univariate analysis. Let’s look at the figure 1 that depicts univariate histogram plot for each feature. We can observer that</p>
+<ul>
+<li>wine <strong>quality</strong> is approximately normally distributed</li>
+<li>the <strong>pH</strong> is normally distributed, with few outliers</li>
+<li><strong>fixed acidity</strong> have some outliers and peaks between 6 and 7</li>
+<li><strong>volatile acidity</strong> has quite a few outliers with high values, also slightly skewed to the right</li>
+<li>most of the wines have <strong>citric acid</strong> within the range of 0.25-0.30 with few other spikes at 0.01 and 0.48</li>
+<li><strong>density</strong> has almost normal distribution</li>
+<li>there are many outliers with high <strong>residual sugar</strong> and the distribution is skewed right</li>
+<li><strong>chloride</strong> distribution is skewed right with outliers.</li>
+<li>distribution of free sulfur dioxide and total sulfur dioxide is skewed right</li>
+<li>the feature <strong>type</strong> seems to be ordinal or categorical data with numeric representation</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/Univariate-Histogram.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/Univariate-Histogram.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/Univariate-Histogram.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/Univariate-Histogram.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/Univariate-Histogram.png"
+        title="img" />
+<em>Figure 1: Histogram plots of the dataset</em></p>
+<p>Since the <strong>type</strong> feature is ordinal, there are chances that it could externally affect the distribution of other features. Let&rsquo;s find the information of the dataset for each value of <strong>type</strong>, and observe if it shows any changes in the distribution. Figure 2 depicts the changes in the distribution of each feature for two different values of feature <strong>type</strong>.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/Violonplot.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/Violonplot.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/Violonplot.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/Violonplot.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/Violonplot.png"
+        title="img" />
+<em>Figure 2: Violin plots of two different type of wines</em></p>
+<h3 id="33-bivariate-analysis">3.3 Bivariate Analysis</h3>
+<p>Here, we will analyze correlations between each feature with other features. This will help us finding similar or related features by only visual inspection.</p>
+<p>Figure 3 shows the correlations between each pair of features in heatmap style. We can observe that <strong>residual sugar</strong> has a noticeable positive correlation with <strong>density</strong>. Also <strong>total sulfur dioxide</strong> is strongly correlated with the <strong>type</strong> of wine.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/correlation.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/correlation.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/correlation.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/correlation.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/correlation.png"
+        title="img" />
+<em>Figure 3: Heatmap style correlation matrix</em></p>
+<p>Now, let&rsquo;s have a closer look at the sorted version of the heatmap with respect to <strong>quality</strong> in the figure 4. We can easily figure out that, the amount of <strong>alcohol</strong> seems to be the most correlated feature for determining the <strong>quality</strong> of wine.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/correlation-sorted.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/correlation-sorted.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/correlation-sorted.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/correlation-sorted.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/correlation-sorted.png"
+        title="img" />
+<em>Figure 4: Heatmap style correlation matrix sorted w.r.tquality</em></p>
+<p>Pairwise scatter plots give us more insight about the correlation with a different visualization perspective. Figure 5 shows pairwise scatter plots of the dataset.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/scatterplot.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/scatterplot.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/scatterplot.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/scatterplot.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/eda-wine-dataset/scatterplot.png"
+        title="img" />
+<em>Figure 5: Pairwise scatter plots</em></p>
+<h2 id="4-data-preprocessing">4. Data Preprocessing</h2>
+<hr>
+<h3 id="41-finding-missing-values">4.1 Finding Missing Values</h3>
+<p>From the table 1, we can confirm that there are no missing values in this dataset.</p>
+<h3 id="42-split-dataset">4.2 Split Dataset</h3>
+<p>We find from the EDA that the feature <strong>type</strong> is ordinal and affects almost all features, so we split the dataset into two, one with <strong>type</strong> 1 and other with <strong>type</strong> 2.</p>
+<h3 id="43-outliers-removal">4.3 Outliers Removal</h3>
+<p>There are several outliers detection methods. We applied Inter Quartile Range (IQR) method to remove outliers.</p>
+<h3 id="44-feature-selection">4.4 Feature Selection</h3>
+<p>We applied <strong>SelectKBest</strong> with <strong>chi2</strong> scoring function from <strong>sklearn</strong> [2] and found that volatile acidity, citric acid, free sulfur dioxide, total sulfur dioxide, and alcohol are the top five features for this dataset.</p>
+<p>We also applied <em>Recursive Feature Selection</em> using logistic regression and <em>Extra Trees Classifier</em> for finding the best useful features for determining the quality of wines.</p>
+<p>Observing the results from feature selection methods, we select alcohol, total sulfur dioxide, sulphates, volatile acidity, density, residual sugar, chlorides, pH, and free sulfur dioxide as features for <strong>type 1</strong> wines and alcohol, volatile acidity, density, free sulfur dioxide, total sulfur dioxide, residual sugar, sulphates, and chlorides for <strong>type 2</strong> wines.</p>
+<h2 id="5-modeling-classifier">5. Modeling Classifier</h2>
+<hr>
+<p>We can find the solution using a regression model since the outcomes range from 3 to 9, as well as classification model since we can define the outcomes as some certain classes.</p>
+<p>We design both kinds of models, and find that only tree based classifiers perform well, particularly Extra Trees classifier and Random Forest classifier outperform all other existing kinds of regressors and classifiers. For <strong>type 1</strong> wines, Random Forest Classifier gives the best MAE and for <strong>type 2</strong> wines, Extra Trees Classifier gives the best MAE. Parameters for both types are given below:</p>
+<ul>
+<li>number of estimators=500</li>
+<li>min samples leaf=1</li>
+</ul>
+<p>We can observe the <strong>Cross Validation Mean (CVM)</strong> and <strong>MAE</strong> scores in the table 3.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://sayef.tech/uploads/eda-wine-dataset/1590267716559.png"
+        data-srcset="https://sayef.tech/uploads/eda-wine-dataset/1590267716559.png, https://sayef.tech/uploads/eda-wine-dataset/1590267716559.png 1.5x, https://sayef.tech/uploads/eda-wine-dataset/1590267716559.png 2x"
+        data-sizes="auto"
+        alt="https://sayef.tech/uploads/eda-wine-dataset/1590267716559.png"
+        title="img" /></p>
+<h2 id="6-conclusion">6. Conclusion</h2>
+<hr>
+<p>We experiment with different types of classification and regression models for this task. The best MAE score we find with this dataset is 0.336819. There are still plenty of scopes to experiment with the data, specially in depth exploratory data analysis could help understand the data more accurately.</p>
+<h2 id="7-references">7. References</h2>
+<hr>
+<p>[1] EDA - Wikipedia: <a href="https://en.wikipedia.org/wiki/Exploratory_data_analysis" target="_blank" rel="noopener noreffer ">https://en.wikipedia.org/wiki/Exploratory_data_analysis</a></p>
+<p>[2] sklearn: <a href="https://scikit-learn.org" target="_blank" rel="noopener noreffer ">https://scikit-learn.org</a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2019-07-12</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/post/eda-on-wine-quality-dataset/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://sayef.github.io/post/eda-on-wine-quality-dataset/" data-title="Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset" data-via="imsayef" data-hashtags="machine-learning,eda"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://sayef.github.io/post/eda-on-wine-quality-dataset/" data-hashtag="machine-learning"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://sayef.github.io/post/eda-on-wine-quality-dataset/" data-title="Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://sayef.github.io/post/eda-on-wine-quality-dataset/" data-title="Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://sayef.github.io/post/eda-on-wine-quality-dataset/" data-title="Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">machine-learning</a>,&nbsp;<a href="/tags/eda/">eda</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/post/attention-is-all-you-need/" class="prev" rel="prev" title="Attention Is All You Need: The Transformer"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Attention Is All You Need: The Transformer</a>
+            <a href="/post/dynamic-graph-cnn/" class="next" rel="next" title="&#34;Dynamic Graph CNN for Learning on Point Clouds&#34; Simplified">"Dynamic Graph CNN for Learning on Point Clouds" Simplified<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="sayef.tech" target="_blank">Sayef</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"en","pageSize":10,"placeholder":"Your comment ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"data":{"id-1":"ⓢⓐⓨⓔⓕ'𝓼 𝓽𝓮𝓬𝓱 𝓫𝓵𝓸𝓰","id-2":"ⓢⓐⓨⓔⓕ'𝓼 𝓽𝓮𝓬𝓱 𝓫𝓵𝓸𝓰"},"lightgallery":true,"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

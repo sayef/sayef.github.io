@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>&#34;Dynamic Graph CNN for Learning on Point Clouds&#34; Simplified - Sayef&#39;s Tech Blog</title><meta name="Description" content="&#34;Dynamic Graph CNN for Learning on Point Clouds&#34; Simplified"><meta property="og:title" content="&#34;Dynamic Graph CNN for Learning on Point Clouds&#34; Simplified" />
+<meta property="og:description" content="&#34;Dynamic Graph CNN for Learning on Point Clouds&#34; Simplified" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sayef.github.io/post/dynamic-graph-cnn/" /><meta property="og:image" content="https://sayef.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-07-12T04:15:37+08:00" />
+<meta property="article:modified_time" content="2019-07-12T04:15:37+08:00" /><meta property="og:site_name" content="Sayef&#39;s Tech Blog" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sayef.github.io/logo.png"/>
+
+<meta name="twitter:title" content="&#34;Dynamic Graph CNN for Learning on Point Clouds&#34; Simplified"/>
+<meta name="twitter:description" content="&#34;Dynamic Graph CNN for Learning on Point Clouds&#34; Simplified"/>
+<meta name="application-name" content="Sayef&#39;s Tech Blog">
+<meta name="apple-mobile-web-app-title" content="Sayef&#39;s Tech Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://sayef.github.io/post/dynamic-graph-cnn/" /><link rel="prev" href="https://sayef.github.io/post/eda-on-wine-quality-dataset/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "\"Dynamic Graph CNN for Learning on Point Clouds\" Simplified",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/sayef.github.io\/post\/dynamic-graph-cnn\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/sayef.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "deep-learning, dgcnn, ai, graph, 3d, cnn, pointclouds","wordcount":  3231 ,
+        "url": "https:\/\/sayef.github.io\/post\/dynamic-graph-cnn\/","datePublished": "2019-07-12T04:15:37+08:00","dateModified": "2019-07-12T04:15:37+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/sayef.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Sayef"
+            },"description": "\"Dynamic Graph CNN for Learning on Point Clouds\" Simplified"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Sayef&#39;s Tech Blog"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/sayef" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Sayef&#39;s Tech Blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/sayef" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">"Dynamic Graph CNN for Learning on Point Clouds" Simplified</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://sayef.tech" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Sayef</a></span>&nbsp;<span class="post-category">included in <a href="/categories/point-clouds/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Point Clouds</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2019-07-12">2019-07-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3231 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;16 minutes&nbsp;<span id="/post/dynamic-graph-cnn/" class="leancloud_visitors" data-flag-title="&#34;Dynamic Graph CNN for Learning on Point Clouds&#34; Simplified">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#graph">Graph</a></li>
+        <li><a href="#graph-convolution-networks-gcns">Graph Convolution Networks (GCNs)</a></li>
+      </ul>
+    </li>
+    <li><a href="#_edgeconv_"><em>EdgeConv</em></a>
+      <ul>
+        <li><a href="#definition">Definition</a></li>
+        <li><a href="#choice-of-edge-function-and-aggregation-operation">Choice of edge function and aggregation operation</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#classification-results">Classification Results</a></li>
+    <li><a href="#part-segmentation-results">Part Segmentation Results</a></li>
+    <li><a href="#semantic-scene-segmentation">Semantic Scene Segmentation</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="introduction">Introduction</h1>
+<p>Point clouds are a collection of data points in space, usually produced by a 3D scanner. A large number of points are measured on the external surfaces of the objects and then represented as point clouds. Along with the relative 3D coordinates, point clouds can be accompanied by other pertaining features i.e. RGB or intensity. Point clouds are not the only representation of 3D space, voxel and mesh polygon are some other popular representations. Figures 1, 2, and 3 are some examples of different 3D space representations.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/point-cloud-torus.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/point-cloud-torus.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/point-cloud-torus.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/point-cloud-torus.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/point-cloud-torus.png"
+        title="img" /></p>
+<p>Fig. 1: Example of point cloud representation [4]</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/voxel.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/voxel.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/voxel.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/voxel.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/voxel.png"
+        title="img" /></p>
+<p>Fig. 2: Example of voxel representation [5]</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/polygon-mesh.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/polygon-mesh.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/polygon-mesh.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/polygon-mesh.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/polygon-mesh.png"
+        title="img" /></p>
+<p>Fig. 3: Example of polygon mesh representation [6]</p>
+<p>Fast acquisition of 3D point cloud from sensor devices has been exhilarating researchers to concentrate on processing these raw data directly, rather doing any kind of preprocessing. Consequently, there is a set of applications built on point cloud processing including navigation [7], self-driving [8], robotics [9], shape synthesis and digital modeling [10].</p>
+<p>Fitting raw point cloud data into deep learning model is not straightforward with respect to other conventional ways of doing it due to the irregular structure of point clouds. Continuous distribution of the point positions in the space and unordered set of points make it harder to extract spatial information through point clouds data. One of the pioneering works in the field of point clouds processing is called PointNet [2], which overcomes the permutation invariance issue of point cloud data. There are other extensions available inspired by this work, which try to exploit local features considering neighborhood points and resulting in improved performance.</p>
+<p>To gain proper geometric relationships among points, the authors of the titled paper propose an operation called <em>EdgeConv</em> using the concepts from graph neural networks. They extend the PointNet modules by incorporating EdgeConv, which can be easily integrated into existing deep learning models. They achieve state-of-the-art performance on several datasets, including ModelNet40 and S3DIS for classification and segmentation tasks.</p>
+<h1 id="related-work">Related Work</h1>
+<p>There has been a pile of works pertaining to capture local feature descriptors for point clouds which are basically handcrafted features intended towards certain types of problems and intermediate data structures [11]-[13]. On top of that, machine learning approaches are wrapped around to generate end results.</p>
+<p>With the emergence of convolutional neural networks (CNNs) [14], [15], handcrafted features are not being embraced anymore. The simplest form of a CNN architecture mixes convolutional and pooling units to accumulate the local information in images. Figure 4 shows a basic CNN architecture.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/simple-cnn-architechture.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/simple-cnn-architechture.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/simple-cnn-architechture.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/simple-cnn-architechture.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/simple-cnn-architechture.png"
+        title="img" /></p>
+<p><em>Fig. 4: A basic CNN architecture [16]</em></p>
+<p>There are mainly two types of 3D deep learning methods, namely view-based and volumetric methods. While view-based methods apply standard CNNs on 2D views of the target 3D object [17], [18], conversion of geometric data to a regular 3D grid takes place before passing through a CNN in volumetric methods. Voxelization is one of the simplest ways to do the conversion [19], [20]. There are also studies on combination of both methods [21].</p>
+<p>PointNets [2] apply a symmetric function on point clouds data to achieve permutation invariant features. PointNets treat each point individually for learning 3D latent features which is unaware of local geometric structures and to achieve the global transformation. However, the employed spatial transformer network [22] gets really complex and computationally expensive for this kind of non-Euclidean data.</p>
+<p>PointNet++ [3] architecture is an improved version of PointNet to exploit the local geometric features. Although PointNet++ achieves state-of-the-art results on several point cloud analysis benchmarks, still it treats individual points in local point sets independently.</p>
+<p>PointCNN [23], KCNet [24] are some other networks to improve PointNets lacking. However, all of these neglect geometric relationships among points leading to local feature missing.</p>
+<p>Point cloud data are of non-Euclidean structure. To achieve the best results out of non-Euclidean data, geometric deep learning [25] comes into play. In [26], convolution for graphs was proposed based on Laplacian operator [27]. Although it introduces convolutional operations on graph-based data, the computational complexity of Laplacian eigendecomposition is one of the drawbacks of the proposition. To eliminate this complexity there have been some follow-up studies where different types of spectral
+filters [28]-[30] are used and also guarantee spatial localization.</p>
+<p>Domain-dependent spectral graph CNNs cannot generalize a learned filter for unknown shapes. Spectral transformer networks [31] help in this regard, but not entirely. More generalization could be possible by an alternative definition of non-Eucledian spatial filters. Deep CNN on meshes, also named as Geodesic CNN (GCNN) [32] employs such filters.</p>
+<h1 id="dynamic-graph-cnn-dgcnn">Dynamic Graph CNN (DGCNN)</h1>
+<h3 id="graph">Graph</h3>
+<p>Graph represents a set of objects (nodes) and their relationships (edges). A lot of real-world data doesn&rsquo;t fit into grids. Social networks data, knowledge graph, transportation or communication networks, protein interaction networks, and molecular networks are to name a few of the real-world data, which we need to take care of differently before passing into the neural networks. Graph neural networks can directly operate on graph structure and can be used for node classification, graph classification, link prediction, and so on.
+Figure 5 shows the visual difference of Euclidean grid and non-Euclidean graph data.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/graph-neural-network.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/graph-neural-network.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/graph-neural-network.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/graph-neural-network.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/graph-neural-network.png"
+        title="img" /></p>
+<p>Fig. 5: Left- Euclidean space, Right- graph in non-Euclidean space [33]</p>
+<h3 id="graph-convolution-networks-gcns">Graph Convolution Networks (GCNs)</h3>
+<p>In GCNs, convolutional operations are applied similar to the standard CNNs, but on graph data. GCNs can be divided into two major types: spectral-based and spatial-based GCNs. Spectral-based GCNs apply filters from the perspective of graph signal processing and involve Eigen decomposition of graph Laplacian. Graph convolution operation in GCNs can be interpreted as removing noise from graph signals. Spatial-based GCNs formulate graph convolutions as aggregating feature information from neighbors.</p>
+<p>GCNs generalize the operation of convolution from traditional data (images or grids) to graph data. They learn a function, $f$ to generate a node $v_i$ s representation by aggregating it’s own features $X_i$ and neighbors’ features $X_j$ where $j \in N(v_i)$ namely neighborhood aggregation. Figure 6 shows a simple approach to aggregate neighborhood information.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/graph-convolutional-networks-1.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/graph-convolutional-networks-1.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/graph-convolutional-networks-1.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/graph-convolutional-networks-1.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/graph-convolutional-networks-1.png"
+        title="img" /></p>
+<p>Fig. 6: Neighborhood aggregation [34]</p>
+<p>In the ideal case, equations 1, 2, and 3 represent spatial based GCNs and show how to aggregate neighborhood information. Initially, for the first layer, embeddings are set to the equal values of node features (shown in equation 1). After that, the $k$ h layer embedding of node $v$ can be found by summing up the average of neighbors&rsquo; previous layer embeddings and previous layer embedding of $v$ followed by applying a non-linear activation function i.e. ReLU or tanh (shown in equation 2). At last, $h_v^k$ can be sent to any loss function and stochastic gradient descent will train the matrices $W_k$ and $B_k$ .</p>
+<p>$$
+h_v^0 = x_v  \ \ \ \ \ (1)
+$$</p>
+<p>$$
+h_v^k = \sigma \left ( W_k \sum_{u \in N(v)} \frac{h_u^{k-1}}{|N(v)|} + B_kh_v^{k-1} \right ), \forall k \in {1,&hellip;,K}  \ \ \ \ \ (2)
+$$</p>
+<p>$$
+z_v = h_v^K  \ \ \ \ \ (3)
+$$</p>
+<p>In GCNs, max/min/sum/average pooling can be seen as graph coarsening [35] which is responsible for creating structurally similar to the original but smaller graphs [36]. Figure 7 and 8 show the differences in basic pooling operation in grid-based CNNs and GCNs respectively.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/max-pooling-grid.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/max-pooling-grid.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/max-pooling-grid.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/max-pooling-grid.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/max-pooling-grid.png"
+        title="img" /></p>
+<p>Fig. 7: Max pooling operation in grid-based CNN [37]</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/graph-based-pooling-operation.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/graph-based-pooling-operation.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/graph-based-pooling-operation.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/graph-based-pooling-operation.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/graph-based-pooling-operation.png"
+        title="img" /></p>
+<p>Fig. 8: Graph coarsening used as pooling operation in GCN [38]</p>
+<p>Interleaving aggregation and coarsening, one after another, figure 9 shows a generalized skeleton of a GCN.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/gcn-with-pooling-layers-for-graph-classification.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/gcn-with-pooling-layers-for-graph-classification.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/gcn-with-pooling-layers-for-graph-classification.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/gcn-with-pooling-layers-for-graph-classification.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/gcn-with-pooling-layers-for-graph-classification.png"
+        title="img" /></p>
+<p>Fig. 9: GCN with pooling layer for graph classification [39]</p>
+<h2 id="_edgeconv_"><em>EdgeConv</em></h2>
+<h3 id="definition">Definition</h3>
+<p>In the titled paper, authors introduce an operation called <em>EdgeConv</em> which has translation-invariant and non-locality properties. It captures local geometric structures from local neighborhood graph and applies convolution-like operations on the edges. Unlike graph CNNs, the graph dynamically updates after each layer of the network.</p>
+<p>Point clouds can be seen as graph $G=(V,E)$ where $v={1,&hellip;,n}$ and $E \subset V \times V$ In the simplest case, they construct <em>k-NN</em> graph in $R^F$ containing directed edges of the $(i,j_{i1}),&hellip;,(i,j_{ik})$ such that points $x_{ji},&hellip;,x_{jk}$ are closest to $x_i$ Now, they define <em>EdgeConv</em> operation as shown in equation 4, where $\Theta = (\theta_i,&hellip;,\theta_k)$ act as the weights of the filter.</p>
+<p>$$x_i^{&rsquo;} = \square_{j:(i,j) \in \epsilon} ; h_{\Theta}(x_i,x_j) \ \ \ \ \ (4)$$</p>
+<p>Figure 10 shows how EdgeConv operation aggregates the edge features associated with the edges.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/edge-conv-operation.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/edge-conv-operation.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/edge-conv-operation.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/edge-conv-operation.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/edge-conv-operation.png"
+        title="img" /></p>
+<p>Fig. 10: The output of EdgeConv is calculated by aggregating the edge features associated with edges from each connecting vertex. [1]</p>
+<h3 id="choice-of-edge-function-and-aggregation-operation">Choice of edge function and aggregation operation</h3>
+<p>As suggested in the paper, the choice of edge function, $h$ and aggregation operation, $\square$ is really crucial and affects overall results at a large scale. In table 1, the properties of several edge functions are summarized.</p>
+<p>Interleaving aggregation and coarsening, one after another, figure 9 shows a generalized skeleton of a GCN.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/h-function-table.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/h-function-table.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/h-function-table.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/h-function-table.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/h-function-table.png"
+        title="img" /></p>
+<p>_TABLE I: Properties of different edge functions applied to EdgeConv Dynamic Graph Update _</p>
+<p>The <em>EdgeConv</em> operation can be employed several times interleaving with other classical operations in CNNs, i.e pooling depending on the task.</p>
+<p><figure><a class="lightgallery" href="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/dgcnn-model-architecture.png" title="img" data-thumbnail="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/dgcnn-model-architecture.png" data-sub-html="<h2>fig:</h2><p>img</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/dgcnn-model-architecture.png"
+            data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/dgcnn-model-architecture.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/dgcnn-model-architecture.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/dgcnn-model-architecture.png 2x"
+            data-sizes="auto"
+            alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/dgcnn-model-architecture.png" />
+    </a><figcaption class="image-caption">fig:</figcaption>
+    </figure></p>
+<p>Fig. 14: DGCNN model architecture using EdgeConv [1]</p>
+<p>Authors discover benefits of graph re-computation using nearest neighbors in the feature space. The key points of DGCNN can be summarized as follows —–</p>
+<ol>
+<li>Design two different architectures for classification and segmentation tasks as depicted by two branches in figure 14.</li>
+<li>Both architectures share a spatial transformer component, computing a global shape transformation.</li>
+<li>The classification network includes two EdgeConv layers, followed by a pooling operation and three fully-connected layers producing classification output scores.</li>
+<li>The segmentation network uses a sequence of three EdgeConv layers, followed by three fully-connected layers producing, for each point, segmentation output scores.</li>
+<li>Each EdgeConv uses shared edge function, $h^{(l)}(x_i^{(l)}, x_j^{(l)}) = h^{(l)}(x_i^{(l)}, x_j^{(l)}-x_i^{(l)})$ across all layers and aggregation operation, $\square = max$</li>
+<li>For the classification architecture, the graph is constructed using $k=20$ nearest neighbors, while $k=30$ in segmentation architecture.</li>
+</ol>
+<p>Figure 11 shows the structure of the feature space produced at different stages of network architecture.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/dynamic-graph-update.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/dynamic-graph-update.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/dynamic-graph-update.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/dynamic-graph-update.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/dynamic-graph-update.png"
+        title="img" /></p>
+<p>Fig. 11: Structure of feature space produced at different stages of network architecture. Visualized as the distance between the red point and the rest of the points. [1]</p>
+<h1 id="evaluation">Evaluation</h1>
+<p>Models constructed using EdgeConv can be evaluated for three major tasks: classification, part segmentation, and semantic segmentation.</p>
+<h2 id="classification-results">Classification Results</h2>
+<p>Authors evaluate their classification model based on the ModelNet40 [20] classification task. They follow the same strategy as PointNet. The hyper-parameters are as follow:</p>
+<ol>
+<li>Optimizer: Adam [40]</li>
+<li>Learning rate: 0.0001, reduced by factor 2 every 20 epochs</li>
+<li>Decay rate for batch normalization: initially 0.5 and 0.99 finally</li>
+<li>Batch size: 32</li>
+<li>Momentum: 0.9</li>
+</ol>
+<p>Figure 12 shows mean class accuracy and overall accuracy of different existing networks for classification on ModelNet40.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/classification-results-modelnet40.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/classification-results-modelnet40.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/classification-results-modelnet40.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/classification-results-modelnet40.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/classification-results-modelnet40.png"
+        title="img" /></p>
+<p>Fig. 12: Classification results on ModelNet40 [1]</p>
+<h2 id="part-segmentation-results">Part Segmentation Results</h2>
+<p>EdgeConv model architectures are extended for part segmentation task on ShapeNet part dataset [41]. The same training setting is adapted from the classification task, except k is changed from 20 to 30 due to the increase of point density. NVIDIA TITAN X GPUs are used to maintain the training batch size in a distributed manner. The metric Intersection-over-Union (IoU) is used for the evaluation and comparison
+of the models. Figure 15 shows the results on ShapeNet part segmentation dataset.</p>
+<p><figure><a class="lightgallery" href="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/part-segmentation-result.png" title="img" data-thumbnail="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/part-segmentation-result.png" data-sub-html="<h2>fig:</h2><p>img</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/part-segmentation-result.png"
+            data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/part-segmentation-result.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/part-segmentation-result.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/part-segmentation-result.png 2x"
+            data-sizes="auto"
+            alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/part-segmentation-result.png" />
+    </a><figcaption class="image-caption">fig:</figcaption>
+    </figure></p>
+<p>Fig. 15: Part segmentation results on ShapeNet part dataset. Metric is mIoU(%) on points. [1]</p>
+<h2 id="semantic-scene-segmentation">Semantic Scene Segmentation</h2>
+<p>Authors evaluate their model on Standford Large-Scale 3D Indoor Spaces Dataset (S3DIS) [42] for semantic scene segmentation task. The model used for this task is similar to the part segmentation model, except that a probability distribution over semantic object classes is generated for each input point. Figure 13 shows the results of 3D semantic segmentation task on S3DIS dataset by comparing existing models.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/semantic-segmentation-result.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/semantic-segmentation-result.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/semantic-segmentation-result.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/semantic-segmentation-result.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/dynamic-graph-cnn/semantic-segmentation-result.png"
+        title="img" /></p>
+<p>Fig. 13: 3D semantic segmentation results on S3DIS. MS+CU for multi-scale block features with consolidation units; G+RCU for the grid-blocks with recurrent consolidation Units. [1]</p>
+<h1 id="later-work">Later Work</h1>
+<p>There have been a lot of improvement and alternatives in the field of point clouds processing and graph convolutional neural networks since the paper published. PCNN [43] and URSA [44] are such two interesting works on point cloud data processing. PCNN employs an extension operator from surface functions to volumetric functions for the robustness of convolution and pooling operations. URSA uses a constellation of points to learn classification information from point cloud data.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>The paper introduces a dynamic graph update for graph convolutional networks using EdgeConv operator. EdgeConv can be incorporated easily with any existing graph CNN architecture. A wide range of experiments proves their hypothesis and shows that consideration of local geometric features in 3d recognition tasks improves in the accuracy with a large margin. Authors wish to extend their work by designing a non-shared transformer network that works on each local patch differently. They would like to extend the applicability of dynamic graph CNN in more abstract point clouds i.e. data coming from document retrieval rather than 3D geometry.</p>
+<h1 id="references">References</h1>
+<p>[1] Y. Wang, Y. Sun, Z. Liu, S. E. Sarma, M. M. Bronstein, and J. M. Solomon, “Dynamic graph CNN for learning on point clouds,” CoRR, vol. abs/1801.07829, 2018. [Online]. Available: <a href="http://arxiv.org/abs/1801.07829" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1801.07829</a></p>
+<p>[2] C. R. Qi, H. Su, K. Mo, and L. J. Guibas, “Pointnet: Deep learning on point sets for 3d classification and
+segmentation,” CoRR, vol. abs/1612.00593, 2016. [Online]. Available: <a href="http://arxiv.org/abs/1612.00593" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1612.00593</a></p>
+<p>[3] C. R. Qi, L. Yi, H. Su, and L. J. Guibas, “Pointnet++: Deep hierarchical feature learning on point sets in a metric space,” CoRR, vol. abs/1706.02413, 2017. [Online]. Available: <a href="http://arxiv.org/abs/1706.02413" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1706.02413</a></p>
+<p>[4] “Point cloud — Wikipedia, the free encyclopedia.” [Online]. Available: <a href="https://en.wikipedia.org/wiki/Point_cloud" target="_blank" rel="noopener noreffer ">https://en.wikipedia.org/wiki/Point_cloud</a></p>
+<p>[5] “Adobe research.” [Online]. Available: <a href="https://research.adobe.com/news/a-papier-mache-approach-to-learning-3d-surface-generation" target="_blank" rel="noopener noreffer ">https://research.adobe.com/news/a-papier-mache-approach-to-learning-3d-surface-generation</a></p>
+<p>[6] “Mesh ploygon — Wikipedia, the free encyclopedia.” [Online]. Available: <a href="https://en.wikipedia.org/wiki/Polygon_mesh" target="_blank" rel="noopener noreffer ">https://en.wikipedia.org/wiki/Polygon_mesh</a></p>
+<p>[7] Y. Zhu, R. Mottaghi, E. Kolve, J. J. Lim, A. Gupta, L. Fei-Fei, and A. Farhadi, “Target-driven visual navigation in indoor scenes using deep reinforcement learning,” CoRR, vol. abs/1609.05143, 2016. [Online]. Available: <a href="http://arxiv.org/abs/1609.05143" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1609.05143</a></p>
+<p>[8] C. R. Qi, W. Liu, C. Wu, H. Su, and L. J. Guibas, “Frustum pointnets for 3d object detection from RGB-D data,” CoRR, vol. abs/1711.08488, [Online]. Available: <a href="http://arxiv.org/abs/1711.08488" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1711.08488</a></p>
+<p>[9] R. B. Rusu, Z.-C. Marton, N. Blodow, M. E. Dolha, and M. Beetz, “Towards 3d point cloud based object maps for household environments,” Robotics and Autonomous Systems, vol. 56, pp. 927–941, 2008.</p>
+<p>[10] R. Schnabel, R. Wahl, R. Wessel, and R. Klein, “Shape recognition in 3d point-clouds,” 05 2012.</p>
+<p>[11] O. V. Kaick, H. Zhang, G. Hamarneh, and D. Cohen-or, “A survey on shape correspondence,” 2011.</p>
+<p>[12] Y. Guo, M. Bennamoun, F. Sohel, M. Lu, and J. Wan, “3d object recognition in cluttered scenes with local surface features: A survey,” IEEE Transactions on Pattern Analysis and Machine Intelligence, 04 2014.</p>
+<p>[13] S. Biasotti, A. Cerri, A. M. Bronstein, and M. M. Bronstein, “Recent trends, applications, and perspectives in 3d shape similarity assessment,” Comput. Graph. Forum, vol. 35, pp. 87–119, 2016.</p>
+<p>[14] Y. LeCun, B. Boser, J. S. Denker, D. Henderson, R. E. Howard, W. Hubbard, and L. D. Jackel, “Backpropagation applied to handwritten zip code recognition,” Neural Comput., vol. 1, no. 4, pp. 541–551, Dec. [Online]. Available: <a href="http://dx.doi.org/10.1162/neco.1989.1.4.541" target="_blank" rel="noopener noreffer ">http://dx.doi.org/10.1162/neco.1989.1.4.541</a></p>
+<p>[15] A. Krizhevsky, I. Sutskever, and G. E. Hinton, “Imagenet classification with deep convolutional neural networks,” Commun. ACM, vol. 60, no. 6, pp. 84–90, May 2017. [Online]. Available: <a href="http://doi.acm.org/10.1145/3065386" target="_blank" rel="noopener noreffer ">http://doi.acm.org/10.1145/3065386</a></p>
+<p>[16] “Convolutional neural networks — towards data science.” [Online]. Available: <a href="https://towardsdatascience.com/applied-deep-learning-part-4-convolutional-neural-networks-584bc134c1e2" target="_blank" rel="noopener noreffer ">https://towardsdatascience.com/applied-deep-learning-part-4-convolutional-neural-networks-584bc134c1e2</a></p>
+<p>[17] L. Wei, Q. Huang, D. Ceylan, E. Vouga, and H. Li, “Dense human body correspondences using convolutional networks,” CoRR, vol. abs/1511.05904, 2015. [Online]. Available: <a href="http://arxiv.org/abs/1511.05904" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1511.05904</a></p>
+<p>[18] H. Su, S. Maji, E. Kalogerakis, and E. G. Learned- Miller, “Multi-view convolutional neural networks for 3d shape recognition,” CoRR, vol. abs/1505.00880, 2015. [Online]. Available: <a href="http://arxiv.org/abs/1505.00880" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1505.00880</a></p>
+<p>[19] D. Maturana and S. Scherer, “Voxnet: A 3d convolutional neural network for real-time object recognition,” 2015 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), pp. 922–928, 2015.</p>
+<p>[20] Z. Wu, S. Song, A. Khosla, F. Yu, L. Zhang, X. Tang, and J. Xiao, “3d shapenets: A deep representation for volumetric shapes,” 06 2015, pp. 1912–1920.</p>
+<p>[21] C. R. Qi, H. Su, M. Nießner, A. Dai, M. Yan, and L. J. Guibas, “Volumetric and multi-view cnns for object classification on 3d data,” CoRR, vol. abs/1604.03265, 2016. [Online]. Available: <a href="http://arxiv.org/abs/1604.03265" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1604.03265</a></p>
+<p>[22] M. Jaderberg, K. Simonyan, A. Zisserman, and K. Kavukcuoglu, “Spatial transformer networks,” CoRR, vol. abs/1506.02025, 2015. [Online]. Available: <a href="http://arxiv.org/abs/1506.02025" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1506.02025</a></p>
+<p>[23] Y. Li, R. Bu, M. Sun, and B. Chen, “Pointcnn,” CoRR, vol. abs/1801.07791, 2018. [Online]. Available: <a href="http://arxiv.org/abs/1801.07791" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1801.07791</a></p>
+<p>[24] Y. Shen, C. Feng, Y. Yang, and D. Tian, “Neighbors do help: Deeply exploiting local structures of point clouds,” CoRR, vol. abs/1712.06760, [Online]. Available: <a href="http://arxiv.org/abs/1712.06760" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1712.06760</a></p>
+<p>[25] M. M. Bronstein, J. Bruna, Y. LeCun, A. Szlam, and P. Vandergheynst, “Geometric deep learning: going beyond euclidean data,” CoRR, vol. abs/1611.08097, 2016. [Online]. Available: <a href="http://arxiv.org/abs/1611.08097" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1611.08097</a></p>
+<p>[26] J. Bruna, W. Zaremba, A. Szlam, and Y. Lecun, “Spectral networks and locally connected networks on graphs,” in International Conference on Learning Representations (ICLR2014), CBLS, April 2014, 2014.</p>
+<p>[27] D. I. Shuman, S. K. Narang, P. Frossard, A. Ortega, and P. Vandergheynst, “Signal processing on graphs: Extending high-dimensional data analysis to networks and other irregular data domains,” CoRR, vol. abs/1211.0053, 2012. [Online]. Available: <a href="http://arxiv.org/abs/1211.0053" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1211.0053</a></p>
+<p>[28] M. Defferrard, X. Bresson, and P. Vandergheynst, “Convolutional neural networks on graphs with fast localized spectral filtering,” CoRR, vol. abs/1606.09375, 2016. [Online]. Available: <a href="http://arxiv.org/abs/1606.09375" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1606.09375</a></p>
+<p>[29] T. N. Kipf and M. Welling, “Semi-supervised classification with graph convolutional networks,” CoRR, vol. abs/1609.02907, 2016. [Online]. Available: <a href="http://arxiv.org/abs/1609.02907" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1609.02907</a></p>
+<p>[30] R. Levie, F. Monti, X. Bresson, and M. M. Bronstein, “Cayleynets: Graph convolutional neural networks with complex rational spectral filters,” CoRR, vol. abs/1705.07664, 2017. [Online]. Available: <a href="http://arxiv.org/abs/1705.07664" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1705.07664</a></p>
+<p>[31] L. Yi, H. Su, X. Guo, and L. J. Guibas, “Syncspeccnn: Synchronized spectral CNN for 3d shape segmentation,” CoRR, vol. abs/1612.00606, [Online]. Available: <a href="http://arxiv.org/abs/1612.00606" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1612.00606</a></p>
+<p>[32] J. Masci, D. Boscaini, M. M. Bronstein, and P. Vandergheynst, “Shapenet: Convolutional neural networks on non-euclidean manifolds,” CoRR, vol. abs/1501.06297, 2015. [Online]. Available: <a href="http://arxiv.org/abs/1501.06297" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1501.06297</a></p>
+<p>[33] J. Zhou, G. Cui, Z. Zhang, C. Yang, Z. Liu, and M. Sun, “Graph neural networks: A review of methods and applications,” CoRR, vol. abs/1812.08434, 2018. [Online]. Available: <a href="http://arxiv.org/abs/1812.08434" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1812.08434</a></p>
+<p>[34] “Graph convolutional networks: Neighbourhood aggregation.” [Online]. Available: <a href="http://snap.stanford.edu/proj/embeddings-www/" target="_blank" rel="noopener noreffer ">http://snap.stanford.edu/proj/embeddings-www/</a></p>
+<p>[35] A. Loukas and P. Vandergheynst, “Spectrally approximating large graphs with smaller graphs,” CoRR, vol. abs/1802.07510, 2018. [Online]. Available: <a href="http://arxiv.org/abs/1802.07510" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1802.07510</a></p>
+<p>[36] I. Safro, P. Sanders, and C. Schulz, “Advanced coarsening schemes for graph partitioning,” CoRR, vol. abs/1201.6488, 2012. [Online]. Available: <a href="http://arxiv.org/abs/1201.6488" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1201.6488</a></p>
+<p>[37] “Max pooling —– computer science wiki.” [Online]. Available: <a href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling" target="_blank" rel="noopener noreffer ">https://computersciencewiki.org/index.php/Max-pooling_/_Pooling</a>)</p>
+<p>[38] M. Defferrard and P. Vandergheynst, “Convolutional neural networks on graphs with fast localized spectral filtering,” Advances in Neural Information Processing Systems, 2016.</p>
+<p>[39] Z. Wu, S. Pan, F. Chen, G. Long, C. Zhang, and P. S. Yu, “A comprehensive survey on graph neural networks,” CoRR, vol. abs/1901.00596, 2019. [Online]. Available: <a href="http://arxiv.org/abs/1901.00596" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1901.00596</a></p>
+<p>[40] D. Kingma and J. Ba, “Adam: A method for stochastic optimization,” International Conference on Learning Representations, 12 2014.</p>
+<p>[41] L. Yi, V. G. Kim, D. Ceylan, I.-C. Shen, M. Yan, H. Su, C. Lu, Q. Huang, A. Sheffer, and L. Guibas, “A scalable active framework for region annotation in 3d shape collections,” ACM Trans. Graph., vol. 35, no. 6, pp. 210:1–210:12, Nov. 2016. [Online]. Available: <a href="http://doi.acm.org/10.1145/2980179.2980238" target="_blank" rel="noopener noreffer ">http://doi.acm.org/10.1145/2980179.2980238</a></p>
+<p>[42] I. Armeni, O. Sener, A. R. Zamir, H. Jiang, I. K. Brilakis, M. Fischer, and S. Savarese, “3d semantic parsing of large-scale indoor spaces,” 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pp. 1534–1543, 2016.</p>
+<p>[43] M. Atzmon, H. Maron, and Y. Lipman, “Point convolutional neural networks by extension operators,” CoRR, vol. abs/1803.10091, 2018. [Online]. Available: <a href="http://arxiv.org/abs/1803.10091" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1803.10091</a></p>
+<p>[44] M. B. Skouson, “URSA: A neural network for unordered point clouds using constellations,” CoRR, vol. abs/1808.04848, 2018. [Online]. Available: <a href="http://arxiv.org/abs/1808.04848" target="_blank" rel="noopener noreffer ">http://arxiv.org/abs/1808.04848</a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2019-07-12</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/post/dynamic-graph-cnn/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://sayef.github.io/post/dynamic-graph-cnn/" data-title="&#34;Dynamic Graph CNN for Learning on Point Clouds&#34; Simplified" data-via="imsayef" data-hashtags="deep-learning,dgcnn,ai,graph,3d,cnn,pointclouds"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://sayef.github.io/post/dynamic-graph-cnn/" data-hashtag="deep-learning"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://sayef.github.io/post/dynamic-graph-cnn/" data-title="&#34;Dynamic Graph CNN for Learning on Point Clouds&#34; Simplified"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://sayef.github.io/post/dynamic-graph-cnn/" data-title="&#34;Dynamic Graph CNN for Learning on Point Clouds&#34; Simplified"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://sayef.github.io/post/dynamic-graph-cnn/" data-title="&#34;Dynamic Graph CNN for Learning on Point Clouds&#34; Simplified"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/deep-learning/">deep-learning</a>,&nbsp;<a href="/tags/dgcnn/">dgcnn</a>,&nbsp;<a href="/tags/ai/">ai</a>,&nbsp;<a href="/tags/graph/">graph</a>,&nbsp;<a href="/tags/3d/">3d</a>,&nbsp;<a href="/tags/cnn/">cnn</a>,&nbsp;<a href="/tags/pointclouds/">pointclouds</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/post/eda-on-wine-quality-dataset/" class="prev" rel="prev" title="Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Exploratory Data Analysis (EDA) on Wine Quality Prediction Dataset</a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="sayef.tech" target="_blank">Sayef</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"en","pageSize":10,"placeholder":"Your comment ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"data":{"id-1":"ⓢⓐⓨⓔⓕ'𝓼 𝓽𝓮𝓬𝓱 𝓫𝓵𝓸𝓰","id-2":"ⓢⓐⓨⓔⓕ'𝓼 𝓽𝓮𝓬𝓱 𝓫𝓵𝓸𝓰"},"lightgallery":true,"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

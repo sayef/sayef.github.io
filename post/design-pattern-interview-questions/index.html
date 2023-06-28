@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Design Patterns Interview Question Answers - Sayef&#39;s Tech Blog</title><meta name="Description" content="Design Patterns Interview Question Answers"><meta property="og:title" content="Design Patterns Interview Question Answers" />
+<meta property="og:description" content="Design Patterns Interview Question Answers" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sayef.github.io/post/design-pattern-interview-questions/" /><meta property="og:image" content="https://sayef.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-07-15T04:15:37+08:00" />
+<meta property="article:modified_time" content="2018-07-15T04:15:37+08:00" /><meta property="og:site_name" content="Sayef&#39;s Tech Blog" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sayef.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Design Patterns Interview Question Answers"/>
+<meta name="twitter:description" content="Design Patterns Interview Question Answers"/>
+<meta name="application-name" content="Sayef&#39;s Tech Blog">
+<meta name="apple-mobile-web-app-title" content="Sayef&#39;s Tech Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://sayef.github.io/post/design-pattern-interview-questions/" /><link rel="prev" href="https://sayef.github.io/post/oop-interview-questions/" /><link rel="next" href="https://sayef.github.io/post/database-interview-questions/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Design Patterns Interview Question Answers",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/sayef.github.io\/post\/design-pattern-interview-questions\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/sayef.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "interview, design-patterns","wordcount":  3159 ,
+        "url": "https:\/\/sayef.github.io\/post\/design-pattern-interview-questions\/","datePublished": "2018-07-15T04:15:37+08:00","dateModified": "2018-07-15T04:15:37+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/sayef.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Sayef"
+            },"description": "Design Patterns Interview Question Answers"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Sayef&#39;s Tech Blog"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/sayef" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Sayef&#39;s Tech Blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/sayef" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Design Patterns Interview Question Answers</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://sayef.tech" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Sayef</a></span>&nbsp;<span class="post-category">included in <a href="/categories/interview/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Interview</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2018-07-15">2018-07-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3159 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;15 minutes&nbsp;<span id="/post/design-pattern-interview-questions/" class="leancloud_visitors" data-flag-title="Design Patterns Interview Question Answers">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-what-are-design-patterns">1. What are Design Patterns?</a></li>
+        <li><a href="#2-name-types-of-design-patterns">2. Name types of Design Patterns?</a></li>
+        <li><a href="#3-what-are-j2ee-patterns">3. What are J2EE Patterns?</a></li>
+        <li><a href="#4-how-can-you-create-singleton-class-in-java">4. How can you create Singleton class in java?</a></li>
+        <li><a href="#5-what-are-the-difference-between-a-static-class-and-a-singleton-class">5. What are the difference between a static class and a singleton class?</a></li>
+        <li><a href="#6-can-we-create-a-clone-of-a-singleton-object">6. Can we create a clone of a singleton object?</a></li>
+        <li><a href="#7-how-to-prevent-cloning-of-a-singleton-object">7. How to prevent cloning of a singleton object?</a></li>
+        <li><a href="#8-what-is-the-benefit-of-factory-pattern">8. What is the benefit of Factory pattern?</a></li>
+        <li><a href="#9-what-is-builder-pattern">9. What is Builder pattern?</a></li>
+        <li><a href="#10-what-is-prototype-pattern">10. What is Prototype pattern?</a></li>
+        <li><a href="#11-when-prototype-pattern-is-to-be-used">11. When Prototype pattern is to be used?</a></li>
+        <li><a href="#12-what-is-adapter-pattern">12. What is Adapter pattern?</a></li>
+        <li><a href="#13-give-an-example-of-adapter-pattern">13. Give an example of Adapter pattern.</a></li>
+        <li><a href="#14-what-is-bridge-pattern">14. What is Bridge pattern?</a></li>
+        <li><a href="#15-what-is-filter-pattern">15. What is Filter pattern?</a></li>
+        <li><a href="#16-what-is-composite-pattern">16. What is Composite pattern?</a></li>
+        <li><a href="#17-what-is-decorator-pattern">17. What is Decorator pattern?</a></li>
+        <li><a href="#18-what-is-facade-pattern">18. What is Facade pattern?</a></li>
+        <li><a href="#19-what-is-flyweight-pattern">19. What is Flyweight pattern?</a></li>
+        <li><a href="#20-what-is-proxy-pattern">20. What is Proxy pattern?</a></li>
+        <li><a href="#21-what-is-chain-of-responsibility-pattern">21. What is Chain of Responsibility pattern?</a></li>
+        <li><a href="#22-what-is-command-pattern">22. What is Command pattern?</a></li>
+        <li><a href="#23-what-is-interpreter-pattern">23. What is Interpreter pattern?</a></li>
+        <li><a href="#24-give-an-example-where-interpreter-pattern-is-used">24. Give an example where Interpreter pattern is used?</a></li>
+        <li><a href="#25-what-is-iterator-pattern">25. What is Iterator pattern?</a></li>
+        <li><a href="#26-what-are-the-entities-of-service-locator-pattern">26. What are the entities of Service Locator pattern?</a></li>
+        <li><a href="#27-what-is-mediator-pattern">27. What is Mediator pattern?</a></li>
+        <li><a href="#28-what-is-memento-pattern">28. What is Memento pattern?</a></li>
+        <li><a href="#29-name-the-actor-classes-used-in-memento-pattern">29. Name the actor classes used in Memento pattern.</a></li>
+        <li><a href="#30-what-is-observer-pattern">30. What is Observer pattern?</a></li>
+        <li><a href="#31-name-the-actor-classes-used-in-observer-pattern">31. Name the actor classes used in Observer pattern.</a></li>
+        <li><a href="#32-what-is-state-pattern">32. What is state pattern?</a></li>
+        <li><a href="#33-what-is-null-object-pattern">33. What is Null Object pattern?</a></li>
+        <li><a href="#34-what-is-strategy-pattern">34. What is Strategy pattern?</a></li>
+        <li><a href="#35-what-is-template-pattern">35. What is Template pattern?</a></li>
+        <li><a href="#36-what-is-visitor-pattern">36. What is Visitor pattern?</a></li>
+        <li><a href="#37-what-is-mvc-pattern">37. What is MVC pattern?</a></li>
+        <li><a href="#38-what-is-business-delegate-pattern">38. What is Business Delegate pattern?</a></li>
+        <li><a href="#39-what-is-composite-entity-pattern">39. What is Composite Entity pattern?</a></li>
+        <li><a href="#40-what-is-data-access-object-patterndao-pattern">40. What is Data Access Object Pattern(DAO) pattern?</a></li>
+        <li><a href="#41-what-is-front-controller-pattern">41. What is Front Controller pattern?</a></li>
+        <li><a href="#42-what-is-intercepting-filter-pattern">42. What is Intercepting Filter pattern?</a></li>
+        <li><a href="#43-following-are-the-entities-of-this-type-of-design-pattern">43. Following are the entities of this type of design pattern.</a></li>
+        <li><a href="#44-what-is-service-locator-pattern">44. What is Service Locator pattern?</a></li>
+        <li><a href="#45-what-is-transfer-object-pattern">45. What is Transfer Object pattern?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="1-what-are-design-patterns">1. What are Design Patterns?</h3>
+<p>Design patterns represent the best practices used by experienced object-oriented software developers. Design patterns are solutions to general problems that software developers faced during software development. These solutions were obtained by trial and error by numerous software developers over quite a substantial period of time.</p>
+<h3 id="2-name-types-of-design-patterns">2. Name types of Design Patterns?</h3>
+<p>Design patterns can be classified in three categories: Creational, Structural and Behavioral patterns.</p>
+<p>Creational Patterns – These design patterns provide a way to create objects while hiding the creation logic, rather than instantiating objects directly using new operator. This gives program more flexibility in deciding which objects need to be created for a given use case.</p>
+<p>Structural Patterns – These design patterns concern class and object composition. Concept of inheritance is used to compose interfaces and define ways to compose objects to obtain new functionalities.</p>
+<p>Behavioral Patterns – These design patterns are specifically concerned with communication between objects.</p>
+<h3 id="3-what-are-j2ee-patterns">3. What are J2EE Patterns?</h3>
+<p>These design patterns are specifically concerned with the presentation tier. These patterns are identified by Sun Java Center.
+What is Factory pattern?</p>
+<p>Factory pattern is one of most used design pattern in Java. This type of design pattern comes under creational pattern as this pattern provides one of the best ways to create an object.</p>
+<p>In Factory pattern, we create object without exposing the creation logic to the client and refer to newly created object using a common interface.
+What is Abstract Factory pattern?</p>
+<p>Abstract Factory patterns work around a super-factory which creates other factories. This factory is also called as factory of factories. This type of design pattern comes under creational pattern as this pattern provides one of the best ways to create an object.</p>
+<p>In Abstract Factory pattern an interface is responsible for creating a factory of related objects without explicitly specifying their classes. Each generated factory can give the objects as per the Factory pattern.
+What is Singleton pattern?</p>
+<p>Singleton pattern is one of the simplest design patterns in Java. This type of design pattern comes under creational pattern as this pattern provides one of the best ways to create an object.</p>
+<p>This pattern involves a single class which is responsible to create an object while making sure that only single object gets created. This class provides a way to access its only object which can be accessed directly without need to instantiate the object of the class.</p>
+<h3 id="4-how-can-you-create-singleton-class-in-java">4. How can you create Singleton class in java?</h3>
+<p>It is two step process. First, make the constructor private so that new operator cannot be used to instantiate the class. Return an object of the object if not null otherwise create the object and return the same via a method.</p>
+<h3 id="5-what-are-the-difference-between-a-static-class-and-a-singleton-class">5. What are the difference between a static class and a singleton class?</h3>
+<p>Following are the differences between a static class and a singleton class.</p>
+<p>A static class can not be a top level class and can not implement interfaces where a singleton class can.</p>
+<p>All members of a static class are static but for a Singleton class it is not a requirement.</p>
+<p>A static class get initialized when it is loaded so it can not be lazily loaded where a singleton class can be lazily loaded.</p>
+<p>A static class object is stored in stack whereas singleton class object is stored in heap memory space.</p>
+<h3 id="6-can-we-create-a-clone-of-a-singleton-object">6. Can we create a clone of a singleton object?</h3>
+<p>Yes.</p>
+<h3 id="7-how-to-prevent-cloning-of-a-singleton-object">7. How to prevent cloning of a singleton object?</h3>
+<p>Throw exception within the body of clone() method.
+Name some of the design patterns which are used in JDK library.</p>
+<p>Following are some of the design patterns which are used in JDK library.</p>
+<p>Decorator pattern is used by Wrapper classes.</p>
+<p>Singleton pattern is used by Runtime, Calendar classes.</p>
+<p>Factory pattern is used by Wrapper class like Integer.valueOf.</p>
+<p>Observer pattern is used by event handling frameworks like swing, awt.</p>
+<h3 id="8-what-is-the-benefit-of-factory-pattern">8. What is the benefit of Factory pattern?</h3>
+<p>Factory pattern encapsulates the implementation details and underlying implementation can be changed without any impact on caller api.</p>
+<h3 id="9-what-is-builder-pattern">9. What is Builder pattern?</h3>
+<p>Builder pattern builds a complex object using simple objects and using a step by step approach. This builder is independent of other objects.</p>
+<h3 id="10-what-is-prototype-pattern">10. What is Prototype pattern?</h3>
+<p>Prototype pattern refers to creating duplicate object while keeping performance in mind. This pattern involves implementing a prototype interface which tells to create a clone of the current object.</p>
+<h3 id="11-when-prototype-pattern-is-to-be-used">11. When Prototype pattern is to be used?</h3>
+<p>This pattern is used when creation of object directly is costly. For example, an object is to be created after a costly database operation. We can cache the object, returns its clone on next request and update the database as and when needed thus reducing database calls.</p>
+<h3 id="12-what-is-adapter-pattern">12. What is Adapter pattern?</h3>
+<p>Adapter pattern works as a bridge between two incompatible interfaces. This pattern involves a single class which is responsible to join functionalities of independent or incompatible interfaces.</p>
+<h3 id="13-give-an-example-of-adapter-pattern">13. Give an example of Adapter pattern.</h3>
+<p>A real life example could be a case of card reader which acts as an adapter between memory card and a laptop. You plugin the memory card into card reader and card reader into the laptop so that memory card can be read via laptop.</p>
+<h3 id="14-what-is-bridge-pattern">14. What is Bridge pattern?</h3>
+<p>Bridge is used when we need to decouple an abstraction from its implementation so that the two can vary independently. This type of design pattern comes under structural pattern as this pattern decouples implementation class and abstract class by providing a bridge structure between them.</p>
+<p>This pattern involves an interface which acts as a bridge which makes the functionality of concrete classes independent from interface implementer classes. Both types of classes can be altered structurally without affecting each other.</p>
+<h3 id="15-what-is-filter-pattern">15. What is Filter pattern?</h3>
+<p>Filter pattern or Criteria pattern is a design pattern that enables developers to filter a set of objects using different criteria and chaining them in a decoupled way through logical operations. This type of design pattern comes under structural pattern as this pattern combines multiple criteria to obtain single criteria.</p>
+<h3 id="16-what-is-composite-pattern">16. What is Composite pattern?</h3>
+<p>Composite pattern is used where we need to treat a group of objects in similar way as a single object. Composite pattern composes objects in term of a tree structure to represent part as well as whole hierarchy. This type of design pattern comes under structural pattern as this pattern creates a tree structure of group of objects.</p>
+<p>This pattern creates a class that contains group of its own objects. This class provides ways to modify its group of same objects.</p>
+<h3 id="17-what-is-decorator-pattern">17. What is Decorator pattern?</h3>
+<p>Decorator pattern allows a user to add new functionality to an existing object without altering its structure. This type of design pattern comes under structural pattern as this pattern acts as a wrapper to existing class.</p>
+<p>This pattern creates a decorator class which wraps the original class and provides additional functionality keeping class methods signature intact.</p>
+<h3 id="18-what-is-facade-pattern">18. What is Facade pattern?</h3>
+<p>Facade pattern hides the complexities of the system and provides an interface to the client using which the client can access the system. This type of design pattern comes under structural pattern as this pattern adds an interface to existing system to hide its complexities.</p>
+<p>This pattern involves a single class which provides simplified methods required by client and delegates calls to methods of existing system classes.</p>
+<h3 id="19-what-is-flyweight-pattern">19. What is Flyweight pattern?</h3>
+<p>Flyweight pattern is primarily used to reduce the number of objects created and to decrease memory footprint and increase performance. This type of design pattern comes under structural pattern as this pattern provides ways to decrease object count thus improving the object structure of application.</p>
+<p>Flyweight pattern tries to reuse already existing similar kind objects by storing them and creates new object when no matching object is found.</p>
+<h3 id="20-what-is-proxy-pattern">20. What is Proxy pattern?</h3>
+<p>In proxy pattern, a class represents functionality of another class. This type of design pattern comes under structural pattern.</p>
+<p>In proxy pattern, we create object having original object to interface its functionality to outer world.</p>
+<h3 id="21-what-is-chain-of-responsibility-pattern">21. What is Chain of Responsibility pattern?</h3>
+<p>As the name suggests, the chain of responsibility pattern creates a chain of receiver objects for a request. This pattern decouples sender and receiver of a request based on type of request. This pattern comes under behavioral patterns.</p>
+<p>In this pattern, normally each receiver contains reference to another receiver. If one object cannot handle the request then it passes the same to the next receiver and so on.</p>
+<h3 id="22-what-is-command-pattern">22. What is Command pattern?</h3>
+<p>Command pattern is a data driven design pattern and falls under behavioral pattern category. A request is wrapped under an object as command and passed to invoker object. Invoker object looks for the appropriate object which can handle this command and passes the command to the corresponding object which executes the command.</p>
+<h3 id="23-what-is-interpreter-pattern">23. What is Interpreter pattern?</h3>
+<p>Interpreter pattern provides a way to evaluate language grammar or expression. This type of pattern comes under behavioral pattern. This pattern involves implementing an expression interface which tells to interpret a particular context.</p>
+<h3 id="24-give-an-example-where-interpreter-pattern-is-used">24. Give an example where Interpreter pattern is used?</h3>
+<p>This pattern is used in SQL parsing, symbol processing engine etc.</p>
+<h3 id="25-what-is-iterator-pattern">25. What is Iterator pattern?</h3>
+<p>Iterator pattern is very commonly used design pattern in Java and .Net programming environment. This pattern is used to get a way to access the elements of a collection object in sequential manner without any need to know its underlying representation. Iterator pattern falls under behavioral pattern category.</p>
+<h3 id="26-what-are-the-entities-of-service-locator-pattern">26. What are the entities of Service Locator pattern?</h3>
+<p>Following are the entities of this type of design pattern.</p>
+<p>Service – Actual Service which will process the request. Reference of such service is to be looked upon in JNDI server.</p>
+<p>Context / Initial Context – JNDI Context carries the reference to service used for lookup purpose.</p>
+<p>Service Locator – Service Locator is a single point of contact to get services by JNDI lookup caching the services.</p>
+<p>Cache – Cache to store references of services to reuse them.</p>
+<p>Client – Client is the object that invokes the services via ServiceLocator.</p>
+<h3 id="27-what-is-mediator-pattern">27. What is Mediator pattern?</h3>
+<p>Mediator pattern is used to reduce communication complexity between multiple objects or classes. This pattern provides a mediator class which normally handles all the communications between different classes and supports easy maintenance of the code by loose coupling. Mediator pattern falls under behavioral pattern category.</p>
+<h3 id="28-what-is-memento-pattern">28. What is Memento pattern?</h3>
+<p>Memento pattern is used to restore state of an object to a previous state. Memento pattern falls under behavioral pattern category.</p>
+<h3 id="29-name-the-actor-classes-used-in-memento-pattern">29. Name the actor classes used in Memento pattern.</h3>
+<p>Memento pattern uses three actor classes. Memento contains state of an object to be restored. Originator creates and stores states in Memento objects and Caretaker object is responsible to restore object state from Memento.</p>
+<h3 id="30-what-is-observer-pattern">30. What is Observer pattern?</h3>
+<p>Observer pattern is used when there is one-to-many relationship between objects such as if one object is modified, its dependent objects are to be notified automatically. Observer pattern falls under behavioral pattern category.</p>
+<h3 id="31-name-the-actor-classes-used-in-observer-pattern">31. Name the actor classes used in Observer pattern.</h3>
+<p>Observer pattern uses three actor classes. Subject, Observer and Client. Subject is an object having methods to attach and detach observers to a client object. We have created an abstract class Observer and a concrete class Subject that is extending class Observer.</p>
+<h3 id="32-what-is-state-pattern">32. What is state pattern?</h3>
+<p>In State pattern a class behavior changes based on its state. This type of design pattern comes under behavior pattern. In State pattern, we create objects which represent various states and a context object whose behavior varies as its state object changes.</p>
+<h3 id="33-what-is-null-object-pattern">33. What is Null Object pattern?</h3>
+<p>In Null Object pattern, a null object replaces check of NULL object instance. Instead of putting if check for a null value, Null Object reflects a do nothing relationship. Such Null object can also be used to provide default behaviour in case data is not available.</p>
+<p>In Null Object pattern, we create an abstract class specifying various operations to be done, concrete classes extending this class and a null object class providing do nothing implemention of this class and will be used seemlessly where we need to check null value.</p>
+<h3 id="34-what-is-strategy-pattern">34. What is Strategy pattern?</h3>
+<p>In Strategy pattern, a class behavior or its algorithm can be changed at run time. This type of design pattern comes under behavior pattern.</p>
+<p>In Strategy pattern, we create objects which represent various strategies and a context object whose behavior varies as per its strategy object. The strategy object changes the executing algorithm of the context object.</p>
+<h3 id="35-what-is-template-pattern">35. What is Template pattern?</h3>
+<p>In Template pattern, an abstract class exposes defined way(s)/template(s) to execute its methods. Its subclasses can override the method implementation as per need but the invocation is to be in the same way as defined by an abstract class. This pattern comes under behavior pattern category.</p>
+<h3 id="36-what-is-visitor-pattern">36. What is Visitor pattern?</h3>
+<p>In Visitor pattern, we use a visitor class which changes the executing algorithm of an element class. By this way, execution algorithm of element can vary as and when visitor varies. This pattern comes under behavior pattern category. As per the pattern, element object has to accept the visitor object so that visitor object handles the operation on the element object.</p>
+<h3 id="37-what-is-mvc-pattern">37. What is MVC pattern?</h3>
+<p>MVC Pattern stands for Model-View-Controller Pattern. This pattern is used to separate application’s concerns.</p>
+<p>Model – Model represents an object or JAVA POJO carrying data. It can also have logic to update controller if its data changes.</p>
+<p>View – View represents the visualization of the data that model contains.</p>
+<p>Controller – Controller acts on both model and view. It controls the data flow into model object and updates the view whenever data changes. It keeps view and model separate.</p>
+<h3 id="38-what-is-business-delegate-pattern">38. What is Business Delegate pattern?</h3>
+<p>Business Delegate Pattern is used to decouple presentation tier and business tier. It is basically use to reduce communication or remote lookup functionality to business tier code in presentation tier code. In business tier we have following entities.</p>
+<p>Client – Presentation tier code may be JSP, servlet or UI java code.</p>
+<p>Business Delegate – A single entry point class for client entities to provide access to Business Service methods.</p>
+<p>LookUp Service – Lookup service object is responsible to get relative business implementation and provide business object access to business delegate object.</p>
+<p>Business Service – Business Service interface. Concrete classes implement this business service to provide actual business implementation logic.</p>
+<h3 id="39-what-is-composite-entity-pattern">39. What is Composite Entity pattern?</h3>
+<p>Composite Entity pattern is used in EJB persistence mechanism. A Composite entity is an EJB entity bean which represents a graph of objects. When a composite entity is updated, internally dependent objects beans get updated automatically as being managed by EJB entity bean. Following are the participants in Composite Entity Bean.</p>
+<p>Composite Entity – It is primary entity bean. It can be coarse grained or can contain a coarse grained object to be used for persistence purpose.</p>
+<p>Coarse-Grained Object – This object contains dependent objects. It has its own life cycle and also manages life cycle of dependent objects.</p>
+<p>Dependent Object – Dependent object is an object which depends on coarse grained object for its persistence lifecycle.</p>
+<p>Strategies – Strategies represents how to implement a Composite Entity.</p>
+<h3 id="40-what-is-data-access-object-patterndao-pattern">40. What is Data Access Object Pattern(DAO) pattern?</h3>
+<p>Data Access Object Pattern or DAO pattern is used to separate low level data accessing API or operations from high level business services. Following are the participants in Data Access Object Pattern.</p>
+<p>Data Access Object Interface – This interface defines the standard operations to be performed on a model object(s).</p>
+<p>Data Access Object concrete class – This class implements above interface. This class is responsible to get data from a data source which can be database / xml or any other storage mechanism.</p>
+<p>Model Object or Value Object – This object is simple POJO containing get/set methods to store data retrieved using DAO class.</p>
+<h3 id="41-what-is-front-controller-pattern">41. What is Front Controller pattern?</h3>
+<p>The front controller design pattern is used to provide a centralized request handling mechanism so that all requests will be handled by a single handler. This handler can do the authentication/ authorization/ logging or tracking of request and then pass the requests to corresponding handlers. Following are the entities of this type of design pattern.</p>
+<p>Front Controller – Single handler for all kinds of requests coming to the application (either web based/ desktop based).</p>
+<p>Dispatcher – Front Controller may use a dispatcher object which can dispatch the request to corresponding specific handler.</p>
+<p>View – Views are the object for which the requests are made.</p>
+<h3 id="42-what-is-intercepting-filter-pattern">42. What is Intercepting Filter pattern?</h3>
+<p>The intercepting filter design pattern is used when we want to do some pre-processing / post-processing with request or response of the application. Filters are defined and applied on the request before passing the request to actual target application. Filters can do the authentication/ authorization/ logging or tracking of request and then pass the requests to corresponding handlers.
+What are the entities of Intercepting Filter pattern?</p>
+<h3 id="43-following-are-the-entities-of-this-type-of-design-pattern">43. Following are the entities of this type of design pattern.</h3>
+<p>Filter – Filter which will performs certain task prior or after execution of request by request handler.</p>
+<p>Filter Chain – Filter Chain carries multiple filters and help to execute them in defined order on target.</p>
+<p>Target – Target object is the request handler.</p>
+<p>Filter Manager – Filter Manager manages the filters and Filter Chain.</p>
+<p>Client – Client is the object who sends request to the Target object.</p>
+<h3 id="44-what-is-service-locator-pattern">44. What is Service Locator pattern?</h3>
+<p>The service locator design pattern is used when we want to locate various services using JNDI lookup. Considering high cost of looking up JNDI for a service, Service Locator pattern makes use of caching technique. For the first time a service is required, Service Locator looks up in JNDI and caches the service object. Further lookup or same service via Service Locator is done in its cache which improves the performance of application to great extent.</p>
+<h3 id="45-what-is-transfer-object-pattern">45. What is Transfer Object pattern?</h3>
+<p>The Transfer Object pattern is used when we want to pass data with multiple attributes in one shot from client to server. Transfer object is also known as Value Object. Transfer Object is a simple POJO class having getter/setter methods and is serializable so that it can be transferred over the network. It does not have any behavior. Server Side business class normally fetches data from the database and fills the POJO and send it to the client or pass it by value. For client, transfer object is read-only. Client can create its own transfer object and pass it to server to update values in database in one shot. Following are the entities of this type of design pattern.</p>
+<p>Business Object – Business Service fills the Transfer Object with data.</p>
+<p>Transfer Object – Simple POJO having methods to set/get attributes only.</p>
+<p>Client – Client either requests or sends the Transfer Object to Business Object.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2018-07-15</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/post/design-pattern-interview-questions/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://sayef.github.io/post/design-pattern-interview-questions/" data-title="Design Patterns Interview Question Answers" data-via="imsayef" data-hashtags="interview,design-patterns"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://sayef.github.io/post/design-pattern-interview-questions/" data-hashtag="interview"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://sayef.github.io/post/design-pattern-interview-questions/" data-title="Design Patterns Interview Question Answers"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://sayef.github.io/post/design-pattern-interview-questions/" data-title="Design Patterns Interview Question Answers"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://sayef.github.io/post/design-pattern-interview-questions/" data-title="Design Patterns Interview Question Answers"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/interview/">interview</a>,&nbsp;<a href="/tags/design-patterns/">design-patterns</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/post/oop-interview-questions/" class="prev" rel="prev" title="Object Oriented Programming Interview Question Answers"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Object Oriented Programming Interview Question Answers</a>
+            <a href="/post/database-interview-questions/" class="next" rel="next" title="Database Interview Questions">Database Interview Questions<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="sayef.tech" target="_blank">Sayef</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"en","pageSize":10,"placeholder":"Your comment ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"data":{"id-1":"ⓢⓐⓨⓔⓕ'𝓼 𝓽𝓮𝓬𝓱 𝓫𝓵𝓸𝓰","id-2":"ⓢⓐⓨⓔⓕ'𝓼 𝓽𝓮𝓬𝓱 𝓫𝓵𝓸𝓰"},"lightgallery":true,"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

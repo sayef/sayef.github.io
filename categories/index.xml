@@ -4,12 +4,60 @@
         <link>https://sayef.github.io/categories/</link>
         <description>Categories - Category - Sayef&#39;s Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>hello@sayef.tech (Sayef)</managingEditor>
-            <webMaster>hello@sayef.tech (Sayef)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 06 Mar 2020 21:29:01 &#43;0800</lastBuildDate><atom:link href="https://sayef.github.io/categories/" rel="self" type="application/rss+xml" /><item>
-    <title>Markdown</title>
-    <link>https://sayef.github.io/categories/markdown/</link>
-    <pubDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</pubDate>
+            <webMaster>hello@sayef.tech (Sayef)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 12 Jul 2019 04:15:37 &#43;0800</lastBuildDate><atom:link href="https://sayef.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Machine Learning</title>
+    <link>https://sayef.github.io/categories/machine-learning/</link>
+    <pubDate>Fri, 12 Jul 2019 04:15:37 &#43;0800</pubDate>
     <author>Sayef</author>
-    <guid>https://sayef.github.io/categories/markdown/</guid>
+    <guid>https://sayef.github.io/categories/machine-learning/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Point Clouds</title>
+    <link>https://sayef.github.io/categories/point-clouds/</link>
+    <pubDate>Fri, 12 Jul 2019 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/categories/point-clouds/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>AI</title>
+    <link>https://sayef.github.io/categories/ai/</link>
+    <pubDate>Wed, 12 Jun 2019 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/categories/ai/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Time Series Analysis</title>
+    <link>https://sayef.github.io/categories/time-series-analysis/</link>
+    <pubDate>Wed, 12 Jun 2019 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/categories/time-series-analysis/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Programming</title>
+    <link>https://sayef.github.io/categories/programming/</link>
+    <pubDate>Mon, 16 Jul 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/categories/programming/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Interview</title>
+    <link>https://sayef.github.io/categories/interview/</link>
+    <pubDate>Sun, 15 Jul 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/categories/interview/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Lexical Analyzer</title>
+    <link>https://sayef.github.io/categories/lexical-analyzer/</link>
+    <pubDate>Tue, 19 Jun 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/categories/lexical-analyzer/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>

@@ -1,0 +1,65 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>interview - Tag - Sayef&#39;s Tech Blog</title>
+        <link>https://sayef.github.io/tags/interview/</link>
+        <description>interview - Tag - Sayef&#39;s Tech Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>hello@sayef.tech (Sayef)</managingEditor>
+            <webMaster>hello@sayef.tech (Sayef)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 15 Jul 2018 04:15:37 &#43;0800</lastBuildDate><atom:link href="https://sayef.github.io/tags/interview/" rel="self" type="application/rss+xml" /><item>
+    <title>Basic Programming Interview Question Answers</title>
+    <link>https://sayef.github.io/post/basic-programming-interview-questions/</link>
+    <pubDate>Sun, 15 Jul 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/basic-programming-interview-questions/</guid>
+    <description><![CDATA[This is a simple collection of problems for interview from the basic knowledge of C programming.
+Part 1: Write Short Procedure or Pseudo-code Write a program to print numbers from 1 to 100 without using loops. Write a C program to swap two variables without using a temporary variable. What is the 8 queens problem? Write a C program to solve it? Write a C program to print a square matrix helicaly.]]></description>
+</item>
+<item>
+    <title>Data Structure Interview Question Answers</title>
+    <link>https://sayef.github.io/post/data-structure-questions/</link>
+    <pubDate>Sun, 15 Jul 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/data-structure-questions/</guid>
+    <description><![CDATA[1. What is data structure? A data structure is a way of organizing data that considers not only the items stored, but also their relationship to each other. Advance knowledge about the relationship between data items allows designing of efficient algorithms for the manipulation of data.
+2. List out the areas in which data structures are applied extensively? Compiler Design, Operating System, Database Management System, Statistical analysis package, Numerical Analysis, Graphics, Artificial Intelligence, Simulation 3.]]></description>
+</item>
+<item>
+    <title>Database Interview Questions</title>
+    <link>https://sayef.github.io/post/database-interview-questions/</link>
+    <pubDate>Sun, 15 Jul 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/database-interview-questions/</guid>
+    <description><![CDATA[1. What is database or database management systems (DBMS)? and – What’s the difference between file and database? Can files qualify as a database? Database provides a systematic and organized way of storing, managing and retrieving from 1 collection of logically related information.
+Secondly the information has to be persistent, that means even after the application is closed the information should be persisted.
+Finally it should provide an independent way of accessing data and should not be dependent on the application to access the information.]]></description>
+</item>
+<item>
+    <title>Design Patterns Interview Question Answers</title>
+    <link>https://sayef.github.io/post/design-pattern-interview-questions/</link>
+    <pubDate>Sun, 15 Jul 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/design-pattern-interview-questions/</guid>
+    <description><![CDATA[1. What are Design Patterns? Design patterns represent the best practices used by experienced object-oriented software developers. Design patterns are solutions to general problems that software developers faced during software development. These solutions were obtained by trial and error by numerous software developers over quite a substantial period of time.
+2. Name types of Design Patterns? Design patterns can be classified in three categories: Creational, Structural and Behavioral patterns.
+Creational Patterns – These design patterns provide a way to create objects while hiding the creation logic, rather than instantiating objects directly using new operator.]]></description>
+</item>
+<item>
+    <title>Object Oriented Programming Interview Question Answers</title>
+    <link>https://sayef.github.io/post/oop-interview-questions/</link>
+    <pubDate>Sun, 15 Jul 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/oop-interview-questions/</guid>
+    <description><![CDATA[1. What is OOPS? OOPS is abbreviated as Object Oriented Programming system in which programs are considered as a collection of objects. Each object is nothing but an instance of a class.
+2. Write basic concepts of OOPS? Following are the concepts of OOPS and are as follows:.
+Abstraction. Encapsulation. Inheritance. Polymorphism. 3. What is a class? A class is simply a representation of a type of object. It is the blueprint/ plan/ template that describe the details of an object.]]></description>
+</item>
+<item>
+    <title>Operating System Interview Question Answers</title>
+    <link>https://sayef.github.io/post/os-interview-questions/</link>
+    <pubDate>Sun, 15 Jul 2018 04:15:37 &#43;0800</pubDate>
+    <author>Sayef</author>
+    <guid>https://sayef.github.io/post/os-interview-questions/</guid>
+    <description><![CDATA[1. What is an operating system? An operating system is a program that acts as an intermediary between the user and the computer hardware. The purpose of an OS is to provide a convenient environment in which user can execute programs in a convenient and efficient manner.
+2. What are the different operating systems? Batched operating systems Multi-programmed operating systems Time sharing operating systems Distributed operating systems Real-time operating systems 3.]]></description>
+</item>
+</channel>
+</rss>

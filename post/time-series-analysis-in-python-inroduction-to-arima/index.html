@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Time Series Analysis in Python - Introduction to ARIMA - Sayef&#39;s Tech Blog</title><meta name="Description" content="Time Series Analysis in Python - Introduction to ARIMA"><meta property="og:title" content="Time Series Analysis in Python - Introduction to ARIMA" />
+<meta property="og:description" content="Time Series Analysis in Python - Introduction to ARIMA" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sayef.github.io/post/time-series-analysis-in-python-inroduction-to-arima/" /><meta property="og:image" content="https://sayef.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-06-12T04:15:37+08:00" />
+<meta property="article:modified_time" content="2019-06-12T04:15:37+08:00" /><meta property="og:site_name" content="Sayef&#39;s Tech Blog" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sayef.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Time Series Analysis in Python - Introduction to ARIMA"/>
+<meta name="twitter:description" content="Time Series Analysis in Python - Introduction to ARIMA"/>
+<meta name="application-name" content="Sayef&#39;s Tech Blog">
+<meta name="apple-mobile-web-app-title" content="Sayef&#39;s Tech Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://sayef.github.io/post/time-series-analysis-in-python-inroduction-to-arima/" /><link rel="prev" href="https://sayef.github.io/post/articulation-point/" /><link rel="next" href="https://sayef.github.io/post/attention-is-all-you-need/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Time Series Analysis in Python - Introduction to ARIMA",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/sayef.github.io\/post\/time-series-analysis-in-python-inroduction-to-arima\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/sayef.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "python, arima, time-series","wordcount":  3231 ,
+        "url": "https:\/\/sayef.github.io\/post\/time-series-analysis-in-python-inroduction-to-arima\/","datePublished": "2019-06-12T04:15:37+08:00","dateModified": "2019-06-12T04:15:37+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/sayef.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Sayef"
+            },"description": "Time Series Analysis in Python - Introduction to ARIMA"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Sayef&#39;s Tech Blog"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/sayef" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Sayef&#39;s Tech Blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/sayef" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Time Series Analysis in Python - Introduction to ARIMA</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://sayef.tech" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Sayef</a></span>&nbsp;<span class="post-category">included in <a href="/categories/time-series-analysis/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Time Series Analysis</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2019-06-12">2019-06-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3231 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;16 minutes&nbsp;<span id="/post/time-series-analysis-in-python-inroduction-to-arima/" class="leancloud_visitors" data-flag-title="Time Series Analysis in Python - Introduction to ARIMA">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-time-series">What is Time Series?</a></li>
+    <li><a href="#componets-of-time-series">Componets of Time Series</a></li>
+    <li><a href="#when-not-to-use-time-series">When NOT to use Time Series?</a></li>
+    <li><a href="#what-is-stationarity">What is Stationarity?</a></li>
+    <li><a href="#how-to-remove-stationarity">How to Remove Stationarity?</a></li>
+    <li><a href="#tests-to-check-stationarity">Tests to Check Stationarity</a></li>
+    <li><a href="#what-is-the-arima-model">What is the ARIMA model?</a>
+      <ul>
+        <li><a href="#acf-and-pacf">ACF and PACF</a></li>
+      </ul>
+    </li>
+    <li><a href="#example-forecast-future">Example: Forecast Future</a>
+      <ul>
+        <li><a href="#import-necessary-libraries">Import necessary libraries</a></li>
+        <li><a href="#load-the-dataset-_air-passengerscsv_">Load the dataset <em>air-passengers.csv</em></a></li>
+        <li><a href="#check-if-the-data-is-stationary-or-not">Check if the data is Stationary or not</a>
+          <ul>
+            <li><a href="#determining-rolling-statistics">Determining Rolling Statistics</a></li>
+          </ul>
+        </li>
+        <li><a href="#perform-dicky-fuller-test">Perform Dicky-Fuller Test</a></li>
+        <li><a href="#formalize-stationarity-checking-in-a-function">Formalize Stationarity Checking in a Function</a></li>
+        <li><a href="#make-the-data-stationary">Make The Data Stationary</a></li>
+        <li><a href="#decompose-into-trend-seasonality-and-residual">Decompose into Trend, Seasonality and Residual</a></li>
+        <li><a href="#determine-acf-and-pacf">Determine ACF and PACF</a></li>
+        <li><a href="#feed-p-d-and-q-into-arima-model">Feed p, d, and q into ARIMA Model</a></li>
+        <li><a href="#check-if-fitted-values-depicts-original-curve">Check If Fitted Values Depicts Original Curve</a></li>
+        <li><a href="#predict-and-plot-future-values-using-the-arima-model">Predict and Plot Future Values Using The ARIMA Model</a>
+          <ul>
+            <li><a href="#if-you-are-looking-for-the-full-working-code-herehttpspub-b4d7e64fdefe48ffbac008dbd2c3c167r2devtime-series-analysis-in-python-inroduction-to-arimats_arimapy-it-is">If you are looking for the full working code, <a href="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/ts_arima.py">here</a> it is.</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="what-is-time-series">What is Time Series?</h2>
+<p>If we want to predict something in future i.e. stock prices, sales etc, we use time series analysis over past data. We can predict daily stock price, weekly interest rates, sales figure etc where the outcome varies over time. In such scenarios, we use time series forecasting.</p>
+<p>A time series is a set of observation taken at specified times usually at equal intervals. It is used to predict future values based on the previously observed values.</p>
+<p>By time series analysis we not only predict the future values but also able to understand past behavior, plan for the future and evaluate current accomplishment.</p>
+<h2 id="componets-of-time-series">Componets of Time Series</h2>
+<ul>
+<li>
+<p>Trend:</p>
+<ul>
+<li>A trend exists when there is a long-term increase or decrease in the data. It does not have to be linear. It could go from an increasing trend to a decreasing trend.</li>
+<li>There is a trend in the antidiabetic drug sales data shown below.</li>
+</ul>
+</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://otexts.org/fpp2/fpp_files/figure-html/a10-1.png"
+        data-srcset="https://otexts.org/fpp2/fpp_files/figure-html/a10-1.png, https://otexts.org/fpp2/fpp_files/figure-html/a10-1.png 1.5x, https://otexts.org/fpp2/fpp_files/figure-html/a10-1.png 2x"
+        data-sizes="auto"
+        alt="https://otexts.org/fpp2/fpp_files/figure-html/a10-1.png"
+        title="img" />
+<em>Source: <a href="https://otexts.org/fpp2/fpp_files/figure-html/a10-1.png" target="_blank" rel="noopener noreffer ">otext.org</a></em></p>
+<ul>
+<li>
+<p>Seasonality:</p>
+<ul>
+<li>A seasonal pattern occurs when a time series is affected by seasonal factors such as the time of the year or the day of the week.</li>
+<li>Seasonality is always of a fixed and known frequency.</li>
+<li>The monthly sales of antidiabetic drugs above show seasonality which is induced partly by the change in the cost of the drugs at the end of the calendar year.</li>
+</ul>
+</li>
+<li>
+<p>Irregularity:</p>
+<ul>
+<li>It is also called residual.</li>
+<li>These are erratic in nature, unsystematic, basically happens for short durations and not repeating.</li>
+<li>Let&rsquo;s take an example. If there is a sudden natural disaster i.e flood in a town out of nowhere, a lot of people buy medicine and ointment and after sometime when everything settles down, sales of those ointments might go down. Nobody knows how many numbers of sales are going to happen that time and also cannot force the event not to happen. These type of random variations are called irregularity.</li>
+</ul>
+</li>
+<li>
+<p>Cyclic:</p>
+<ul>
+<li>A cycle occurs when the data exhibit rises and falls that are not of a fixed frequency.</li>
+<li>These fluctuations are usually due to economic conditions, and are often related to the “business cycle”. The duration of these fluctuations is usually at least 2 years.</li>
+</ul>
+</li>
+</ul>
+<h2 id="when-not-to-use-time-series">When NOT to use Time Series?</h2>
+<p>Time series is not applicable when-</p>
+<ol>
+<li>values are constant such as y = c.</li>
+<li>values are in the form of a function, such as y = sin(x), y = log(x).</li>
+</ol>
+<h2 id="what-is-stationarity">What is Stationarity?</h2>
+<ul>
+<li>Time series has a particular behavior over time, there is a very high probability that it will follow the same in the future.</li>
+<li>A stationary time series is one whose properties do not depend on the time at which the series is observed.</li>
+<li>Time series with trends (varying mean over time), or with seasonality (variations of a specific time frame), are not stationary — the trend and seasonality will affect the value of the time series at different times.</li>
+<li>On the other hand, a white noise series is stationary — it does not matter when you observe it, it should look much the same at any point in time.</li>
+<li>Some cases can be confusing — a time series with cyclic behavior (but with no trend or seasonality) is stationary. This is because the cycles are not of a fixed length, so before we observe the series we cannot be sure where the peaks and troughs of the cycles will be.</li>
+</ul>
+<blockquote>
+<p>In general, a stationary time series will have no predictable patterns in the long-term. Time plots will show the series to be roughly horizontal (although some cyclic behavior is possible), with constant variance.</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://otexts.org/fpp2/fpp_files/figure-html/stationary-1.png"
+        data-srcset="https://otexts.org/fpp2/fpp_files/figure-html/stationary-1.png, https://otexts.org/fpp2/fpp_files/figure-html/stationary-1.png 1.5x, https://otexts.org/fpp2/fpp_files/figure-html/stationary-1.png 2x"
+        data-sizes="auto"
+        alt="https://otexts.org/fpp2/fpp_files/figure-html/stationary-1.png"
+        title="img" />
+<em>Figure 2: Which of these series are stationary? (a) Google stock price for 200 consecutive days; (b) Daily change in the Google stock price for 200 consecutive days; (c) Annual number of strikes in the US; (d) Monthly sales of new one-family houses sold in the US; (e) Annual price of a dozen eggs in the US (constant dollars); (f) Monthly total of pigs slaughtered in Victoria, Australia; (g) Annual total of lynx trapped in the McKenzie River district of north-west Canada; (h) Monthly Australian beer production; (i) Monthly Australian electricity production. Source: <a href="https://otexts.org/fpp2/fpp_files/figure-html/a10-1.png" target="_blank" rel="noopener noreffer ">otext.org</a></em></p>
+<p>Consider the nine series plotted in Figure 2. Which of these do you think are stationary?</p>
+<p>Obvious seasonality rules out series (d), (h) and (i). Trends and changing levels rules out series (a), (c), (e), (f) and (i). Increasing variance also rules out (i). That leaves only (b) and (g) as stationary series.</p>
+<p>At first glance, the strong cycles in series (g) might appear to make it non-stationary. But these cycles are aperiodic. In the long-term, the timing of these cycles is not predictable. Hence the series is stationary.</p>
+<h2 id="how-to-remove-stationarity">How to Remove Stationarity?</h2>
+<p>Following characteristics can be found in stationary time series. We have to get rid of those characteristics.</p>
+<ul>
+<li>Constant means according to the time</li>
+<li>Constant variance at different time intervals</li>
+<li>Autocovariance that does not depend on time i.e. correlation between values of any time interval t and their previous time intervals such as t-1, t-2 etc.</li>
+</ul>
+<h2 id="tests-to-check-stationarity">Tests to Check Stationarity</h2>
+<ol>
+<li>
+<p>Rolling Statistics</p>
+<ul>
+<li>Plot the moving average or moving variance and see if it varies with time.</li>
+<li>It&rsquo;s more of a visual technique, not suitable for production.</li>
+<li>It can be used as POC (proof of concept) purpose.</li>
+</ul>
+</li>
+<li>
+<p>ADCF (Augmented Dickey-Fuller) Test</p>
+<ul>
+<li>The test starts with a null hypothesis that states that the time series is non-stationary, followed by some statistical results based on the hypothesis.</li>
+<li>The test results comprise of a <em>Test Statistic Value</em> and some <em>Critical Values</em>.</li>
+<li>We will go the rules that check stationarity in a time series later on in our example.</li>
+<li>More about this algorithm can be found <a href="https://en.wikipedia.org/wiki/Augmented_Dickey%E2%80%93Fuller_test" target="_blank" rel="noopener noreffer ">here</a>.</li>
+</ul>
+</li>
+</ol>
+<h2 id="what-is-the-arima-model">What is the ARIMA model?</h2>
+<ul>
+<li>ARIMA stands for <strong>Auto-Regressive Integrated Moving Average</strong></li>
+<li>ARIMA is one of the best models to work with time series data.</li>
+<li>Combination of two models, AR and MA</li>
+<li><strong>AR (Auto-Regressive) model</strong>: Correlation between data in previous time steps and current time step. Parameterized with <em>p</em>, called autoregressive lags term.</li>
+<li><strong>MA (Moving Average) model</strong>: Moving average to smoothen data and average the noises and irregularities. Parameterized with <em>q</em>, called moving average term.</li>
+<li>These two models are then integrated with a degree of differencing from previous <em>p</em> time intervals.</li>
+</ul>
+<h3 id="acf-and-pacf">ACF and PACF</h3>
+<p>To find <em>p and q</em>, we have to determine PACF and ACF which are autocorrelation function and partial autocorrelation function respectively of a time series. ACF is used to find autocorrelation between timestamp <em>t and t-k</em> where k = 1, 2, &hellip;, t-1. This allows the model to predict according to the trend. Again, PACF is also determined for the same purpose but over residuals to smoothen out noises.</p>
+<p>If you are interested to know some details of ACF and PACF, please refer to this <a href="https://www.youtube.com/watch?v=ZjaBn93YPWo" target="_blank" rel="noopener noreffer ">link</a>.</p>
+<h2 id="example-forecast-future">Example: Forecast Future</h2>
+<p>Build a model to forecast the demand or passenger traffic in airplanes. The data is classified in date/time and the passengers traveling per month.</p>
+<table>
+<thead>
+<tr>
+<th>Month</th>
+<th>#Passengers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1949-01-01</td>
+<td>112</td>
+</tr>
+<tr>
+<td>1949-02-01</td>
+<td>118</td>
+</tr>
+<tr>
+<td>1949-03-01</td>
+<td>132</td>
+</tr>
+<tr>
+<td>1949-04-01</td>
+<td>129</td>
+</tr>
+<tr>
+<td>1949-05-01</td>
+<td>121</td>
+</tr>
+</tbody>
+</table>
+<h3 id="import-necessary-libraries">Import necessary libraries</h3>
+<p>We will be using <em>numpy</em> for matrix manipulation, <em>pandas</em> for loading dataset from csv, <em>matplotlib</em> to visualize some data in different formats i.e. graphs, charts etc. Also, we will be using some other libraries to perform statistical analysis later on.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">matplotlib.pylab</span> <span class="kn">import</span> <span class="n">rcParams</span>
+</span></span><span class="line"><span class="cl"><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">61</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="load-the-dataset-_air-passengerscsv_">Load the dataset <em>air-passengers.csv</em></h3>
+<p>First, we need to convert date strings as python date time format. Also, we want to select <em>Month</em> as the index of this data table.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/air-passengers.csv&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># parse strings to datetime type</span>
+</span></span><span class="line"><span class="cl"><span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">],</span> <span class="n">infer_datetime_format</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">indexed_data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Month&#39;</span><span class="p">])</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Let&rsquo;s print some data from the beginning of the table.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">indexed_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th>Month</th>
+<th>#Passengers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1949-01-01</td>
+<td>112</td>
+</tr>
+<tr>
+<td>1949-02-01</td>
+<td>118</td>
+</tr>
+<tr>
+<td>1949-03-01</td>
+<td>132</td>
+</tr>
+<tr>
+<td>1949-04-01</td>
+<td>129</td>
+</tr>
+<tr>
+<td>1949-05-01</td>
+<td>121</td>
+</tr>
+</tbody>
+</table>
+<p>Let&rsquo;s plot this data as a graph with matplotlib.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">## plot graph</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&#34;Date&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&#34;#Passengers&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">indexed_data</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_15_1.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_15_1.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_15_1.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_15_1.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_15_1.png"
+        title="img" /></p>
+<h3 id="check-if-the-data-is-stationary-or-not">Check if the data is Stationary or not</h3>
+<p>We will be using both rolling statistics and ADCF test for this purpose.</p>
+<h4 id="determining-rolling-statistics">Determining Rolling Statistics</h4>
+<p>Since the dataset is monthly, we can set the rolling window as yearly (12 months), half-yearly (6 months) or even quarterly (4 months). We will be using 12 months or 12 rows for this case to determine the means, standard deviations and check if they are constant or not.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Determining rolling statistics</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rolling_mean</span> <span class="o">=</span> <span class="n">indexed_data</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">rolling_std</span> <span class="o">=</span> <span class="n">indexed_data</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="n">rolling_mean</span><span class="p">,</span> <span class="n">rolling_std</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Month #Passengers
+</span></span><span class="line"><span class="cl">1949-01-01          NaN
+</span></span><span class="line"><span class="cl">1949-02-01          NaN
+</span></span><span class="line"><span class="cl">1949-03-01          NaN
+</span></span><span class="line"><span class="cl">1949-04-01          NaN
+</span></span><span class="line"><span class="cl">1949-05-01          NaN
+</span></span><span class="line"><span class="cl">1949-06-01          NaN
+</span></span><span class="line"><span class="cl">1949-07-01          NaN
+</span></span><span class="line"><span class="cl">1949-08-01          NaN
+</span></span><span class="line"><span class="cl">1949-09-01          NaN
+</span></span><span class="line"><span class="cl">1949-10-01          NaN
+</span></span><span class="line"><span class="cl">1949-11-01          NaN
+</span></span><span class="line"><span class="cl">1949-12-01   126.666667
+</span></span><span class="line"><span class="cl">1950-01-01   126.916667
+</span></span><span class="line"><span class="cl">1950-02-01   127.583333
+</span></span><span class="line"><span class="cl">1950-03-01   128.333333
+</span></span><span class="line"><span class="cl">1950-04-01   128.833333
+</span></span><span class="line"><span class="cl">1950-05-01   129.166667
+</span></span><span class="line"><span class="cl">1950-06-01   130.333333
+</span></span><span class="line"><span class="cl">1950-07-01   132.166667
+</span></span><span class="line"><span class="cl">1950-08-01   134.000000
+</span></span><span class="line"><span class="cl">1950-09-01   135.833333
+</span></span><span class="line"><span class="cl">1950-10-01   137.000000
+</span></span><span class="line"><span class="cl">1950-11-01   137.833333
+</span></span><span class="line"><span class="cl">1950-12-01   139.666667
+</span></span><span class="line"><span class="cl">1951-01-01   142.166667
+</span></span><span class="line"><span class="cl">1951-02-01   144.166667
+</span></span><span class="line"><span class="cl">1951-03-01   147.250000
+</span></span><span class="line"><span class="cl">1951-04-01   149.583333
+</span></span><span class="line"><span class="cl">1951-05-01   153.500000
+</span></span><span class="line"><span class="cl">1951-06-01   155.916667
+</span></span><span class="line"><span class="cl">...                 ...
+</span></span><span class="line"><span class="cl">1958-07-01    59.590013
+</span></span><span class="line"><span class="cl">1958-08-01    65.557054
+</span></span><span class="line"><span class="cl">1958-09-01    65.557054
+</span></span><span class="line"><span class="cl">1958-10-01    65.106207
+</span></span><span class="line"><span class="cl">1958-11-01    64.593074
+</span></span><span class="line"><span class="cl">1958-12-01    64.530472
+</span></span><span class="line"><span class="cl">1959-01-01    63.627229
+</span></span><span class="line"><span class="cl">1959-02-01    61.759553
+</span></span><span class="line"><span class="cl">1959-03-01    61.597422
+</span></span><span class="line"><span class="cl">1959-04-01    60.284678
+</span></span><span class="line"><span class="cl">1959-05-01    60.008270
+</span></span><span class="line"><span class="cl">1959-06-01    63.009138
+</span></span><span class="line"><span class="cl">1959-07-01    71.987951
+</span></span><span class="line"><span class="cl">1959-08-01    80.049369
+</span></span><span class="line"><span class="cl">1959-09-01    81.485451
+</span></span><span class="line"><span class="cl">1959-10-01    79.680422
+</span></span><span class="line"><span class="cl">1959-11-01    74.498729
+</span></span><span class="line"><span class="cl">1959-12-01    69.830097
+</span></span><span class="line"><span class="cl">1960-01-01    66.624399
+</span></span><span class="line"><span class="cl">1960-02-01    61.866180
+</span></span><span class="line"><span class="cl">1960-03-01    61.382741
+</span></span><span class="line"><span class="cl">1960-04-01    60.171472
+</span></span><span class="line"><span class="cl">1960-05-01    60.184565
+</span></span><span class="line"><span class="cl">1960-06-01    65.021849
+</span></span><span class="line"><span class="cl">1960-07-01    77.194510
+</span></span><span class="line"><span class="cl">1960-08-01    83.630500
+</span></span><span class="line"><span class="cl">1960-09-01    84.617276
+</span></span><span class="line"><span class="cl">1960-10-01    82.541954
+</span></span><span class="line"><span class="cl">1960-11-01    79.502382
+</span></span><span class="line"><span class="cl">1960-12-01    77.737125
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[144 rows x 1 columns]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We will see that the first 11 rows have NaN values. We took means and standard deviations over every 12 rows from the beginning. Since these rows don&rsquo;t fulfill the rolling window, we have got data starting from the 12th row.</p>
+<p>Let&rsquo;s plot these rolling statistics.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Plot rolling statistics</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">orig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">indexed_data</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mean</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rolling_mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Rolling Mean&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rolling_std</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Rolling Std&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rolling Mean &amp; Standard Deviation&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_19_0.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_19_0.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_19_0.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_19_0.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_19_0.png"
+        title="img" /></p>
+<p>We can see that the means and standard deviations are not constant and we can say that this time series is not stationary.</p>
+<h3 id="perform-dicky-fuller-test">Perform Dicky-Fuller Test</h3>
+<p>We will be using <em>statsmodels</em> library for this purpose. The <em>adfuller</em> test will give us the following data-</p>
+<ul>
+<li>Test Statistic</li>
+<li>p-value</li>
+<li>Number of lags used</li>
+<li>Number of observations used</li>
+</ul>
+<p>If we don&rsquo;t want to dive into the details of Dicky-Fuller algorithm and just want to know whether the time series is stationary or not from this test results, then we can see the summary of the algorithm below-</p>
+<ul>
+<li>If
+<ul>
+<li>p-value &gt; 0.05: The data is non-stationary.</li>
+<li>p-value &lt;= 0.05: The data is stationary.</li>
+</ul>
+</li>
+<li>If
+<ul>
+<li>test statistic value is significantly less than critical values (possibly less than 1% of critical values): The data is stationary.</li>
+<li>test statistic value is greater than critical values: The data is non-stationary.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Perform Dicky-Fuller test</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">adfuller</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="s1">&#39;Result of Dicky=Fuller Test&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">dftest</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">indexed_data</span><span class="p">[</span><span class="s1">&#39;#Passengers&#39;</span><span class="p">],</span> <span class="n">autolag</span><span class="o">=</span><span class="s1">&#39;AIC&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">dfoutput</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dftest</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Test Statistic&#39;</span><span class="p">,</span> <span class="s1">&#39;p-value&#39;</span><span class="p">,</span> <span class="s1">&#39;#Lags Used&#39;</span><span class="p">,</span> <span class="s1">&#39;#Observations Used&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dftest</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dfoutput</span><span class="p">[</span><span class="s1">&#39;Critical Value (</span><span class="si">%s</span><span class="s1">)&#39;</span><span class="o">%</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">dfoutput</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Result of Dicky=Fuller Test
+</span></span><span class="line"><span class="cl">Test Statistic            0.815369
+</span></span><span class="line"><span class="cl">p-value                   0.991880
+</span></span><span class="line"><span class="cl">#Lags Used               13.000000
+</span></span><span class="line"><span class="cl">#Observations Used      130.000000
+</span></span><span class="line"><span class="cl">Critical Value (5%)      -2.884042
+</span></span><span class="line"><span class="cl">Critical Value (1%)      -3.481682
+</span></span><span class="line"><span class="cl">Critical Value (10%)     -2.578770
+</span></span><span class="line"><span class="cl">dtype: float64
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>In summary, we can say that the data is non-stationary since from adfuller test we can see that p-value is greater than 0.05 and statistic value is greater than critical values.</p>
+<h3 id="formalize-stationarity-checking-in-a-function">Formalize Stationarity Checking in a Function</h3>
+<p>We can now formalize the stationarity checking scripts using a function test_stationarity. We will perform both rolling statistics and ADFC test to check stationarity.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">adfuller</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test_stationarity</span><span class="p">(</span><span class="n">timeseries</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Determinign rolling statistics</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rolling_mean</span> <span class="o">=</span> <span class="n">timeseries</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rolling_std</span> <span class="o">=</span> <span class="n">timeseries</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Plot rolling statistics</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">orig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timeseries</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mean</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rolling_mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Rolling Mean&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rolling_std</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Rolling Std&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rolling Mean &amp; Standard Deviation&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span> <span class="s1">&#39;Result of Dicky=Fuller Test&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dftest</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">timeseries</span><span class="p">[</span><span class="s1">&#39;#Passengers&#39;</span><span class="p">],</span> <span class="n">autolag</span><span class="o">=</span><span class="s1">&#39;AIC&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dfoutput</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dftest</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Test Statistic&#39;</span><span class="p">,</span> <span class="s1">&#39;p-value&#39;</span><span class="p">,</span> <span class="s1">&#39;#Lags Used&#39;</span><span class="p">,</span> <span class="s1">&#39;#Observations Used&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dftest</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dfoutput</span><span class="p">[</span><span class="s1">&#39;Critical Value (</span><span class="si">%s</span><span class="s1">)&#39;</span><span class="o">%</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">dfoutput</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="make-the-data-stationary">Make The Data Stationary</h3>
+<p>There are several ways to make the data stationary, but it totally depends on the data. For this case, we can take the log scale data and subtract moving average from that to make it somewhat stationary.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Estimating trend</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">indexed_data_log_scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">indexed_data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">moving_average</span> <span class="o">=</span> <span class="n">indexed_data_log_scale</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">moving_std</span> <span class="o">=</span> <span class="n">indexed_data_log_scale</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">indexed_data_log_scale</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">moving_average</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_26_1.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_26_1.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_26_1.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_26_1.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_26_1.png"
+        title="img" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">dataset_log_scale_minus_moving_average</span> <span class="o">=</span> <span class="n">indexed_data_log_scale</span> <span class="o">-</span> <span class="n">moving_average</span>
+</span></span><span class="line"><span class="cl"><span class="n">dataset_log_scale_minus_moving_average</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dataset_log_scale_minus_moving_average</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th>Month</th>
+<th>#Passengers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1949-12-01</td>
+<td>-0.065494</td>
+</tr>
+<tr>
+<td>1950-01-01</td>
+<td>-0.093449</td>
+</tr>
+<tr>
+<td>1950-02-01</td>
+<td>-0.007566</td>
+</tr>
+<tr>
+<td>1950-03-01</td>
+<td>0.099416</td>
+</tr>
+<tr>
+<td>1950-04-01</td>
+<td>0.052142</td>
+</tr>
+<tr>
+<td>1950-05-01</td>
+<td>-0.027529</td>
+</tr>
+<tr>
+<td>1950-06-01</td>
+<td>0.139881</td>
+</tr>
+<tr>
+<td>1950-07-01</td>
+<td>0.260184</td>
+</tr>
+<tr>
+<td>1950-08-01</td>
+<td>0.248635</td>
+</tr>
+<tr>
+<td>1950-09-01</td>
+<td>0.162937</td>
+</tr>
+<tr>
+<td>1950-10-01</td>
+<td>-0.018578</td>
+</tr>
+<tr>
+<td>1950-11-01</td>
+<td>-0.180379</td>
+</tr>
+</tbody>
+</table>
+<p>Now call this function with our newly transformed data.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">test_stationarity</span><span class="p">(</span><span class="n">dataset_log_scale_minus_moving_average</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_29_0.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_29_0.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_29_0.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_29_0.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_29_0.png"
+        title="img" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Result of Dicky=Fuller Test
+</span></span><span class="line"><span class="cl">Test Statistic           -3.162908
+</span></span><span class="line"><span class="cl">p-value                   0.022235
+</span></span><span class="line"><span class="cl">#Lags Used               13.000000
+</span></span><span class="line"><span class="cl">#Observations Used      119.000000
+</span></span><span class="line"><span class="cl">Critical Value (5%)      -2.886151
+</span></span><span class="line"><span class="cl">Critical Value (1%)      -3.486535
+</span></span><span class="line"><span class="cl">Critical Value (10%)     -2.579896
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is better than original and looks little bit stationary and adfuller test also suggests that this transformed series is stationary. Let&rsquo;s do some other type of transformations to make it more stationary. We can start with subtracting exponentially weighted average from log scaled values and check again its stationarity.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">dataset_log_scale_ewm</span> <span class="o">=</span> <span class="n">indexed_data_log_scale</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">halflife</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">adjust</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">dataset_log_scale_minus_ewm</span> <span class="o">=</span> <span class="n">indexed_data_log_scale</span> <span class="o">-</span> <span class="n">dataset_log_scale_ewm</span>
+</span></span><span class="line"><span class="cl"><span class="n">test_stationarity</span><span class="p">(</span><span class="n">dataset_log_scale_minus_ewm</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_31_0.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_31_0.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_31_0.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_31_0.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_31_0.png"
+        title="img" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Result of Dicky=Fuller Test
+</span></span><span class="line"><span class="cl">Test Statistic           -3.601262
+</span></span><span class="line"><span class="cl">p-value                   0.005737
+</span></span><span class="line"><span class="cl">#Lags Used               13.000000
+</span></span><span class="line"><span class="cl">#Observations Used      130.000000
+</span></span><span class="line"><span class="cl">Critical Value (5%)      -2.884042
+</span></span><span class="line"><span class="cl">Critical Value (1%)      -3.481682
+</span></span><span class="line"><span class="cl">Critical Value (10%)     -2.578770
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So both of the above transformations can make the data stationary. Now let&rsquo;s start working on finding <em>p, d</em> and <em>q</em> to feed in our ARIMA model.</p>
+<p>First of all, let&rsquo;s get first order differences.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">dataset_log_first_order_diff</span> <span class="o">=</span> <span class="n">indexed_data_log_scale</span> <span class="o">-</span> <span class="n">indexed_data_log_scale</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">dataset_log_first_order_diff</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">test_stationarity</span><span class="p">(</span><span class="n">dataset_log_first_order_diff</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_33_0.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_33_0.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_33_0.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_33_0.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_33_0.png"
+        title="img" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Result of Dicky=Fuller Test
+</span></span><span class="line"><span class="cl">Test Statistic           -2.717131
+</span></span><span class="line"><span class="cl">p-value                   0.071121
+</span></span><span class="line"><span class="cl">#Lags Used               14.000000
+</span></span><span class="line"><span class="cl">#Observations Used      128.000000
+</span></span><span class="line"><span class="cl">Critical Value (5%)      -2.884398
+</span></span><span class="line"><span class="cl">Critical Value (1%)      -3.482501
+</span></span><span class="line"><span class="cl">Critical Value (10%)     -2.578960
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="decompose-into-trend-seasonality-and-residual">Decompose into Trend, Seasonality and Residual</h3>
+<p>Now, let&rsquo;s decompose values into the trend, seasonal and residual components. We can do so using <em>statsmodels.tsa.seasonal</em> package.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">statsmodels.tsa.seasonal</span> <span class="kn">import</span> <span class="n">seasonal_decompose</span>
+</span></span><span class="line"><span class="cl"><span class="n">decomposition</span> <span class="o">=</span> <span class="n">seasonal_decompose</span><span class="p">(</span><span class="n">indexed_data_log_scale</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">trend</span> <span class="o">=</span> <span class="n">decomposition</span><span class="o">.</span><span class="n">trend</span>
+</span></span><span class="line"><span class="cl"><span class="n">seasonal</span> <span class="o">=</span> <span class="n">decomposition</span><span class="o">.</span><span class="n">seasonal</span>
+</span></span><span class="line"><span class="cl"><span class="n">residual</span> <span class="o">=</span> <span class="n">decomposition</span><span class="o">.</span><span class="n">resid</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">411</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">indexed_data_log_scale</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">412</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trend</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Trend&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">413</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">seasonal</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Seasonality&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">414</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">residual</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Residuals&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_35_0.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_35_0.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_35_0.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_35_0.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_35_0.png"
+        title="img" /></p>
+<p>Now, we can test that if the residual is stationary or not using our test_stationarity functiuon.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">decomposed_log_data</span> <span class="o">=</span> <span class="n">residual</span>
+</span></span><span class="line"><span class="cl"><span class="n">decomposed_log_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">test_stationarity</span><span class="p">(</span><span class="n">decomposed_log_data</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_37_0.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_37_0.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_37_0.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_37_0.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_37_0.png"
+        title="img" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Result of Dicky=Fuller Test
+</span></span><span class="line"><span class="cl">Test Statistic         -6.332387e+00
+</span></span><span class="line"><span class="cl">p-value                 2.885059e-08
+</span></span><span class="line"><span class="cl">#Lags Used              9.000000e+00
+</span></span><span class="line"><span class="cl">#Observations Used      1.220000e+02
+</span></span><span class="line"><span class="cl">Critical Value (5%)    -2.885538e+00
+</span></span><span class="line"><span class="cl">Critical Value (1%)    -3.485122e+00
+</span></span><span class="line"><span class="cl">Critical Value (10%)   -2.579569e+00
+</span></span><span class="line"><span class="cl">dtype: float64
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We can easily say that the residual is not stationary. Since MA component deals with residual, we have to transform this data to make it stationary, so that it smoothen it out to predict what will happen next. But for now, don&rsquo;t worry about that since ACF and PACF curves will help us to find proper values of p and q, and feeding those into the ARIMA model will do the job for us.</p>
+<h3 id="determine-acf-and-pacf">Determine ACF and PACF</h3>
+<p>Now, we know the value of d. We have to calculate the values of p and q. We can find these values from ACF and PACF graph. Let&rsquo;s plot those graph.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># ACF and PACF plots|:</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">acf</span><span class="p">,</span> <span class="n">pacf</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">lag_acf</span> <span class="o">=</span> <span class="n">acf</span><span class="p">(</span><span class="n">dataset_log_first_order_diff</span><span class="p">,</span> <span class="n">nlags</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">lag_pacf</span> <span class="o">=</span> <span class="n">pacf</span><span class="p">(</span><span class="n">dataset_log_first_order_diff</span><span class="p">,</span> <span class="n">nlags</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;ols&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Plot ACF</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lag_acf</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=-</span><span class="mf">1.96</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset_log_first_order_diff</span><span class="p">)),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">1.96</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset_log_first_order_diff</span><span class="p">)),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;ACF&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Plot PACF</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lag_pacf</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=-</span><span class="mf">1.96</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset_log_first_order_diff</span><span class="p">)),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">1.96</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset_log_first_order_diff</span><span class="p">)),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;PACF&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_40_0.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_40_0.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_40_0.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_40_0.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_40_0.png"
+        title="img" /></p>
+<p>In order to calculate p and q, we have to check what is the value that cuts off its origin for the first time. Looking at PACF curve, we can see that at the time around 2, the first time curve cuts the horizontal axis, hence the value of p is 2 and similarly from ACF curve, we find that the value of q is also around 2.</p>
+<h3 id="feed-p-d-and-q-into-arima-model">Feed p, d, and q into ARIMA Model</h3>
+<p>We have found the values of p, d, and q, which are 2, 1 and 2 respectively. Let&rsquo;s fit our ARIMA model with these values.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">statsmodels.tsa.arima_model</span> <span class="kn">import</span> <span class="n">ARIMA</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#ARIMA Model</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">indexed_data_log_scale</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">results_ARIMA</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dataset_log_first_order_diff</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results_ARIMA</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;RSS: </span><span class="si">%.4f</span><span class="s1">&#39;</span><span class="o">%</span> <span class="nb">sum</span><span class="p">((</span><span class="n">results_ARIMA</span><span class="o">.</span><span class="n">fittedvalues</span><span class="o">-</span><span class="n">dataset_log_first_order_diff</span><span class="p">[</span><span class="s1">&#39;#Passengers&#39;</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Text(0.5,1,&#39;RSS: 1.0292&#39;)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_42_2.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_42_2.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_42_2.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_42_2.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_42_2.png"
+        title="img" /></p>
+<h3 id="check-if-fitted-values-depicts-original-curve">Check If Fitted Values Depicts Original Curve</h3>
+<p>Since we are working with first-order differences, we have to covert fitted values back to the real values. We went through the following sequence from given values to fitted values:</p>
+<ol>
+<li>Take logarithm of the values</li>
+<li>Take first-order differences of the values found in step no 1</li>
+</ol>
+<p>So we have to reverse the process to predict the next values:</p>
+<ol>
+<li>Get back the first item from the log scaled values and place it at index 0 after shifting the fitted values once</li>
+<li>Take cumulative sum to get back logarithm scaled values</li>
+<li>Take exponentials of the values found in step no 2</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Get back to the state before differening</span>
+</span></span><span class="line"><span class="cl"><span class="n">predictions_ARIMA_log</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">indexed_data_log_scale</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">indexed_data_log_scale</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">results_ARIMA</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">indexed_data_log_scale</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Get exponetials</span>
+</span></span><span class="line"><span class="cl"><span class="n">predictions_ARIMA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">predictions_ARIMA_log</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Plot predicted data vs original data</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">indexed_data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">predictions_ARIMA</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_44_1.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_44_1.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_44_1.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_44_1.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_44_1.png"
+        title="img" /></p>
+<p>If we don&rsquo;t want to be bothered about all these conversions, well, we have a piece of good news. ARIMA model also can plot the fitted values efficiently, even for future time intervals.</p>
+<h3 id="predict-and-plot-future-values-using-the-arima-model">Predict and Plot Future Values Using The ARIMA Model</h3>
+<p>Now, our dataset has 144 rows, that means 12 years&rsquo; values. If we want to plot the graph for next 1 year, we have to call <em>plot_predict()</em> function from ARIMA model with parameters 1 (start from the first row) and 204 (first 144 + new 5x12=60 rows).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">results_ARIMA</span><span class="o">.</span><span class="n">plot_predict</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">204</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_47_0.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_47_0.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_47_0.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_47_0.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_47_0.png"
+        title="img" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_47_1.png"
+        data-srcset="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_47_1.png, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_47_1.png 1.5x, https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_47_1.png 2x"
+        data-sizes="auto"
+        alt="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/output_47_1.png"
+        title="img" /></p>
+<p>The <em>forecast</em> function from ARIMA model with parameter steps=60 will give us the new 60 values.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">future</span> <span class="o">=</span> <span class="n">results_ARIMA</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">future</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[1.08746262 1.11348487 1.12264437 1.12415063 1.12415874 1.12461435
+</span></span><span class="line"><span class="cl"> 1.12481942 1.12500462 1.12776932 1.13582632 1.14879044 1.16321524
+</span></span><span class="line"><span class="cl"> 1.1753643  1.18334355 1.1874086  1.18900856 1.18956455 1.18988252
+</span></span><span class="line"><span class="cl"> 1.19041521 1.1917625  1.1946837  1.19956286 1.2059434  1.21268138
+</span></span><span class="line"><span class="cl"> 1.21858755 1.22299943 1.22591873 1.22776853 1.22906372 1.23024086
+</span></span><span class="line"><span class="cl"> 1.23166843 1.23368207 1.23651561 1.24016542 1.24433566 1.2485496
+</span></span><span class="line"><span class="cl"> 1.25236108 1.2555239  1.25803132 1.26004567 1.26179869 1.26352486
+</span></span><span class="line"><span class="cl"> 1.26543139 1.26767321 1.27031559 1.27330434 1.27647669 1.2796205
+</span></span><span class="line"><span class="cl"> 1.2825529  1.28517677 1.28749351 1.28957958 1.29155007 1.29352656
+</span></span><span class="line"><span class="cl"> 1.29561291 1.29787521 1.30032659 1.30292387 1.30558205 1.30820345]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="if-you-are-looking-for-the-full-working-code-herehttpspub-b4d7e64fdefe48ffbac008dbd2c3c167r2devtime-series-analysis-in-python-inroduction-to-arimats_arimapy-it-is">If you are looking for the full working code, <a href="https://pub-b4d7e64fdefe48ffbac008dbd2c3c167.r2.dev/time-series-analysis-in-python-inroduction-to-arima/ts_arima.py" target="_blank" rel="noopener noreffer ">here</a> it is.</h4>
+<p><strong>Acknowledgement</strong>: I took help from several popular online blogs and video tutorials like <a href="www.simplilearn.com" rel="">simplilearn</a>, <a href="www.edureca.co" rel="">edureka</a>, <a href="https://machinelearningmastery.com" target="_blank" rel="noopener noreffer ">machinelearningmastery</a>, <a href="https://otexts.org" target="_blank" rel="noopener noreffer ">otext</a>, just to name a few. I rephrased some sentences and would like to give them full credits.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2019-06-12</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/post/time-series-analysis-in-python-inroduction-to-arima/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://sayef.github.io/post/time-series-analysis-in-python-inroduction-to-arima/" data-title="Time Series Analysis in Python - Introduction to ARIMA" data-via="imsayef" data-hashtags="python,arima,time-series"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://sayef.github.io/post/time-series-analysis-in-python-inroduction-to-arima/" data-hashtag="python"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://sayef.github.io/post/time-series-analysis-in-python-inroduction-to-arima/" data-title="Time Series Analysis in Python - Introduction to ARIMA"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://sayef.github.io/post/time-series-analysis-in-python-inroduction-to-arima/" data-title="Time Series Analysis in Python - Introduction to ARIMA"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://sayef.github.io/post/time-series-analysis-in-python-inroduction-to-arima/" data-title="Time Series Analysis in Python - Introduction to ARIMA"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">python</a>,&nbsp;<a href="/tags/arima/">arima</a>,&nbsp;<a href="/tags/time-series/">time-series</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/post/articulation-point/" class="prev" rel="prev" title="Artuculation Point"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Artuculation Point</a>
+            <a href="/post/attention-is-all-you-need/" class="next" rel="next" title="Attention Is All You Need: The Transformer">Attention Is All You Need: The Transformer<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="sayef.tech" target="_blank">Sayef</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"en","pageSize":10,"placeholder":"Your comment ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"data":{"id-1":"ⓢⓐⓨⓔⓕ'𝓼 𝓽𝓮𝓬𝓱 𝓫𝓵𝓸𝓰","id-2":"ⓢⓐⓨⓔⓕ'𝓼 𝓽𝓮𝓬𝓱 𝓫𝓵𝓸𝓰"},"lightgallery":true,"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
